@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="concertModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bands">
+          <Key>
+            <PropertyRef Name="band_id" />
+          </Key>
+          <Property Name="band_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="band_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConcertBand_xref">
+          <Key>
+            <PropertyRef Name="concert_id" />
+            <PropertyRef Name="band_id" />
+          </Key>
+          <Property Name="concert_id" Type="int" Nullable="false" />
+          <Property Name="band_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConcertPerson_xref">
+          <Key>
+            <PropertyRef Name="concert_id" />
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="concert_id" Type="int" Nullable="false" />
+          <Property Name="person_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Concerts">
+          <Key>
+            <PropertyRef Name="concert_id" />
+          </Key>
+          <Property Name="concert_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ticket_price" Type="int" />
+          <Property Name="concert_date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="concert_day_of_week" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="venue_id" Type="int" Nullable="false" />
+          <Property Name="comment" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'personal.concerts.ConcertSong_xref' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ConcertSong_xref">
+          <Key>
+            <PropertyRef Name="concert_id" />
+            <PropertyRef Name="band_id" />
+            <PropertyRef Name="song_title" />
+          </Key>
+          <Property Name="concert_id" Type="int" Nullable="false" />
+          <Property Name="band_id" Type="int" Nullable="false" />
+          <Property Name="song_title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="comment" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="person_first_name" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="person_last_name" Type="nvarchar" MaxLength="25" />
+          <Property Name="person_relationship" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Venues">
+          <Key>
+            <PropertyRef Name="venue_id" />
+          </Key>
+          <Property Name="venue_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venue_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="venue_city" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="venue_state" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="comment" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_ConcertBand_Bands">
+          <End Role="Bands" Type="Self.Bands" Multiplicity="1" />
+          <End Role="ConcertBand_xref" Type="Self.ConcertBand_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bands">
+              <PropertyRef Name="band_id" />
+            </Principal>
+            <Dependent Role="ConcertBand_xref">
+              <PropertyRef Name="band_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcertBand_Concerts">
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="1" />
+          <End Role="ConcertBand_xref" Type="Self.ConcertBand_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concerts">
+              <PropertyRef Name="concert_id" />
+            </Principal>
+            <Dependent Role="ConcertBand_xref">
+              <PropertyRef Name="concert_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcertPerson_Concerts">
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="1" />
+          <End Role="ConcertPerson_xref" Type="Self.ConcertPerson_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concerts">
+              <PropertyRef Name="concert_id" />
+            </Principal>
+            <Dependent Role="ConcertPerson_xref">
+              <PropertyRef Name="concert_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcertPerson_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="ConcertPerson_xref" Type="Self.ConcertPerson_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="ConcertPerson_xref">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Concerts_Venues">
+          <End Role="Venues" Type="Self.Venues" Multiplicity="1" />
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venues">
+              <PropertyRef Name="venue_id" />
+            </Principal>
+            <Dependent Role="Concerts">
+              <PropertyRef Name="venue_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcertSong_Bands">
+          <End Role="Bands" Type="Self.Bands" Multiplicity="1" />
+          <End Role="ConcertSong_xref" Type="Self.ConcertSong_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bands">
+              <PropertyRef Name="band_id" />
+            </Principal>
+            <Dependent Role="ConcertSong_xref">
+              <PropertyRef Name="band_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcertSong_Concerts">
+          <End Role="Concerts" Type="Self.Concerts" Multiplicity="1" />
+          <End Role="ConcertSong_xref" Type="Self.ConcertSong_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concerts">
+              <PropertyRef Name="concert_id" />
+            </Principal>
+            <Dependent Role="ConcertSong_xref">
+              <PropertyRef Name="concert_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="concertModelStoreContainer">
+          <EntitySet Name="Bands" EntityType="Self.Bands" Schema="concerts" store:Type="Tables" />
+          <EntitySet Name="ConcertBand_xref" EntityType="Self.ConcertBand_xref" Schema="concerts" store:Type="Tables" />
+          <EntitySet Name="ConcertPerson_xref" EntityType="Self.ConcertPerson_xref" Schema="concerts" store:Type="Tables" />
+          <EntitySet Name="Concerts" EntityType="Self.Concerts" Schema="concerts" store:Type="Tables" />
+          <EntitySet Name="People" EntityType="Self.People" Schema="concerts" store:Type="Tables" />
+          <EntitySet Name="Venues" EntityType="Self.Venues" Schema="concerts" store:Type="Tables" />
+          <EntitySet Name="ConcertSong_xref" EntityType="Self.ConcertSong_xref" store:Type="Tables" store:Schema="concerts">
+            <DefiningQuery>SELECT 
+    [ConcertSong_xref].[concert_id] AS [concert_id], 
+    [ConcertSong_xref].[band_id] AS [band_id], 
+    [ConcertSong_xref].[song_title] AS [song_title], 
+    [ConcertSong_xref].[comment] AS [comment]
+    FROM [concerts].[ConcertSong_xref] AS [ConcertSong_xref]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ConcertBand_Bands" Association="Self.FK_ConcertBand_Bands">
+            <End Role="Bands" EntitySet="Bands" />
+            <End Role="ConcertBand_xref" EntitySet="ConcertBand_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcertBand_Concerts" Association="Self.FK_ConcertBand_Concerts">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="ConcertBand_xref" EntitySet="ConcertBand_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcertPerson_Concerts" Association="Self.FK_ConcertPerson_Concerts">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="ConcertPerson_xref" EntitySet="ConcertPerson_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcertPerson_People" Association="Self.FK_ConcertPerson_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="ConcertPerson_xref" EntitySet="ConcertPerson_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Concerts_Venues" Association="Self.FK_Concerts_Venues">
+            <End Role="Venues" EntitySet="Venues" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcertSong_Bands" Association="Self.FK_ConcertSong_Bands">
+            <End Role="Bands" EntitySet="Bands" />
+            <End Role="ConcertSong_xref" EntitySet="ConcertSong_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcertSong_Concerts" Association="Self.FK_ConcertSong_Concerts">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="ConcertSong_xref" EntitySet="ConcertSong_xref" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="concertModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Band">
+          <Key>
+            <PropertyRef Name="band_id" />
+          </Key>
+          <Property Name="band_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="band_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ConcertSong_xref" Relationship="Self.FK_ConcertSong_Bands" FromRole="Bands" ToRole="ConcertSong_xref" />
+          <NavigationProperty Name="Concerts" Relationship="Self.ConcertBand_xref" FromRole="Bands" ToRole="Concerts" />
+        </EntityType>
+        <EntityType Name="Concert">
+          <Key>
+            <PropertyRef Name="concert_id" />
+          </Key>
+          <Property Name="concert_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ticket_price" Type="Int32" />
+          <Property Name="concert_date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="concert_day_of_week" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="venue_id" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Venue" Relationship="Self.FK_Concerts_Venues" FromRole="Concerts" ToRole="Venues" />
+          <NavigationProperty Name="ConcertSong_xref" Relationship="Self.FK_ConcertSong_Concerts" FromRole="Concerts" ToRole="ConcertSong_xref" />
+          <NavigationProperty Name="Bands" Relationship="Self.ConcertBand_xref" FromRole="Concerts" ToRole="Bands" />
+          <NavigationProperty Name="People" Relationship="Self.ConcertPerson_xref" FromRole="Concerts" ToRole="People" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="person_first_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="person_last_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="person_relationship" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Concerts" Relationship="Self.ConcertPerson_xref" FromRole="People" ToRole="Concerts" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="venue_id" />
+          </Key>
+          <Property Name="venue_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venue_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="venue_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="venue_state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Concerts" Relationship="Self.FK_Concerts_Venues" FromRole="Venues" ToRole="Concerts" />
+        </EntityType>
+        <EntityType Name="ConcertSong_xref">
+          <Key>
+            <PropertyRef Name="concert_id" />
+            <PropertyRef Name="band_id" />
+            <PropertyRef Name="song_title" />
+          </Key>
+          <Property Name="concert_id" Type="Int32" Nullable="false" />
+          <Property Name="band_id" Type="Int32" Nullable="false" />
+          <Property Name="song_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Band" Relationship="Self.FK_ConcertSong_Bands" FromRole="ConcertSong_xref" ToRole="Bands" />
+          <NavigationProperty Name="Concert" Relationship="Self.FK_ConcertSong_Concerts" FromRole="ConcertSong_xref" ToRole="Concerts" />
+        </EntityType>
+        <Association Name="FK_ConcertSong_Bands">
+          <End Role="Bands" Type="Self.Band" Multiplicity="1" />
+          <End Role="ConcertSong_xref" Type="Self.ConcertSong_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bands">
+              <PropertyRef Name="band_id" />
+            </Principal>
+            <Dependent Role="ConcertSong_xref">
+              <PropertyRef Name="band_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Concerts_Venues">
+          <End Role="Venues" Type="Self.Venue" Multiplicity="1" />
+          <End Role="Concerts" Type="Self.Concert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venues">
+              <PropertyRef Name="venue_id" />
+            </Principal>
+            <Dependent Role="Concerts">
+              <PropertyRef Name="venue_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConcertSong_Concerts">
+          <End Role="Concerts" Type="Self.Concert" Multiplicity="1" />
+          <End Role="ConcertSong_xref" Type="Self.ConcertSong_xref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concerts">
+              <PropertyRef Name="concert_id" />
+            </Principal>
+            <Dependent Role="ConcertSong_xref">
+              <PropertyRef Name="concert_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConcertBand_xref">
+          <End Role="Bands" Type="Self.Band" Multiplicity="*" />
+          <End Role="Concerts" Type="Self.Concert" Multiplicity="*" />
+        </Association>
+        <Association Name="ConcertPerson_xref">
+          <End Role="Concerts" Type="Self.Concert" Multiplicity="*" />
+          <End Role="People" Type="Self.Person" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="concertContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bands" EntityType="Self.Band" />
+          <EntitySet Name="Concerts" EntityType="Self.Concert" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="Venues" EntityType="Self.Venue" />
+          <EntitySet Name="ConcertSong_xref" EntityType="Self.ConcertSong_xref" />
+          <AssociationSet Name="FK_ConcertSong_Bands" Association="Self.FK_ConcertSong_Bands">
+            <End Role="Bands" EntitySet="Bands" />
+            <End Role="ConcertSong_xref" EntitySet="ConcertSong_xref" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Concerts_Venues" Association="Self.FK_Concerts_Venues">
+            <End Role="Venues" EntitySet="Venues" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConcertSong_Concerts" Association="Self.FK_ConcertSong_Concerts">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="ConcertSong_xref" EntitySet="ConcertSong_xref" />
+          </AssociationSet>
+          <AssociationSet Name="ConcertBand_xref" Association="Self.ConcertBand_xref">
+            <End Role="Bands" EntitySet="Bands" />
+            <End Role="Concerts" EntitySet="Concerts" />
+          </AssociationSet>
+          <AssociationSet Name="ConcertPerson_xref" Association="Self.ConcertPerson_xref">
+            <End Role="Concerts" EntitySet="Concerts" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="concertModelStoreContainer" CdmEntityContainer="concertContext">
+          <EntitySetMapping Name="Bands">
+            <EntityTypeMapping TypeName="concertModel.Band">
+              <MappingFragment StoreEntitySet="Bands">
+                <ScalarProperty Name="band_id" ColumnName="band_id" />
+                <ScalarProperty Name="band_name" ColumnName="band_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Concerts">
+            <EntityTypeMapping TypeName="concertModel.Concert">
+              <MappingFragment StoreEntitySet="Concerts">
+                <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+                <ScalarProperty Name="ticket_price" ColumnName="ticket_price" />
+                <ScalarProperty Name="concert_date" ColumnName="concert_date" />
+                <ScalarProperty Name="concert_day_of_week" ColumnName="concert_day_of_week" />
+                <ScalarProperty Name="venue_id" ColumnName="venue_id" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="concertModel.Person">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="person_first_name" ColumnName="person_first_name" />
+                <ScalarProperty Name="person_last_name" ColumnName="person_last_name" />
+                <ScalarProperty Name="person_relationship" ColumnName="person_relationship" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venues">
+            <EntityTypeMapping TypeName="concertModel.Venue">
+              <MappingFragment StoreEntitySet="Venues">
+                <ScalarProperty Name="venue_id" ColumnName="venue_id" />
+                <ScalarProperty Name="venue_name" ColumnName="venue_name" />
+                <ScalarProperty Name="venue_city" ColumnName="venue_city" />
+                <ScalarProperty Name="venue_state" ColumnName="venue_state" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConcertSong_xref">
+            <EntityTypeMapping TypeName="concertModel.ConcertSong_xref">
+              <MappingFragment StoreEntitySet="ConcertSong_xref">
+                <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+                <ScalarProperty Name="band_id" ColumnName="band_id" />
+                <ScalarProperty Name="song_title" ColumnName="song_title" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ConcertBand_xref" TypeName="concertModel.ConcertBand_xref" StoreEntitySet="ConcertBand_xref">
+            <EndProperty Name="Bands">
+              <ScalarProperty Name="band_id" ColumnName="band_id" />
+            </EndProperty>
+            <EndProperty Name="Concerts">
+              <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ConcertPerson_xref" TypeName="concertModel.ConcertPerson_xref" StoreEntitySet="ConcertPerson_xref">
+            <EndProperty Name="Concerts">
+              <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+            </EndProperty>
+            <EndProperty Name="People">
+              <ScalarProperty Name="person_id" ColumnName="person_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
