@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="concertModelStoreContainer" CdmEntityContainer="concertContext">
+    <EntitySetMapping Name="Bands">
+      <EntityTypeMapping TypeName="concertModel.Band">
+        <MappingFragment StoreEntitySet="Bands">
+          <ScalarProperty Name="band_id" ColumnName="band_id" />
+          <ScalarProperty Name="band_name" ColumnName="band_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Concerts">
+      <EntityTypeMapping TypeName="concertModel.Concert">
+        <MappingFragment StoreEntitySet="Concerts">
+          <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+          <ScalarProperty Name="ticket_price" ColumnName="ticket_price" />
+          <ScalarProperty Name="concert_date" ColumnName="concert_date" />
+          <ScalarProperty Name="concert_day_of_week" ColumnName="concert_day_of_week" />
+          <ScalarProperty Name="venue_id" ColumnName="venue_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="concertModel.Person">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="person_first_name" ColumnName="person_first_name" />
+          <ScalarProperty Name="person_last_name" ColumnName="person_last_name" />
+          <ScalarProperty Name="person_relationship" ColumnName="person_relationship" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venues">
+      <EntityTypeMapping TypeName="concertModel.Venue">
+        <MappingFragment StoreEntitySet="Venues">
+          <ScalarProperty Name="venue_id" ColumnName="venue_id" />
+          <ScalarProperty Name="venue_name" ColumnName="venue_name" />
+          <ScalarProperty Name="venue_city" ColumnName="venue_city" />
+          <ScalarProperty Name="venue_state" ColumnName="venue_state" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConcertSong_xref">
+      <EntityTypeMapping TypeName="concertModel.ConcertSong_xref">
+        <MappingFragment StoreEntitySet="ConcertSong_xref">
+          <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+          <ScalarProperty Name="band_id" ColumnName="band_id" />
+          <ScalarProperty Name="song_title" ColumnName="song_title" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ConcertBand_xref" TypeName="concertModel.ConcertBand_xref" StoreEntitySet="ConcertBand_xref">
+      <EndProperty Name="Bands">
+        <ScalarProperty Name="band_id" ColumnName="band_id" />
+      </EndProperty>
+      <EndProperty Name="Concerts">
+        <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConcertPerson_xref" TypeName="concertModel.ConcertPerson_xref" StoreEntitySet="ConcertPerson_xref">
+      <EndProperty Name="Concerts">
+        <ScalarProperty Name="concert_id" ColumnName="concert_id" />
+      </EndProperty>
+      <EndProperty Name="People">
+        <ScalarProperty Name="person_id" ColumnName="person_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

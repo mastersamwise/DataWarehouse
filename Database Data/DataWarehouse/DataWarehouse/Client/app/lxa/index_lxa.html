@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>title</title>
+    <!--<link rel="stylesheet" type="text/css" href="Client/Content/bootstrap.min.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="Client/Content/css/app.css" />-->
+    <!--<script type="text/javascript" src="Client/Scripts/angular.js"></script>
+    <script type="text/javascript" src="Client/Scripts/angular-ui-router.js"></script>
+    <script type="text/javascript" src="Client/app/app.js"></script>
+    <script type="text/javascript" src="Components/userInformation.js"></script>-->
+</head>
+<body ng-app="dataWarehouse">
+    <ul>
+        <li>
+            <a href="../app/lxa/index_lxa.html">LXA Information</a>
+        </li>
+        <li>
+            <a href="../app/concerts/index_concerts.html">Concert Information</a>
+        </li>
+        <li>
+            <a ui-sref="home">home.html</a>
+        </li>
+        <li>
+            <a href="index_lxa.html">LXA Information</a>
+        </li>
+        <li>
+            <a href="concerts_home.html">Concert Information</a>
+        </li>
+        <li>
+            <a ui-sref=".home" class="btn btn-primary">click here!</a>
+        </li>
+    </ul>
+    <hr />
+    <div ui-view></div>
+    <hr />
+</body>
+</html>
