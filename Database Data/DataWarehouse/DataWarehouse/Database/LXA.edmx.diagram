@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12171a35f3c64eb9942539aa4c7abfc3" Name="Diagram1">
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.AlumniBoard" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.AnnualAward" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.HighZetaPosition" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.InitiationClass" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.Member" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.AlumniBoardMemberXREF" Width="1.5" PointX="8.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.AlumniReportMeetingMinute" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.AnnualAwardMemberXREF" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.ChangeHistory" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.Document" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.EmailListing" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.EmergencyContact" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.HouseManagerResourceInfo" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.ImportantEvent" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.LXAAddressesRaw" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.LXAAddressesRaw_GoldCopy" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.MemberContactInformation" Width="1.5" PointX="5.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.MemberHighZetaPositionXREF" Width="1.5" PointX="8.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.OutOfDateMemberAddress" Width="1.5" PointX="5.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.OutOfDateMemberEmail" Width="1.5" PointX="5.25" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LambdaChiAlphaModel.OutOfDateMemberPhoneNumber" Width="1.5" PointX="5.25" PointY="41" IsExpanded="true" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_AlumniBoardMemberXREF_AlumniBoards" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_AnnualAwardMemberXREF_AnnualAwards" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_MemberHighZetaPositionXREF_HighZetaPositions" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_InitiationClasses_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_Members_InitiationClasses" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_AlumniBoardMemberXREF_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_AnnualAwardMemberXREF_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_ChangeHistories_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_EmailListing_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_EmergencyContacts_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_ImportantEvents_Members_AddedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_ImportantEvents_Members_POC" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_MemberContactInformation_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_MemberHighZetaPositionXREF_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_OutOfDateMemberAddresses_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_OutOfDateMemberEmails_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.FK_OutOfDateMemberPhoneNumbers_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="LambdaChiAlphaModel.CoBrotherXREF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

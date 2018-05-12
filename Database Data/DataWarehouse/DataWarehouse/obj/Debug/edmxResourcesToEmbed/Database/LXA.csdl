@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LambdaChiAlphaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AlumniBoard">
+    <Key>
+      <PropertyRef Name="board_id" />
+    </Key>
+    <Property Name="board_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="board_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="board_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AlumniBoardMemberXREFs" Relationship="Self.FK_AlumniBoardMemberXREF_AlumniBoards" FromRole="AlumniBoards" ToRole="AlumniBoardMemberXREF" />
+  </EntityType>
+  <EntityType Name="AnnualAward">
+    <Key>
+      <PropertyRef Name="award_id" />
+    </Key>
+    <Property Name="award_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="award_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="award_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AnnualAwardMemberXREFs" Relationship="Self.FK_AnnualAwardMemberXREF_AnnualAwards" FromRole="AnnualAwards" ToRole="AnnualAwardMemberXREF" />
+  </EntityType>
+  <EntityType Name="HighZetaPosition">
+    <Key>
+      <PropertyRef Name="position_id" />
+    </Key>
+    <Property Name="position_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="position_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="position_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MemberHighZetaPositionXREFs" Relationship="Self.FK_MemberHighZetaPositionXREF_HighZetaPositions" FromRole="HighZetaPositions" ToRole="MemberHighZetaPositionXREF" />
+  </EntityType>
+  <EntityType Name="InitiationClass">
+    <Key>
+      <PropertyRef Name="initiation_class_id" />
+    </Key>
+    <Property Name="initiation_class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="initiation_class" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="initiation_date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="e_member_id" Type="Int32" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_InitiationClasses_Members" FromRole="InitiationClasses" ToRole="Members" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Members_InitiationClasses" FromRole="InitiationClasses" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="member_id" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member_first_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="member_last_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="member_type" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="year" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="graduation_year" Type="Int32" />
+    <Property Name="masters" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="major" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="minor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="zeta_associated" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="zeta_number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="zeta_number_sorting" Type="Int32" />
+    <Property Name="initiation_class_id" Type="Int32" Nullable="false" />
+    <Property Name="big_brother_id" Type="Int32" />
+    <Property Name="member_status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_of_birth" Type="DateTime" Precision="7" />
+    <Property Name="date_of_death" Type="DateTime" Precision="7" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="InitiationClasses" Relationship="Self.FK_InitiationClasses_Members" FromRole="Members" ToRole="InitiationClasses" />
+    <NavigationProperty Name="InitiationClass" Relationship="Self.FK_Members_InitiationClasses" FromRole="Members" ToRole="InitiationClasses" />
+    <NavigationProperty Name="AlumniBoardMemberXREFs" Relationship="Self.FK_AlumniBoardMemberXREF_Members" FromRole="Members" ToRole="AlumniBoardMemberXREF" />
+    <NavigationProperty Name="AnnualAwardMemberXREFs" Relationship="Self.FK_AnnualAwardMemberXREF_Members" FromRole="Members" ToRole="AnnualAwardMemberXREF" />
+    <NavigationProperty Name="ChangeHistories" Relationship="Self.FK_ChangeHistories_Members" FromRole="Members" ToRole="ChangeHistories" />
+    <NavigationProperty Name="EmailListings" Relationship="Self.FK_EmailListing_Members" FromRole="Members" ToRole="EmailListing" />
+    <NavigationProperty Name="EmergencyContacts" Relationship="Self.FK_EmergencyContacts_Members" FromRole="Members" ToRole="EmergencyContacts" />
+    <NavigationProperty Name="ImportantEvents" Relationship="Self.FK_ImportantEvents_Members_AddedBy" FromRole="Members" ToRole="ImportantEvents" />
+    <NavigationProperty Name="ImportantEvents1" Relationship="Self.FK_ImportantEvents_Members_POC" FromRole="Members" ToRole="ImportantEvents" />
+    <NavigationProperty Name="MemberContactInformations" Relationship="Self.FK_MemberContactInformation_Members" FromRole="Members" ToRole="MemberContactInformation" />
+    <NavigationProperty Name="MemberHighZetaPositionXREFs" Relationship="Self.FK_MemberHighZetaPositionXREF_Members" FromRole="Members" ToRole="MemberHighZetaPositionXREF" />
+    <NavigationProperty Name="OutOfDateMemberAddresses" Relationship="Self.FK_OutOfDateMemberAddresses_Members" FromRole="Members" ToRole="OutOfDateMemberAddresses" />
+    <NavigationProperty Name="OutOfDateMemberEmails" Relationship="Self.FK_OutOfDateMemberEmails_Members" FromRole="Members" ToRole="OutOfDateMemberEmails" />
+    <NavigationProperty Name="OutOfDateMemberPhoneNumbers" Relationship="Self.FK_OutOfDateMemberPhoneNumbers_Members" FromRole="Members" ToRole="OutOfDateMemberPhoneNumbers" />
+    <NavigationProperty Name="Members1" Relationship="Self.CoBrotherXREF" FromRole="Members" ToRole="Members1" />
+    <NavigationProperty Name="Members" Relationship="Self.CoBrotherXREF" FromRole="Members1" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="AlumniBoardMemberXREF">
+    <Key>
+      <PropertyRef Name="board_id" />
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="board_role" />
+      <PropertyRef Name="date_created" />
+      <PropertyRef Name="last_modified" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="board_id" Type="Int32" Nullable="false" />
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="board_role" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="term_start_date" Type="DateTime" Precision="7" />
+    <Property Name="term_end_date" Type="DateTime" Precision="7" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AlumniBoard" Relationship="Self.FK_AlumniBoardMemberXREF_AlumniBoards" FromRole="AlumniBoardMemberXREF" ToRole="AlumniBoards" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_AlumniBoardMemberXREF_Members" FromRole="AlumniBoardMemberXREF" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="AlumniReportMeetingMinute">
+    <Key>
+      <PropertyRef Name="alumni_meeting_date" />
+      <PropertyRef Name="file_location" />
+      <PropertyRef Name="date_added" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="alumni_meeting_date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="file_location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnnualAwardMemberXREF">
+    <Key>
+      <PropertyRef Name="award_id" />
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="year_awarded" />
+    </Key>
+    <Property Name="award_id" Type="Int32" Nullable="false" />
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="year_awarded" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AnnualAward" Relationship="Self.FK_AnnualAwardMemberXREF_AnnualAwards" FromRole="AnnualAwardMemberXREF" ToRole="AnnualAwards" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_AnnualAwardMemberXREF_Members" FromRole="AnnualAwardMemberXREF" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="ChangeHistory">
+    <Key>
+      <PropertyRef Name="table_changed" />
+      <PropertyRef Name="column_changed" />
+      <PropertyRef Name="changed_record_id" />
+      <PropertyRef Name="new_value" />
+    </Key>
+    <Property Name="changed_by_member_id" Type="Int32" />
+    <Property Name="table_changed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="column_changed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="changed_record_id" Type="Int32" Nullable="false" />
+    <Property Name="old_value" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="new_value" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_ChangeHistories_Members" FromRole="ChangeHistories" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="document_description" />
+      <PropertyRef Name="file_location" />
+      <PropertyRef Name="date_added" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="document_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailListing">
+    <Key>
+      <PropertyRef Name="email_address" />
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="date_added" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="date_removed" Type="DateTime" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_EmailListing_Members" FromRole="EmailListing" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="EmergencyContact">
+    <Key>
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="contact_name" />
+      <PropertyRef Name="contact_relation" />
+      <PropertyRef Name="contact_phone_number" />
+      <PropertyRef Name="contact_address" />
+      <PropertyRef Name="date_created" />
+      <PropertyRef Name="last_modified" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="contact_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contact_relation" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contact_phone_number" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="contact_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="added_comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_EmergencyContacts_Members" FromRole="EmergencyContacts" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="HouseManagerResourceInfo">
+    <Key>
+      <PropertyRef Name="resource_name" />
+      <PropertyRef Name="date_added" />
+      <PropertyRef Name="last_modified" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="resource_name" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="resource_type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImportantEvent">
+    <Key>
+      <PropertyRef Name="event_id" />
+      <PropertyRef Name="event_title" />
+      <PropertyRef Name="event_added_by_member_id" />
+      <PropertyRef Name="date_added" />
+      <PropertyRef Name="is_deleted" />
+    </Key>
+    <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="event_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="event_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="event_date" Type="DateTime" Precision="7" />
+    <Property Name="member_poc_id" Type="Int32" />
+    <Property Name="event_added_by_member_id" Type="Int32" Nullable="false" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_ImportantEvents_Members_AddedBy" FromRole="ImportantEvents" ToRole="Members" />
+    <NavigationProperty Name="Member1" Relationship="Self.FK_ImportantEvents_Members_POC" FromRole="ImportantEvents" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="LXAAddressesRaw">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grad_year" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="drexel_grad_year" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ek_number" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_death" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_birth" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_initiation" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="full_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="work_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="major" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="wife" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="first_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="preferred_email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="apt_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="city_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="state_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="zip_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="phone_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="phone_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="home" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="work_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_email_address_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_email_address_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_email_address_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="street" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="apt_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="city_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="state_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="zip_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_street" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_apt" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_city" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_state" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_zip" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_4" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="grad_year_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_death_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_birth_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_initiation_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ek_number_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LXAAddressesRaw_GoldCopy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grad_year" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="drexel_grad_year" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ek_number" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_death" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_birth" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_initiation" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="full_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="work_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="major" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="wife" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="first_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="preferred_email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="apt_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="city_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="state_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="zip_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="phone_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="phone_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="home" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="work_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_email_address_1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_email_address_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_email_address_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="street" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="apt_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="city_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="state_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="zip_2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_street" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_apt" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_city" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_state" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bad_zip" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="xxx_4" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="grad_year_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_death_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_birth_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="date_of_initiation_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ek_number_sorting" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberContactInformation">
+    <Key>
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="phone_number" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="mailing_street_address" />
+      <PropertyRef Name="mailing_county" />
+      <PropertyRef Name="mailing_state" />
+      <PropertyRef Name="mailing_zip" />
+      <PropertyRef Name="mailing_country" />
+      <PropertyRef Name="send_email" />
+      <PropertyRef Name="send_physical_mail" />
+      <PropertyRef Name="date_created" />
+      <PropertyRef Name="last_modified" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="phone_number" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_street_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_county" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_state" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_zip" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_country" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="send_email" Type="Boolean" Nullable="false" />
+    <Property Name="send_physical_mail" Type="Boolean" Nullable="false" />
+    <Property Name="date_created" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="last_modified" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_MemberContactInformation_Members" FromRole="MemberContactInformation" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="MemberHighZetaPositionXREF">
+    <Key>
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="position_id" />
+      <PropertyRef Name="term" />
+      <PropertyRef Name="year" />
+      <PropertyRef Name="is_active" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="position_id" Type="Int32" Nullable="false" />
+    <Property Name="term" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="year" Type="Int32" Nullable="false" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="HighZetaPosition" Relationship="Self.FK_MemberHighZetaPositionXREF_HighZetaPositions" FromRole="MemberHighZetaPositionXREF" ToRole="HighZetaPositions" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_MemberHighZetaPositionXREF_Members" FromRole="MemberHighZetaPositionXREF" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="OutOfDateMemberAddress">
+    <Key>
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="mailing_street_address" />
+      <PropertyRef Name="mailing_county" />
+      <PropertyRef Name="mailing_state" />
+      <PropertyRef Name="mailing_zip" />
+      <PropertyRef Name="mailing_country" />
+      <PropertyRef Name="date_added" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="mailing_street_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_county" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_state" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_zip" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mailing_country" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_OutOfDateMemberAddresses_Members" FromRole="OutOfDateMemberAddresses" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="OutOfDateMemberEmail">
+    <Key>
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="date_added" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_OutOfDateMemberEmails_Members" FromRole="OutOfDateMemberEmails" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="OutOfDateMemberPhoneNumber">
+    <Key>
+      <PropertyRef Name="member_id" />
+      <PropertyRef Name="phone_number" />
+      <PropertyRef Name="date_added" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" />
+    <Property Name="phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="date_added" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_OutOfDateMemberPhoneNumbers_Members" FromRole="OutOfDateMemberPhoneNumbers" ToRole="Members" />
+  </EntityType>
+  <Association Name="FK_AlumniBoardMemberXREF_AlumniBoards">
+    <End Role="AlumniBoards" Type="Self.AlumniBoard" Multiplicity="1" />
+    <End Role="AlumniBoardMemberXREF" Type="Self.AlumniBoardMemberXREF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AlumniBoards">
+        <PropertyRef Name="board_id" />
+      </Principal>
+      <Dependent Role="AlumniBoardMemberXREF">
+        <PropertyRef Name="board_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnnualAwardMemberXREF_AnnualAwards">
+    <End Role="AnnualAwards" Type="Self.AnnualAward" Multiplicity="1" />
+    <End Role="AnnualAwardMemberXREF" Type="Self.AnnualAwardMemberXREF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnnualAwards">
+        <PropertyRef Name="award_id" />
+      </Principal>
+      <Dependent Role="AnnualAwardMemberXREF">
+        <PropertyRef Name="award_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberHighZetaPositionXREF_HighZetaPositions">
+    <End Role="HighZetaPositions" Type="Self.HighZetaPosition" Multiplicity="1" />
+    <End Role="MemberHighZetaPositionXREF" Type="Self.MemberHighZetaPositionXREF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HighZetaPositions">
+        <PropertyRef Name="position_id" />
+      </Principal>
+      <Dependent Role="MemberHighZetaPositionXREF">
+        <PropertyRef Name="position_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InitiationClasses_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="InitiationClasses" Type="Self.InitiationClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="InitiationClasses">
+        <PropertyRef Name="e_member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Members_InitiationClasses">
+    <End Role="InitiationClasses" Type="Self.InitiationClass" Multiplicity="1" />
+    <End Role="Members" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InitiationClasses">
+        <PropertyRef Name="initiation_class_id" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="initiation_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumniBoardMemberXREF_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="AlumniBoardMemberXREF" Type="Self.AlumniBoardMemberXREF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="AlumniBoardMemberXREF">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnnualAwardMemberXREF_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="AnnualAwardMemberXREF" Type="Self.AnnualAwardMemberXREF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="AnnualAwardMemberXREF">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChangeHistories_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="ChangeHistories" Type="Self.ChangeHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="ChangeHistories">
+        <PropertyRef Name="changed_by_member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailListing_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="EmailListing" Type="Self.EmailListing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="EmailListing">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmergencyContacts_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="EmergencyContacts" Type="Self.EmergencyContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="EmergencyContacts">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImportantEvents_Members_AddedBy">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="ImportantEvents" Type="Self.ImportantEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="ImportantEvents">
+        <PropertyRef Name="event_added_by_member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImportantEvents_Members_POC">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="ImportantEvents" Type="Self.ImportantEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="ImportantEvents">
+        <PropertyRef Name="member_poc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberContactInformation_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="MemberContactInformation" Type="Self.MemberContactInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="MemberContactInformation">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberHighZetaPositionXREF_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="MemberHighZetaPositionXREF" Type="Self.MemberHighZetaPositionXREF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="MemberHighZetaPositionXREF">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutOfDateMemberAddresses_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="OutOfDateMemberAddresses" Type="Self.OutOfDateMemberAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="OutOfDateMemberAddresses">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutOfDateMemberEmails_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="OutOfDateMemberEmails" Type="Self.OutOfDateMemberEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="OutOfDateMemberEmails">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OutOfDateMemberPhoneNumbers_Members">
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="OutOfDateMemberPhoneNumbers" Type="Self.OutOfDateMemberPhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="OutOfDateMemberPhoneNumbers">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoBrotherXREF">
+    <End Role="Members" Type="Self.Member" Multiplicity="*" />
+    <End Role="Members1" Type="Self.Member" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="LambdaChiAlphaContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AlumniBoards" EntityType="Self.AlumniBoard" />
+    <EntitySet Name="AnnualAwards" EntityType="Self.AnnualAward" />
+    <EntitySet Name="HighZetaPositions" EntityType="Self.HighZetaPosition" />
+    <EntitySet Name="InitiationClasses" EntityType="Self.InitiationClass" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="AlumniBoardMemberXREFs" EntityType="Self.AlumniBoardMemberXREF" />
+    <EntitySet Name="AlumniReportMeetingMinutes" EntityType="Self.AlumniReportMeetingMinute" />
+    <EntitySet Name="AnnualAwardMemberXREFs" EntityType="Self.AnnualAwardMemberXREF" />
+    <EntitySet Name="ChangeHistories" EntityType="Self.ChangeHistory" />
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="EmailListings" EntityType="Self.EmailListing" />
+    <EntitySet Name="EmergencyContacts" EntityType="Self.EmergencyContact" />
+    <EntitySet Name="HouseManagerResourceInfoes" EntityType="Self.HouseManagerResourceInfo" />
+    <EntitySet Name="ImportantEvents" EntityType="Self.ImportantEvent" />
+    <EntitySet Name="LXAAddressesRaws" EntityType="Self.LXAAddressesRaw" />
+    <EntitySet Name="LXAAddressesRaw_GoldCopy" EntityType="Self.LXAAddressesRaw_GoldCopy" />
+    <EntitySet Name="MemberContactInformations" EntityType="Self.MemberContactInformation" />
+    <EntitySet Name="MemberHighZetaPositionXREFs" EntityType="Self.MemberHighZetaPositionXREF" />
+    <EntitySet Name="OutOfDateMemberAddresses" EntityType="Self.OutOfDateMemberAddress" />
+    <EntitySet Name="OutOfDateMemberEmails" EntityType="Self.OutOfDateMemberEmail" />
+    <EntitySet Name="OutOfDateMemberPhoneNumbers" EntityType="Self.OutOfDateMemberPhoneNumber" />
+    <AssociationSet Name="FK_AlumniBoardMemberXREF_AlumniBoards" Association="Self.FK_AlumniBoardMemberXREF_AlumniBoards">
+      <End Role="AlumniBoards" EntitySet="AlumniBoards" />
+      <End Role="AlumniBoardMemberXREF" EntitySet="AlumniBoardMemberXREFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnnualAwardMemberXREF_AnnualAwards" Association="Self.FK_AnnualAwardMemberXREF_AnnualAwards">
+      <End Role="AnnualAwards" EntitySet="AnnualAwards" />
+      <End Role="AnnualAwardMemberXREF" EntitySet="AnnualAwardMemberXREFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberHighZetaPositionXREF_HighZetaPositions" Association="Self.FK_MemberHighZetaPositionXREF_HighZetaPositions">
+      <End Role="HighZetaPositions" EntitySet="HighZetaPositions" />
+      <End Role="MemberHighZetaPositionXREF" EntitySet="MemberHighZetaPositionXREFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InitiationClasses_Members" Association="Self.FK_InitiationClasses_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="InitiationClasses" EntitySet="InitiationClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Members_InitiationClasses" Association="Self.FK_Members_InitiationClasses">
+      <End Role="InitiationClasses" EntitySet="InitiationClasses" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumniBoardMemberXREF_Members" Association="Self.FK_AlumniBoardMemberXREF_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="AlumniBoardMemberXREF" EntitySet="AlumniBoardMemberXREFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnnualAwardMemberXREF_Members" Association="Self.FK_AnnualAwardMemberXREF_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="AnnualAwardMemberXREF" EntitySet="AnnualAwardMemberXREFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChangeHistories_Members" Association="Self.FK_ChangeHistories_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="ChangeHistories" EntitySet="ChangeHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailListing_Members" Association="Self.FK_EmailListing_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="EmailListing" EntitySet="EmailListings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmergencyContacts_Members" Association="Self.FK_EmergencyContacts_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="EmergencyContacts" EntitySet="EmergencyContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImportantEvents_Members_AddedBy" Association="Self.FK_ImportantEvents_Members_AddedBy">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="ImportantEvents" EntitySet="ImportantEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImportantEvents_Members_POC" Association="Self.FK_ImportantEvents_Members_POC">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="ImportantEvents" EntitySet="ImportantEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberContactInformation_Members" Association="Self.FK_MemberContactInformation_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="MemberContactInformation" EntitySet="MemberContactInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberHighZetaPositionXREF_Members" Association="Self.FK_MemberHighZetaPositionXREF_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="MemberHighZetaPositionXREF" EntitySet="MemberHighZetaPositionXREFs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutOfDateMemberAddresses_Members" Association="Self.FK_OutOfDateMemberAddresses_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="OutOfDateMemberAddresses" EntitySet="OutOfDateMemberAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutOfDateMemberEmails_Members" Association="Self.FK_OutOfDateMemberEmails_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="OutOfDateMemberEmails" EntitySet="OutOfDateMemberEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutOfDateMemberPhoneNumbers_Members" Association="Self.FK_OutOfDateMemberPhoneNumbers_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="OutOfDateMemberPhoneNumbers" EntitySet="OutOfDateMemberPhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="CoBrotherXREF" Association="Self.CoBrotherXREF">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Members1" EntitySet="Members" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

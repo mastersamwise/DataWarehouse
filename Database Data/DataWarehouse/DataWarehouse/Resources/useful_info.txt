@@ -1,0 +1,9 @@
+﻿URL to install SASS
+http://sass-lang.com/install
+	navigate to ruby folder, type "gem install sass"
+
+Download Ruby
+http://www.ruby-lang.org/en/downloads/
+
+Angular Directives Documentation
+https://docs.angularjs.org/guide/directive
