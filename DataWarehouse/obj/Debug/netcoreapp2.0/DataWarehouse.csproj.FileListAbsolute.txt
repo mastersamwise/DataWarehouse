@@ -1,0 +1,11 @@
+C:\Users\Nik\Git_Repos\DataWarehouse\bin\Debug\netcoreapp2.0\DataWarehouse.deps.json
+C:\Users\Nik\Git_Repos\DataWarehouse\bin\Debug\netcoreapp2.0\DataWarehouse.runtimeconfig.json
+C:\Users\Nik\Git_Repos\DataWarehouse\bin\Debug\netcoreapp2.0\DataWarehouse.runtimeconfig.dev.json
+C:\Users\Nik\Git_Repos\DataWarehouse\bin\Debug\netcoreapp2.0\DataWarehouse.dll
+C:\Users\Nik\Git_Repos\DataWarehouse\bin\Debug\netcoreapp2.0\DataWarehouse.pdb
+C:\Users\Nik\Git_Repos\DataWarehouse\obj\Debug\netcoreapp2.0\DataWarehouse.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\obj\Debug\netcoreapp2.0\DataWarehouse.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\obj\Debug\netcoreapp2.0\DataWarehouse.AssemblyInfoInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\obj\Debug\netcoreapp2.0\DataWarehouse.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\DataWarehouse\obj\Debug\netcoreapp2.0\DataWarehouse.dll
+C:\Users\Nik\Git_Repos\DataWarehouse\obj\Debug\netcoreapp2.0\DataWarehouse.pdb
