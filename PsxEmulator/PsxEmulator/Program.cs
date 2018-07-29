@@ -4,8 +4,8 @@ namespace PsxEmulator
 {
     class Program
     {
-        static string mednafenLocation = @"C:\Users\Nik\Dropbox\Games\PSX Emulator\mednafen-1.21.3-win64\mednafen.exe";
-        static string playstationGameLocation = @"C:\Users\Nik\Dropbox\Games\PSX Emulator\Games\";
+        static string mednafenLocation = "C:\\Users\\Nik\\Dropbox\\Games\\PsxEmulator\\mednafen-1.21.3-win64\\mednafen.exe";
+        static string playstationGameLocation = "C:\\Users\\Nik\\Dropbox\\Games\\PsxEmulator\\Games\\";
         static string gameboyGameLocation = @"";
 
         static int psxEmulatorID = 1;
@@ -58,7 +58,8 @@ namespace PsxEmulator
 
         static void LaunchPsxEmulator(int gameChoice)
         {
-            string command = "/C " + mednafenLocation + " " + playstationGameLocation + "Suikoden II.cue";
+            string command = "/C " + mednafenLocation + " \"" + playstationGameLocation + "Suikoden II.cue\"";
+            Console.WriteLine("Command: {0}", command);
             System.Diagnostics.Process.Start("cmd.exe", command);
 
         }
