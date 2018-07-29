@@ -161,6 +161,18 @@ VALUES
 
 -- https://www.setlist.fm/setlist/a-day-to-remember/2012/susquehanna-bank-center-camden-nj-13deaded.html
 ( 20120204, 'A Day to Remember', 'The Downfall of Us All', 1, 0, '' ),
+( 20120204, 'A Day to Remember', 'A Shot in the Dark', 2, 0, '' ),
+( 20120204, 'A Day to Remember', 'I''m Made of Wax, Larry, What Are You Made Of?', 3, 0, '' ),
+( 20120204, 'A Day to Remember', 'My Life for Hire', 4, 0, '' ),
+( 20120204, 'A Day to Remember', 'All Signs Point to Lauderdale', 5, 0, '' ),
+( 20120204, 'A Day to Remember', '2nd Sucks', 6, 0, '' ),
+( 20120204, 'A Day to Remember', 'You Be Tails, I''ll Be Sonic', 7, 0, '' ),
+( 20120204, 'A Day to Remember', 'You Should Have Killed Me When You Had the Chance', 8, 0, '' ),
+( 20120204, 'A Day to Remember', 'Homesick', 9, 0, '' ),
+( 20120204, 'A Day to Remember', 'Better Off This Way', 10, 0, '' ),
+( 20120204, 'A Day to Remember', 'Have Faith in Me', 11, 0, '' ),
+( 20120204, 'A Day to Remember', 'All I Want', 12, 0, '' ),
+( 20120204, 'A Day to Remember', 'The Plot to Bomb the Pan handle', 13, 0, '' ),
 
 
 
