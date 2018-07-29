@@ -1,0 +1,11 @@
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\bin\Debug\netcoreapp2.0\PsxEmulator.deps.json
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\bin\Debug\netcoreapp2.0\PsxEmulator.runtimeconfig.json
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\bin\Debug\netcoreapp2.0\PsxEmulator.runtimeconfig.dev.json
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\bin\Debug\netcoreapp2.0\PsxEmulator.dll
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\bin\Debug\netcoreapp2.0\PsxEmulator.pdb
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\obj\Debug\netcoreapp2.0\PsxEmulator.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\obj\Debug\netcoreapp2.0\PsxEmulator.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\obj\Debug\netcoreapp2.0\PsxEmulator.AssemblyInfoInputs.cache
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\obj\Debug\netcoreapp2.0\PsxEmulator.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\obj\Debug\netcoreapp2.0\PsxEmulator.dll
+C:\Users\Nik\Git_Repos\PsxEmulator\PsxEmulator\obj\Debug\netcoreapp2.0\PsxEmulator.pdb
