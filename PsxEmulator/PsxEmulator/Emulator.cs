@@ -15,8 +15,8 @@ namespace PsxEmulator
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine("Which emulator are you looking to play?");
-            Console.WriteLine("\t{0}: Playstation One", psxEmulatorID);
-            Console.WriteLine("\t{0}: Gameboy / Gambeboy Advance", gameboyEmulatorID);
+            Console.WriteLine("{0}: Playstation One", psxEmulatorID);
+            Console.WriteLine("{0}: Gameboy / Gambeboy Advance", gameboyEmulatorID);
             string consoleID = Console.ReadLine();
 
             LaunchEmulator(int.Parse(consoleID));
@@ -57,6 +57,7 @@ namespace PsxEmulator
 
         public void LaunchPsxEmulator(int gameChoice)
         {
+            //string command = "/C start cmd.exe /C \"" + mednafenLocation + " \"" + playstationGameLocation + "Suikoden II.cue\"\"";
             string command = "/C " + mednafenLocation + " \"" + playstationGameLocation + "Suikoden II.cue\"";
             Console.WriteLine("Command: {0}", command);
             System.Diagnostics.Process.Start("cmd.exe", command);
@@ -65,7 +66,7 @@ namespace PsxEmulator
 
         public void LaunchGameboyEmulator(int gameChoice)
         {
-            string command = "/C echo hello gameboy";
+            string command = "/K echo hello gameboy";
             System.Diagnostics.Process.Start("cmd.exe", command);
         }
 
