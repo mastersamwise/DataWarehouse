@@ -57,7 +57,6 @@ namespace PsxEmulator
 
         public void LaunchPsxEmulator(int gameChoice)
         {
-            //string command = "/C start cmd.exe /C \"" + mednafenLocation + " \"" + playstationGameLocation + "Suikoden II.cue\"\"";
             string command = "/C " + mednafenLocation + " \"" + playstationGameLocation + "Suikoden II.cue\"";
             Console.WriteLine("Command: {0}", command);
             System.Diagnostics.Process.Start("cmd.exe", command);
