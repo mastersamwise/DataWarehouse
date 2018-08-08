@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace PsxEmulator
 {
@@ -10,6 +13,9 @@ namespace PsxEmulator
 
         public int psxEmulatorID = 1;
         public int gameboyEmulatorID = 2;
+
+        public List<string> playstationGames;
+        public List<string> gameboyGames;
 
         public void LaunchEmulatorMainMenu()
         {
@@ -33,12 +39,14 @@ namespace PsxEmulator
                     LaunchGameboySelection();
                     break;
                 default:
+                    Console.WriteLine("No valid selection made. Exiting...");
                     break;
             }
         }
 
         public void LaunchPsxGameSelection()
         {
+            PopulateGames();
             Console.WriteLine("Which game would you like to play?");
             Console.WriteLine("1: Crash Bandicoot");
             string gameChoice = Console.ReadLine();
@@ -69,6 +77,13 @@ namespace PsxEmulator
             System.Diagnostics.Process.Start("cmd.exe", command);
         }
 
-        
+        public void PopulateGames()
+        {
+            List<string> tempList = new List<string>();
+            tempList.AddRange(Directory.GetFiles(playstationGameLocation).Where(element => element.Contains(".cue")));
+
+            playstationGames.AddRange(tempList);
+            string[] psxGames = playstationGames.ToArray();
+        }
     }
 }
