@@ -14,8 +14,13 @@ namespace PsxEmulator
         public int psxEmulatorID = 1;
         public int gameboyEmulatorID = 2;
 
-        public List<string> playstationGames;
-        public List<string> gameboyGames;
+        public string playstationGameExtension = ".cue";
+
+        public List<string> playstationGames = new List<string>();
+        public List<string> gameboyGames = new List<string>();
+
+        public Emulator()
+        {}
 
         public void LaunchEmulatorMainMenu()
         {
@@ -48,7 +53,12 @@ namespace PsxEmulator
         {
             PopulateGames();
             Console.WriteLine("Which game would you like to play?");
-            Console.WriteLine("1: Crash Bandicoot");
+
+            for( int i = 0; i < playstationGames.Count; i ++ )
+            {
+                Console.WriteLine("{0}: {1}", i + 1, playstationGames.ElementAt(i));
+            }
+
             string gameChoice = Console.ReadLine();
 
             LaunchPsxEmulator(int.Parse(gameChoice));
@@ -65,7 +75,7 @@ namespace PsxEmulator
 
         public void LaunchPsxEmulator(int gameChoice)
         {
-            string command = "/C " + mednafenLocation + " \"" + playstationGameLocation + "Suikoden II.cue\"";
+            string command = "/C " + mednafenLocation + " \"" + playstationGameLocation + playstationGames.ElementAt(gameChoice - 1) + playstationGameExtension;
             Console.WriteLine("Command: {0}", command);
             System.Diagnostics.Process.Start("cmd.exe", command);
 
@@ -80,10 +90,14 @@ namespace PsxEmulator
         public void PopulateGames()
         {
             List<string> tempList = new List<string>();
-            tempList.AddRange(Directory.GetFiles(playstationGameLocation).Where(element => element.Contains(".cue")));
+            tempList.AddRange(Directory.GetFiles(playstationGameLocation).Where(element => element.Contains(playstationGameExtension)));
 
-            playstationGames.AddRange(tempList);
-            string[] psxGames = playstationGames.ToArray();
+            foreach(string s in tempList)
+            {
+                string e = s.Substring(playstationGameLocation.Length, s.Length - playstationGameLocation.Length);
+                e = e.Substring(0, e.Length - playstationGameExtension.Length);
+                playstationGames.Add(e);
+            }
         }
     }
 }

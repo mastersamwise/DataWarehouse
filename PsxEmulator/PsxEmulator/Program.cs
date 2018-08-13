@@ -10,8 +10,6 @@ namespace PsxEmulator
 
         static void Main(string[] args)
         {
-            // Thread emulatorThread = new Thread(new ThreadStart(startEmulator));
-            // emulatorThread.Start();
             emulator.LaunchEmulatorMainMenu();
         }
 
