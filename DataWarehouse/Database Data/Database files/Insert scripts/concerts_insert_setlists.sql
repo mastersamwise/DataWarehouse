@@ -445,7 +445,7 @@ VALUES
 ( 20140514, 'Bruce Springsteen', 'Dancing in the Dark', 26, 1, '' ),
 ( 20140514, 'Bruce Springsteen', 'Tenth Avenue Freeze-Out', 27, 1, '' ),
 ( 20140514, 'Bruce Springsteen', 'Shout', 28, 1, 'The Isley Brothers cover' ),
-( 20140514, 'Bruce Springsteen', 'Thunder Road', 29, 1, '' ),
+( 20140514, 'Bruce Springsteen', 'Thunder Road', 29, 1, '' )
 
 
 
@@ -455,9 +455,9 @@ VALUES
 INSERT INTO [concerts].[Songs]
 ( [song_title] )
 VALUES
-( )
+( 'title' )
 
 INSERT INTO [concerts].[ConcertSong_xref]
 ( [concert_id], [band_id], [song_number], [song_id], [comment] )
 VALUES
-( )
+( 1, 1, 1, 1, 'comment' )
