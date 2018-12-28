@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ConcertComponent } from './concert/concert.component';
+import { ConcertComponent } from '../modules/concert/concert.component';
 
 
 @NgModule({
@@ -15,6 +15,9 @@ import { ConcertComponent } from './concert/concert.component';
     BrowserModule
   ],
   providers: [],
+  exports: [
+    ConcertComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

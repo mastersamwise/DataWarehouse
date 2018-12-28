@@ -1,0 +1,48 @@
+<p>
+  concert works!
+</p>
+<table mat-table [dataSource]="concertSummaryData" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="venue">
+    <th mat-header-cell *matHeaderCellDef> Venue </th>
+    <td mat-cell *matCellDef="let element"> {{element.venue}} </td>
+  </ng-container>
+
+  <!-- Ticket Price Column -->
+  <ng-container matColumnDef="ticketPrice">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.ticketPrice}} </td>
+  </ng-container>
+
+  <!-- Artists Column -->
+  <ng-container matColumnDef="artists">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.artists}} </td>
+  </ng-container>
+
+  <!-- Attendees Column -->
+  <ng-container matColumnDef="attendees">
+    <th mat-header-cell *matHeaderCellDef> Attendee(s) </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <!-- Comment Column -->
+  <ng-container matColumnDef="comment">
+    <th mat-header-cell *matHeaderCellDef> Comment </th>
+    <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
