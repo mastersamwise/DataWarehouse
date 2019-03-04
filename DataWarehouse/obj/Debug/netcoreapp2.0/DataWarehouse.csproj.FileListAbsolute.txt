@@ -14,7 +14,6 @@ C:/Users/Nik/Git_Repos/DataWarehouse/obj/Debug/netcoreapp2.0/DataWarehouse.pdb
 /Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/bin/Debug/netcoreapp2.0/DataWarehouse.runtimeconfig.dev.json
 /Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/bin/Debug/netcoreapp2.0/DataWarehouse.dll
 /Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/bin/Debug/netcoreapp2.0/DataWarehouse.pdb
-/Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/obj/Debug/netcoreapp2.0/DataWarehouse.csprojAssemblyReference.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/obj/Debug/netcoreapp2.0/DataWarehouse.csproj.CoreCompileInputs.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/obj/Debug/netcoreapp2.0/DataWarehouse.AssemblyInfoInputs.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/DataWarehouse/obj/Debug/netcoreapp2.0/DataWarehouse.AssemblyInfo.cs
