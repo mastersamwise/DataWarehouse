@@ -5,11 +5,6 @@ using System.Net;
 using System.Net.Mail;
 
 
-// https://developers.google.com/gmail/api/v1/reference/users/drafts/create 
-using Google.Apis.Gmail.v1;
-using Google.Apis.Gmail.v1.Data;
-
-
 namespace QuoteEmail
 {
     class QuoteMail
@@ -21,6 +16,7 @@ namespace QuoteEmail
         int port = 587;
         int NUMBER_OF_DRAFTS = 7;
 
+        SmtpClient smtp = new SmtpClient();
         MailMessage email = new MailMessage();
         MailAddressCollection toAddresses = new MailAddressCollection();
         MailAddressCollection bccAddresses = new MailAddressCollection();
@@ -35,18 +31,17 @@ namespace QuoteEmail
         {
             Console.WriteLine("Generating drafts for Quote of the Day emails");
 
-            SmtpClient stmp = new SmtpClient();
-            stmp.Host = host;
-            stmp.Port = port;
-            stmp.EnableSsl = true;
-            stmp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            stmp.Credentials = new NetworkCredential(username, password);
-            stmp.Timeout = 20000;
+            smtp.Host = host;
+            smtp.Port = port;
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential(username, password);
+            smtp.Timeout = 20000;
 
             Console.WriteLine("Drafts generated");
         }
 
-        public void readRecipientsList()
+        public void ReadRecipientsList()
         {
 
         }
