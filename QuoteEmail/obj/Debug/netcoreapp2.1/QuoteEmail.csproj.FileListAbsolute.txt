@@ -1,0 +1,11 @@
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/bin/Debug/netcoreapp2.1/QuoteEmail.deps.json
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/bin/Debug/netcoreapp2.1/QuoteEmail.runtimeconfig.json
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/bin/Debug/netcoreapp2.1/QuoteEmail.runtimeconfig.dev.json
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/bin/Debug/netcoreapp2.1/QuoteEmail.dll
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/bin/Debug/netcoreapp2.1/QuoteEmail.pdb
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/obj/Debug/netcoreapp2.1/QuoteEmail.csprojAssemblyReference.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/obj/Debug/netcoreapp2.1/QuoteEmail.csproj.CoreCompileInputs.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/obj/Debug/netcoreapp2.1/QuoteEmail.AssemblyInfoInputs.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/obj/Debug/netcoreapp2.1/QuoteEmail.AssemblyInfo.cs
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/obj/Debug/netcoreapp2.1/QuoteEmail.dll
+/Users/nikolasbournelis/Git_repos/DataWarehouse/QuoteEmail/obj/Debug/netcoreapp2.1/QuoteEmail.pdb
