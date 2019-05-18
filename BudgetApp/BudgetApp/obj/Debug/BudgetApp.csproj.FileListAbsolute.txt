@@ -1,0 +1,10 @@
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\BudgetApp.exe.config
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\BudgetApp.exe
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\BudgetApp.pdb
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.Form1.resources
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.Properties.Resources.resources
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.csproj.GenerateResource.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.exe
+C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.pdb

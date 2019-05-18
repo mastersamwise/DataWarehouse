@@ -16,5 +16,16 @@ namespace BudgetApp
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            label1_Click(sender, e);
+        
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            label1.Text = "Hello World!";
+        }
     }
 }
