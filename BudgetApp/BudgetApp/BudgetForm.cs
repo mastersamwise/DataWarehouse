@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using BudgetApp.Classes;
+
 namespace BudgetApp
 {
     public partial class BudgetForm : Form
@@ -38,7 +40,14 @@ namespace BudgetApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label2.Text = "Saved!";
+            string label = "";
+            Entry entry = new Entry();
+            entry.entryID = 1;
+            entry.date = DateTime.Now;
+            entry.name = "Test Event";
+            DataAccessLayer.SaveEntry(entry, label);
+            
+            label2.Text = label;
         }
     }
 }

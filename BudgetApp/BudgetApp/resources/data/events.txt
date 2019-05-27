@@ -1,0 +1,1 @@
+"{\"entryID\":1,\"dateAdded\":\"2019-05-27T02:44:53.0684601Z\",\"date\":\"2019-05-26T22:44:53.0684601-04:00\",\"name\":\"Test Event\",\"description\":\"\",\"category\":\"Bank\",\"amount\":0.0}"

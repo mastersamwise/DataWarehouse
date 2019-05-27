@@ -96,6 +96,7 @@
     <Compile Include="BudgetForm.Designer.cs">
       <DependentUpon>BudgetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccessLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BudgetForm.resx">
@@ -123,6 +124,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\stored_procedures\" />
+    <Folder Include="Database\tables\" />
+    <Folder Include="resources\data\" />
+    <Folder Include="resources\logs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
