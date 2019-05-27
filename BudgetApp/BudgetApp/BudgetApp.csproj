@@ -45,6 +45,10 @@
     <Reference Include="Core.Portable, Version=1.0.5657.24798, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Core.Common.0.1.221\lib\net45\Core.Portable.dll</HintPath>
     </Reference>
+    <Reference Include="CustomTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>resources\libraries\CustomTools.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.40.0\lib\net45\Google.Apis.dll</HintPath>
     </Reference>
@@ -77,6 +81,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -128,8 +133,11 @@
   <ItemGroup>
     <Folder Include="Database\stored_procedures\" />
     <Folder Include="Database\tables\" />
-    <Folder Include="resources\data\" />
-    <Folder Include="resources\logs\" />
+    <Folder Include="resources\libraries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\data\events.txt" />
+    <Content Include="resources\logs\log.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

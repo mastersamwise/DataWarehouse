@@ -6,15 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CustomTools;
+
 using Newtonsoft.Json;
 
 // https://stackoverflow.com/questions/16921652/how-to-write-a-json-file-in-c
+// https://www.c-sharpcorner.com/article/json-serialization-and-deserialization-in-c-sharp/
 
 namespace BudgetApp.Classes
 {
     public static class DataAccessLayer
     {
         static string filename = "../../resources/data/events.txt";
+        static bool appendToExistingFile = true;
 
         public static int SaveEntry(Entry dataEntry)
         {
@@ -22,15 +26,17 @@ namespace BudgetApp.Classes
             {
                 string json = JsonConvert.SerializeObject(dataEntry);
 
-                using (StreamWriter file = File.CreateText(filename))
+                using (StreamWriter file = new StreamWriter(filename, appendToExistingFile))
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, json);
+                    //JsonSerializer serializer = new JsonSerializer();
+                    //serializer.Serialize(file, json);
+                    file.Write(json);
+                    Logger.Info("Writing data to file...");
                 }
             }
             catch(Exception ex)
             {
-                
+                Logger.Error(ex.ToString());
             }
             return 0;
         }
@@ -43,10 +49,11 @@ namespace BudgetApp.Classes
             try
             {
                 entries = JsonConvert.DeserializeObject<List<Entry>>(json);
+                Logger.Info("Retrieving entries from file...");
             }
             catch (Exception ex)
             {
-
+                Logger.Error(ex.ToString());
             }
             return entries;
         }

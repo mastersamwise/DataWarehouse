@@ -45,7 +45,7 @@ namespace BudgetApp
             entry.entryID = 1;
             entry.date = DateTime.Now;
             entry.name = "Test Event";
-            DataAccessLayer.SaveEntry(entry, label);
+            DataAccessLayer.SaveEntry(entry);
             
             label2.Text = label;
         }
