@@ -30,7 +30,7 @@ namespace BudgetApp.Classes
                 {
                     //JsonSerializer serializer = new JsonSerializer();
                     //serializer.Serialize(file, json);
-                    file.Write(json);
+                    file.WriteLine(json);
                     Logger.Info("Writing data to file...");
                 }
             }
@@ -44,12 +44,23 @@ namespace BudgetApp.Classes
         public static List<Entry> GetEntries()
         {
             List<Entry> entries = new List<Entry>();
+            Entry entry = new Entry();
+            FileStream fileStream = new FileStream(filename, FileMode.Open, FileAccess.Read);
             string json = "";
 
             try
             {
-                entries = JsonConvert.DeserializeObject<List<Entry>>(json);
-                Logger.Info("Retrieving entries from file...");
+                using (StreamReader streamReader = new StreamReader(fileStream))
+                {
+                    while (!streamReader.EndOfStream)
+                    {
+                        json = streamReader.ReadLine();
+                        entry = JsonConvert.DeserializeObject<Entry>(json);
+
+                        entries.Add(entry);
+                    }
+                    Logger.Info("Retrieving entries from file...");
+                }
             }
             catch (Exception ex)
             {

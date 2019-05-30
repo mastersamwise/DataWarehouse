@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BudgetApp.Classes;
+using CustomTools;
 
 namespace BudgetApp
 {
@@ -40,14 +41,25 @@ namespace BudgetApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            BudgetForm form = new BudgetForm();
+            form.budgetGrid.EditMode = DataGridViewEditMode.EditOnEnter;
+            form.budgetGrid.ReadOnly = false;
+            
+            string test = form.budgetGrid[0, 0].Value.ToString();
             string label = "";
             Entry entry = new Entry();
             entry.entryID = 1;
             entry.date = DateTime.Now;
-            entry.name = "Test Event";
+            entry.name = test;
             DataAccessLayer.SaveEntry(entry);
             
             label2.Text = label;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<Entry> records = DataAccessLayer.GetEntries();
+            Logger.Info(String.Format("records[0].category: {0}", records[0].category));
         }
     }
 }
