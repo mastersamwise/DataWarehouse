@@ -1,3 +1,1 @@
-{"entryID":1,"dateAdded":"2019-05-29T23:19:31.2513731Z","date":"2019-05-29T19:19:31.2513731-04:00","name":"Test Event","description":"","category":"Bank","amount":0.0}
-{"entryID":1,"dateAdded":"2019-05-29T23:19:45.7729219Z","date":"2019-05-29T19:19:45.7729219-04:00","name":"Test Event","description":"","category":"Bank","amount":0.0}
-{"entryID":1,"dateAdded":"2019-05-29T23:43:08.9744138Z","date":"2019-05-29T19:43:08.9744138-04:00","name":"DataGridViewTextBoxCell { ColumnIndex=4, RowIndex=0 }","description":"","category":"Bank","amount":0.0}
+{"entryID":0,"dateAdded":"2019-06-14T02:04:55.7263147Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
