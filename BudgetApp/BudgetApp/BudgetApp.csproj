@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CalendarEvent.cs" />
+    <Compile Include="Classes\Constants.cs" />
     <Compile Include="Classes\Entry.cs" />
     <Compile Include="BudgetForm.cs">
       <SubType>Form</SubType>
