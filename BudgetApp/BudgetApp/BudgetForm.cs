@@ -15,31 +15,29 @@ namespace BudgetApp
 {
     public partial class BudgetForm : Form
     {
-        string user;
-        DataTable dt;
-        List<Entry> budgetEntriesOnStart;
-        List<Entry> budgetEntriesBackup;
-        List<Entry> budgetEntries;
+        string activeUser = "Nik";
+        BudgetFormInstance activeInstance;
 
         public BudgetForm()
         {
             InitializeComponent();
+
+            activeInstance = new BudgetFormInstance(activeUser);
+
             CreateTabs();
-            budgetEntries = DataAccessLayer.GetEntries();
+            activeInstance.budgetEntries = GetEntries();
 
             // save an "on-start backup" copy of the entries, incase user wants to revert
-            budgetEntriesBackup = budgetEntries;
-            BackupEntries();
+            activeInstance.budgetEntriesOnStart = activeInstance.budgetEntries;
+            activeInstance.BackupEntries();
 
-            dt = CreateBudgetDataTable(Constants.BUDGET_TABLE_NAME);
-            budgetGrid.DataSource = dt;
+            // create the table and populate the data
+            activeInstance.dt = activeInstance.CreateBudgetDataTable(Constants.BUDGET_TABLE_NAME);
+            PopulateEntries(activeInstance.budgetEntries);
 
-            int i = 1;
-            foreach (Entry entry in budgetEntries)
-            {
-                dt.Rows.Add(i, entry.date, entry.category, "", entry.description, entry.amount);
-                i++;
-            }
+            // set the DataSource of the grid to be the DataTable in the activeInstance
+            budgetGrid.DataSource = activeInstance.dt;
+
         }
 
         public void CreateTabs()
@@ -50,93 +48,44 @@ namespace BudgetApp
             tabControl1.TabPages.Add(summaryTab);
         }
 
-        #region Table Functionality
-        public void BackupEntries()
+        private List<Entry> GetEntries()
         {
-            budgetEntriesBackup = budgetEntries;
+            List<Entry> entries = activeInstance.GetEntries();
+
+            return entries;
         }
 
-        public void RestoreLastBackup()
+        private void PopulateEntries(List<Entry> entries)
         {
-            budgetEntries = budgetEntriesBackup;
+            activeInstance.populateEntries(entries);
         }
 
-        public void RestoreOnStartBackup()
+        #region button clicks
+        // save the table entries
+        private void SaveTable(object sender, EventArgs e)
         {
-            budgetEntries = budgetEntriesOnStart;
+            activeInstance.SaveEntries();
         }
 
-        public void SaveTable(object sender, EventArgs e)
+        // backup the current entries in the table
+        private void BackupEntries(object sender, EventArgs e)
         {
-            Logger.Info("Saving table...");
-            Entry entry = new Entry();
-            foreach(DataRow row in dt.Rows)
-            {
-                entry.entryID = Int32.Parse(row[Constants.ENTRY_ID].ToString());
-                entry.date = (DateTime)row[Constants.DATE];
-                entry.category = row[Constants.CATEGORY].ToString();
-                entry.description = row[Constants.DESCRIPTION].ToString();
-                entry.amount = Double.Parse(row[Constants.AMOUNT].ToString());
-
-                DataAccessLayer.SaveEntry(entry);
-            }
-            Logger.Info("... table saved.");
+            activeInstance.BackupEntries();
         }
 
-        public DataTable CreateBudgetDataTable(string tableName)
+        // restore the latest backup
+        private void RestoreLastBackup(object sender, EventArgs e)
         {
-            // https://stackoverflow.com/questions/25856205/c-sharp-forms-datatable-datagridview
-            // https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.8
-
-            DataTable table = new DataTable(tableName);
-
-            DataColumn idCol = new DataColumn();
-            idCol.DataType = Type.GetType("System.Int32");
-            idCol.ColumnName = Constants.ENTRY_ID;
-            idCol.ReadOnly = true;
-            idCol.Unique = true;
-            idCol.AutoIncrement = true;
-            table.Columns.Add(idCol);
-
-            DataColumn dateCol = new DataColumn();
-            dateCol.DataType = Type.GetType("System.DateTime");
-            dateCol.ColumnName = Constants.DATE;
-            dateCol.ReadOnly = false;
-            dateCol.Unique = false;
-            table.Columns.Add(dateCol);
-
-            DataColumn categoryCol = new DataColumn();
-            categoryCol.DataType = Type.GetType("System.String");
-            categoryCol.ColumnName = Constants.CATEGORY;
-            categoryCol.ReadOnly = false;
-            categoryCol.Unique = false;
-            table.Columns.Add(categoryCol);
-
-            DataColumn confirmationNumberCol = new DataColumn();
-            confirmationNumberCol.DataType = Type.GetType("System.String");
-            confirmationNumberCol.ColumnName = Constants.CONFIRMATION_NUMBER;
-            confirmationNumberCol.ReadOnly = false;
-            confirmationNumberCol.Unique = false;
-            table.Columns.Add(confirmationNumberCol);
-
-            DataColumn descCol = new DataColumn();
-            descCol.DataType = Type.GetType("System.String");
-            descCol.ColumnName = Constants.DESCRIPTION;
-            descCol.ReadOnly = false;
-            descCol.Unique = false;
-            table.Columns.Add(descCol);
-
-            DataColumn amountCol = new DataColumn();
-            amountCol.DataType = Type.GetType("System.Double");
-            amountCol.ColumnName = Constants.AMOUNT;
-            amountCol.ReadOnly = false;
-            amountCol.Unique = false;
-            table.Columns.Add(amountCol);
-
-            table.Columns[ENTRY_ID].ColumnMapping = MappingType.Hidden;
-
-            return table;
+            activeInstance.RestoreLastBackup();
         }
-        #endregion Table Functionality
+
+        // restore the older of the two backups
+        private void RestoreOlderBackup(object sender, EventArgs e)
+        {
+            activeInstance.RestoreOlderBackup();
+        }
+        #endregion button clicks
+
+
     }
 }

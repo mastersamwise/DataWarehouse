@@ -1,1 +1,13 @@
 {"entryID":0,"dateAdded":"2019-06-14T02:04:55.7263147Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":1,"dateAdded":"2019-06-17T23:44:57.7871389Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":2,"dateAdded":"2019-06-17T23:44:57.7871389Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bank","amount":140.0}
+{"entryID":1,"dateAdded":"2019-06-18T00:44:26.2104169Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":2,"dateAdded":"2019-06-18T00:44:26.2104169Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":3,"dateAdded":"2019-06-18T00:44:26.2104169Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bankly","amount":140.0}
+{"entryID":1,"dateAdded":"2019-06-18T00:44:35.2297196Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":2,"dateAdded":"2019-06-18T00:44:35.2297196Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":3,"dateAdded":"2019-06-18T00:44:35.2297196Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bankly","amount":140.0}
+{"entryID":1,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":2,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
+{"entryID":3,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bankly","amount":140.0}
+{"entryID":4,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-06T00:00:00","name":"","description":"more","category":"yep","amount":70.0}
