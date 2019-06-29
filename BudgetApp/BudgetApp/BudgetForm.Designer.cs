@@ -178,7 +178,7 @@
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Save Table";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.SaveTable);
+            this.saveButton.Click += new System.EventHandler(this.SaveTable_click);
             // 
             // printDialog1
             // 
@@ -192,7 +192,7 @@
             this.backupEntriesButton.TabIndex = 6;
             this.backupEntriesButton.Text = "Backup Current Entries";
             this.backupEntriesButton.UseVisualStyleBackColor = true;
-            this.backupEntriesButton.Click += new System.EventHandler(this.BackupEntries);
+            this.backupEntriesButton.Click += new System.EventHandler(this.BackupEntries_click);
             // 
             // restoreLastBackupButton
             // 
@@ -202,7 +202,7 @@
             this.restoreLastBackupButton.TabIndex = 7;
             this.restoreLastBackupButton.Text = "Restore Last Backup";
             this.restoreLastBackupButton.UseVisualStyleBackColor = true;
-            this.restoreLastBackupButton.Click += new System.EventHandler(this.RestoreLastBackup);
+            this.restoreLastBackupButton.Click += new System.EventHandler(this.RestoreLastBackup_click);
             // 
             // button2
             // 
@@ -212,7 +212,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.RestoreOlderBackup);
+            this.button2.Click += new System.EventHandler(this.RestoreOlderBackup_click);
             // 
             // BudgetForm
             // 

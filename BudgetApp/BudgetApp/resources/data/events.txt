@@ -1,13 +1,6 @@
-{"entryID":0,"dateAdded":"2019-06-14T02:04:55.7263147Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":1,"dateAdded":"2019-06-17T23:44:57.7871389Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":2,"dateAdded":"2019-06-17T23:44:57.7871389Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bank","amount":140.0}
-{"entryID":1,"dateAdded":"2019-06-18T00:44:26.2104169Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":2,"dateAdded":"2019-06-18T00:44:26.2104169Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":3,"dateAdded":"2019-06-18T00:44:26.2104169Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bankly","amount":140.0}
-{"entryID":1,"dateAdded":"2019-06-18T00:44:35.2297196Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":2,"dateAdded":"2019-06-18T00:44:35.2297196Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":3,"dateAdded":"2019-06-18T00:44:35.2297196Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bankly","amount":140.0}
-{"entryID":1,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":2,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-06T00:00:00","name":"","description":"testing entries here","category":"citi banks","amount":34.0}
-{"entryID":3,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-29T00:00:00","name":"","description":"more testing","category":"Bankly","amount":140.0}
-{"entryID":4,"dateAdded":"2019-06-18T00:46:56.7003109Z","date":"2019-06-06T00:00:00","name":"","description":"more","category":"yep","amount":70.0}
+{"entryID":0,"dateAdded":"2019-06-29T02:39:13.3722862Z","date":"2018-12-09T00:00:00","name":"","description":"paid credit card bill","category":"credit card","amount":132.0}
+{"entryID":1,"dateAdded":"2019-06-29T02:45:47.6378942Z","date":"2018-12-09T00:00:00","name":"","description":"paid credit card bill","category":"credit card","amount":132.0}
+{"entryID":2,"dateAdded":"2019-06-29T02:45:47.6378942Z","date":"2022-02-02T00:00:00","name":"","description":"estt","category":"test","amount":76.0}
+{"entryID":4,"dateAdded":"2019-06-29T03:04:08.4962177Z","date":"2020-02-02T00:00:00","name":"","description":"rtest","category":"test","amount":230.0}
+{"entryID":5,"dateAdded":"2019-06-29T03:04:08.4962177Z","date":"1909-02-10T00:00:00","name":"","description":"paying bill","category":"credit card","amount":67.0}
+{"entryID":7,"dateAdded":"2019-06-29T03:04:08.4962177Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","amount":8.0}
