@@ -29,7 +29,7 @@ namespace BudgetApp
 
             // save an "on-start backup" copy of the entries, incase user wants to revert
             activeInstance.budgetEntriesOnStart = activeInstance.budgetEntries;
-            BackupEntries();
+            activeInstance.BackupEntries();
 
             // create the table and populate the data
             activeInstance.dt = CreateBudgetDataTable(Constants.BUDGET_TABLE_NAME);
@@ -37,7 +37,6 @@ namespace BudgetApp
 
             // set the DataSource of the grid to be the DataTable in the activeInstance
             budgetGrid.DataSource = activeInstance.dt;
-
         }
 
         public void CreateTabs()
@@ -57,85 +56,22 @@ namespace BudgetApp
         // backup the current entries in the table
         private void BackupEntries_click(object sender, EventArgs e)
         {
-            BackupEntries();
+            activeInstance.BackupEntries();
         }
 
         // restore the latest backup
         private void RestoreLastBackup_click(object sender, EventArgs e)
         {
-            RestoreLastBackup();
+            activeInstance.RestoreLastBackup();
         }
 
         // restore the older of the two backups
         private void RestoreOlderBackup_click(object sender, EventArgs e)
         {
-            RestoreOlderBackup();
+            activeInstance.RestoreOlderBackup();
         }
         #endregion button clicks
 
-        #region Backups
-        // Backup the table entries and set the flag to alternate which backup is replaced
-        public void BackupEntries()
-        {
-            if (activeInstance.isBackup1Latest)
-            {
-                // if backup1 is the latest backup, replace backup2
-                activeInstance.budgetEntriesBackup2 = activeInstance.budgetEntries;
-            }
-            else
-            {
-                // if backup2 is the latest backup, replace backup1
-                activeInstance.budgetEntriesBackup1 = activeInstance.budgetEntries;
-            }
-            activeInstance.isBackup1Latest = !activeInstance.isBackup1Latest;
-        }
-
-        // restore the latest backup
-        public void RestoreLastBackup()
-        {
-
-            activeInstance.budgetEntries.Clear();
-            if (activeInstance.isBackup1Latest)
-            {
-                // if backup1 is the latest backup, restore backup1
-                activeInstance.budgetEntries = activeInstance.budgetEntriesBackup1;
-                activeInstance.populateEntries(activeInstance.budgetEntriesBackup1);
-            }
-            else
-            {
-                // if backup2 is the latest backup, restore backup2
-                activeInstance.budgetEntries = activeInstance.budgetEntriesBackup2;
-                activeInstance.populateEntries(activeInstance.budgetEntriesBackup2);
-            }
-            activeInstance.isBackup1Latest = !activeInstance.isBackup1Latest;
-        }
-
-        // restore the latest backup
-        public void RestoreOlderBackup()
-        {
-            activeInstance.budgetEntries.Clear();
-            if (!activeInstance.isBackup1Latest)
-            {
-                // if backup1 is the older backup, restore backup1
-                activeInstance.budgetEntries = activeInstance.budgetEntriesBackup1;
-                activeInstance.populateEntries(activeInstance.budgetEntriesBackup1);
-            }
-            else
-            {
-                // if backup1 is the latest backup, restore backup2
-                activeInstance.budgetEntries = activeInstance.budgetEntriesBackup2;
-                activeInstance.populateEntries(activeInstance.budgetEntriesBackup2);
-            }
-            activeInstance.isBackup1Latest = !activeInstance.isBackup1Latest;
-        }
-
-        // restore the backup taken on start
-        public void RestoreOnStartBackup()
-        {
-            activeInstance.budgetEntries.Clear();
-            activeInstance.budgetEntries = activeInstance.budgetEntriesOnStart;
-        }
-        #endregion Backups
 
         #region CRUD
         // retrieve the entries from the data source
@@ -169,7 +105,7 @@ namespace BudgetApp
         }
 
         // delete an entry from the data source
-        public void DeleteEntries(List<int> rowIDsToDelete)
+        public void DeleteSelectedEntries()
         {
             Logger.Info("Deleting entries...");
             Entry entry = new Entry();
@@ -177,10 +113,10 @@ namespace BudgetApp
             {
                 DataRow row = activeInstance.dt.Rows[i];
                 int currentID = Int32.Parse(row[Constants.ENTRY_ID].ToString());
-                if (rowIDsToDelete.Contains(currentID))
-                {
-                    row.Delete();
-                }
+                //if (rowIDsToDelete.Contains(currentID))
+                //{
+                //    row.Delete();
+                //}
                 activeInstance.dt.AcceptChanges();
             }
             Logger.Info("... entries saved.");
@@ -197,43 +133,50 @@ namespace BudgetApp
             DataTable table = new DataTable(tableName);
 
             DataColumn idCol = new DataColumn();
-            idCol.DataType = Type.GetType("System.Int32");
+            idCol.DataType = Type.GetType(typeof(int).ToString());
             idCol.ColumnName = Constants.ENTRY_ID;
             idCol.ReadOnly = true;
             idCol.Unique = true;
             idCol.AutoIncrement = true;
             table.Columns.Add(idCol);
 
+            DataColumn isSelectedCol = new DataColumn();
+            isSelectedCol.DataType = Type.GetType(typeof(bool).ToString());
+            isSelectedCol.ColumnName = "Selected";
+            isSelectedCol.ReadOnly = false;
+            isSelectedCol.Unique = false;
+            table.Columns.Add(isSelectedCol);
+
             DataColumn dateCol = new DataColumn();
-            dateCol.DataType = Type.GetType("System.DateTime");
+            dateCol.DataType = Type.GetType(typeof(DateTime).ToString());
             dateCol.ColumnName = Constants.DATE;
             dateCol.ReadOnly = false;
             dateCol.Unique = false;
             table.Columns.Add(dateCol);
 
             DataColumn categoryCol = new DataColumn();
-            categoryCol.DataType = Type.GetType("System.String");
+            categoryCol.DataType = Type.GetType(typeof(string).ToString());
             categoryCol.ColumnName = Constants.CATEGORY;
             categoryCol.ReadOnly = false;
             categoryCol.Unique = false;
             table.Columns.Add(categoryCol);
 
             DataColumn confirmationNumberCol = new DataColumn();
-            confirmationNumberCol.DataType = Type.GetType("System.String");
+            confirmationNumberCol.DataType = Type.GetType(typeof(string).ToString());
             confirmationNumberCol.ColumnName = Constants.CONFIRMATION_NUMBER;
             confirmationNumberCol.ReadOnly = false;
             confirmationNumberCol.Unique = false;
             table.Columns.Add(confirmationNumberCol);
 
             DataColumn descCol = new DataColumn();
-            descCol.DataType = Type.GetType("System.String");
+            descCol.DataType = Type.GetType(typeof(string).ToString());
             descCol.ColumnName = Constants.DESCRIPTION;
             descCol.ReadOnly = false;
             descCol.Unique = false;
             table.Columns.Add(descCol);
 
             DataColumn amountCol = new DataColumn();
-            amountCol.DataType = Type.GetType("System.Double");
+            amountCol.DataType = Type.GetType(typeof(double).ToString());
             amountCol.ColumnName = Constants.AMOUNT;
             amountCol.ReadOnly = false;
             amountCol.Unique = false;

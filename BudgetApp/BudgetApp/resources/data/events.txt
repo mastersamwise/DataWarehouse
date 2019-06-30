@@ -4,3 +4,10 @@
 {"entryID":4,"dateAdded":"2019-06-29T03:04:08.4962177Z","date":"2020-02-02T00:00:00","name":"","description":"rtest","category":"test","amount":230.0}
 {"entryID":5,"dateAdded":"2019-06-29T03:04:08.4962177Z","date":"1909-02-10T00:00:00","name":"","description":"paying bill","category":"credit card","amount":67.0}
 {"entryID":7,"dateAdded":"2019-06-29T03:04:08.4962177Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","amount":8.0}
+{"entryID":1,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"2018-12-09T00:00:00","name":"","description":"paid credit card bill","category":"credit card","amount":132.0}
+{"entryID":2,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"2018-12-09T00:00:00","name":"","description":"paid credit card bill","category":"credit card","amount":132.0}
+{"entryID":3,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"2022-02-02T00:00:00","name":"","description":"estt","category":"test","amount":76.0}
+{"entryID":4,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"2020-02-02T00:00:00","name":"","description":"rtest","category":"test","amount":230.0}
+{"entryID":5,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"1909-02-10T00:00:00","name":"","description":"paying bill","category":"credit card","amount":67.0}
+{"entryID":6,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","amount":8.0}
+{"entryID":7,"dateAdded":"2019-06-30T20:42:03.8643774Z","date":"2019-05-04T00:00:00","name":"","description":"testing backup","category":"credit card","amount":89.0}

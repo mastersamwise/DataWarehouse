@@ -12,6 +12,7 @@ namespace BudgetApp.Classes
     public class Entry
     {
         public int entryID;
+        public bool isSelected;
         public DateTime dateAdded;
         public DateTime date;
         public string name;
