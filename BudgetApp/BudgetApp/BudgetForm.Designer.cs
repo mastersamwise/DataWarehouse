@@ -43,6 +43,7 @@
             this.backupEntriesButton = new System.Windows.Forms.Button();
             this.restoreLastBackupButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.budgetGrid)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -214,11 +215,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.RestoreOlderBackup_click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(531, 63);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(122, 47);
+            this.deleteButton.TabIndex = 9;
+            this.deleteButton.Text = "Delete Selected";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteSummaryEntries_click);
+            // 
             // BudgetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1227, 932);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.restoreLastBackupButton);
             this.Controls.Add(this.backupEntriesButton);
@@ -258,6 +271,7 @@
         private System.Windows.Forms.Button backupEntriesButton;
         private System.Windows.Forms.Button restoreLastBackupButton;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 

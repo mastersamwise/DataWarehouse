@@ -131,4 +131,3 @@ C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\System.Xml.Xm
 C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\System.Xml.XPath.dll
 C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\bin\Debug\CustomTools.dll
-C:\Users\Nik\Git_Repos\DataWarehouse\BudgetApp\BudgetApp\obj\Debug\BudgetApp.csprojAssemblyReference.cache

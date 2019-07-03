@@ -34,7 +34,7 @@ namespace BudgetApp.Classes
             int i = 1;
             foreach (Entry entry in entries)
             {
-                this.dt.Rows.Add(i, entry.isSelected, entry.date, entry.category, "", entry.description, entry.amount);
+                this.dt.Rows.Add(i, entry.isSelected, entry.date, entry.category, entry.confirmationNumber, entry.description, entry.amount);
                 i++;
             }
         }

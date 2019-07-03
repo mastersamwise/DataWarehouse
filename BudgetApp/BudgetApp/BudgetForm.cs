@@ -53,6 +53,12 @@ namespace BudgetApp
             SaveEntries();
         }
 
+        // remove selected entries from the budget summary table
+        private void DeleteSummaryEntries_click(object sender, EventArgs e)
+        {
+            DeleteSelectedEntries();
+        }
+
         // backup the current entries in the table
         private void BackupEntries_click(object sender, EventArgs e)
         {
@@ -70,8 +76,8 @@ namespace BudgetApp
         {
             activeInstance.RestoreOlderBackup();
         }
-        #endregion button clicks
 
+        #endregion button clicks
 
         #region CRUD
         // retrieve the entries from the data source
@@ -93,11 +99,11 @@ namespace BudgetApp
 
             foreach (DataRow row in activeInstance.dt.Rows)
             {
-                entry.entryID = Int32.Parse(row[Constants.ENTRY_ID].ToString());
-                entry.date = (DateTime)row[Constants.DATE];
-                entry.category = row[Constants.CATEGORY].ToString();
-                entry.description = row[Constants.DESCRIPTION].ToString();
-                entry.amount = Double.Parse(row[Constants.AMOUNT].ToString());
+                entry.entryID = Int32.Parse(row[Constants.COLUMN_ENTRY_ID].ToString());
+                entry.date = (DateTime)row[Constants.COLUMN_DATE];
+                entry.category = row[Constants.COLUMN_CATEGORY].ToString();
+                entry.description = row[Constants.COLUMN_DESCRIPTION].ToString();
+                entry.amount = Double.Parse(row[Constants.COLUMN_AMOUNT].ToString());
 
                 DataAccessLayer.SaveEntry(entry);
             }
@@ -112,12 +118,11 @@ namespace BudgetApp
             for( int i = 0; i < activeInstance.dt.Rows.Count; i ++ )
             {
                 DataRow row = activeInstance.dt.Rows[i];
-                int currentID = Int32.Parse(row[Constants.ENTRY_ID].ToString());
-                //if (rowIDsToDelete.Contains(currentID))
-                //{
-                //    row.Delete();
-                //}
-                activeInstance.dt.AcceptChanges();
+                if (Boolean.Parse(row.ItemArray[1].ToString()))
+                {
+                    activeInstance.dt.Rows.Remove(row);
+                    activeInstance.dt.AcceptChanges();
+                }
             }
             Logger.Info("... entries saved.");
         }
@@ -134,7 +139,7 @@ namespace BudgetApp
 
             DataColumn idCol = new DataColumn();
             idCol.DataType = Type.GetType(typeof(int).ToString());
-            idCol.ColumnName = Constants.ENTRY_ID;
+            idCol.ColumnName = Constants.COLUMN_ENTRY_ID;
             idCol.ReadOnly = true;
             idCol.Unique = true;
             idCol.AutoIncrement = true;
@@ -149,46 +154,47 @@ namespace BudgetApp
 
             DataColumn dateCol = new DataColumn();
             dateCol.DataType = Type.GetType(typeof(DateTime).ToString());
-            dateCol.ColumnName = Constants.DATE;
+            dateCol.ColumnName = Constants.COLUMN_DATE;
             dateCol.ReadOnly = false;
             dateCol.Unique = false;
             table.Columns.Add(dateCol);
 
             DataColumn categoryCol = new DataColumn();
             categoryCol.DataType = Type.GetType(typeof(string).ToString());
-            categoryCol.ColumnName = Constants.CATEGORY;
+            categoryCol.ColumnName = Constants.COLUMN_CATEGORY;
             categoryCol.ReadOnly = false;
             categoryCol.Unique = false;
             table.Columns.Add(categoryCol);
 
             DataColumn confirmationNumberCol = new DataColumn();
             confirmationNumberCol.DataType = Type.GetType(typeof(string).ToString());
-            confirmationNumberCol.ColumnName = Constants.CONFIRMATION_NUMBER;
+            confirmationNumberCol.ColumnName = Constants.COLUMN_CONFIRMATION_NUMBER;
             confirmationNumberCol.ReadOnly = false;
             confirmationNumberCol.Unique = false;
             table.Columns.Add(confirmationNumberCol);
 
             DataColumn descCol = new DataColumn();
             descCol.DataType = Type.GetType(typeof(string).ToString());
-            descCol.ColumnName = Constants.DESCRIPTION;
+            descCol.ColumnName = Constants.COLUMN_DESCRIPTION;
             descCol.ReadOnly = false;
             descCol.Unique = false;
             table.Columns.Add(descCol);
 
             DataColumn amountCol = new DataColumn();
             amountCol.DataType = Type.GetType(typeof(double).ToString());
-            amountCol.ColumnName = Constants.AMOUNT;
+            amountCol.ColumnName = Constants.COLUMN_AMOUNT;
             amountCol.ReadOnly = false;
             amountCol.Unique = false;
             table.Columns.Add(amountCol);
 
-            table.Columns[Constants.ENTRY_ID].ColumnMapping = MappingType.Hidden;
+            // table.Columns[Constants.COLUMN_ENTRY_ID].ColumnMapping = MappingType.Hidden;
 
             return table;
         }
 
-        
+
         #endregion Creating table
+
         
     }
 }

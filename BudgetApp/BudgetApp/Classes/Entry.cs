@@ -18,6 +18,7 @@ namespace BudgetApp.Classes
         public string name;
         public string description;
         public string category;
+        public string confirmationNumber;
         public double amount;
 
         public Entry()
@@ -30,12 +31,13 @@ namespace BudgetApp.Classes
             this.dateAdded = date;
         }
 
-        public Entry(DateTime date, string name, string description, string category, double amount)
+        public Entry(DateTime date, string name, string description, string category, string confirmationNumber, double amount)
         {
             this.date = date;
             this.name = name;
             this.description = description;
             this.category = category;
+            this.confirmationNumber = confirmationNumber;
             this.amount = amount;
             this.dateAdded = DateTime.UtcNow;
         }

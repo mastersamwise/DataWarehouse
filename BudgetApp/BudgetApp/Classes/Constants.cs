@@ -10,11 +10,12 @@ namespace BudgetApp.Classes
     {
         // Budget Table Columns
         public static string BUDGET_TABLE_NAME = "BudgetTable";
-        public static string ENTRY_ID = "Entry ID";
-        public static string DATE = "Date";
-        public static string CATEGORY = "Category";
-        public static string CONFIRMATION_NUMBER = "Confirmation Number";
-        public static string DESCRIPTION = "Description";
-        public static string AMOUNT = "Amount";
+        public static string COLUMN_IS_SELECTED = "Selected";
+        public static string COLUMN_ENTRY_ID = "Entry ID";
+        public static string COLUMN_DATE = "Date";
+        public static string COLUMN_CATEGORY = "Category";
+        public static string COLUMN_CONFIRMATION_NUMBER = "Confirmation Number";
+        public static string COLUMN_DESCRIPTION = "Description";
+        public static string COLUMN_AMOUNT = "Amount";
     }
 }
