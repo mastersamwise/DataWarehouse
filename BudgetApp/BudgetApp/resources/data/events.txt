@@ -1,3 +1,6 @@
 {"entryID":85,"isSelected":false,"dateAdded":"2019-07-03T17:54:40.5952849Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","amount":8.0}
 {"entryID":1,"isSelected":false,"dateAdded":"2019-07-03T17:56:48.1190481Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","amount":8.0}
 {"entryID":2,"isSelected":false,"dateAdded":"2019-07-03T17:56:48.1190481Z","date":"2019-08-08T00:00:00","name":"","description":"paid electricity bill","category":"pnc","amount":132.0}
+{"entryID":1,"isSelected":false,"dateAdded":"2019-07-07T20:10:47.5254946Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","confirmationNumber":null,"amount":8.0}
+{"entryID":2,"isSelected":false,"dateAdded":"2019-07-07T20:10:47.5254946Z","date":"1898-03-07T00:00:00","name":"","description":"testing","category":"citi bank","confirmationNumber":null,"amount":8.0}
+{"entryID":3,"isSelected":false,"dateAdded":"2019-07-07T20:10:47.5254946Z","date":"2019-08-08T00:00:00","name":"","description":"paid electricity bill","category":"pnc","confirmationNumber":null,"amount":132.0}

@@ -1,0 +1,11 @@
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\bin\Debug\netcoreapp2.1\CalendarTest.deps.json
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\bin\Debug\netcoreapp2.1\CalendarTest.runtimeconfig.json
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\bin\Debug\netcoreapp2.1\CalendarTest.runtimeconfig.dev.json
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\bin\Debug\netcoreapp2.1\CalendarTest.dll
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\obj\Debug\netcoreapp2.1\CalendarTest.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\obj\Debug\netcoreapp2.1\CalendarTest.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\obj\Debug\netcoreapp2.1\CalendarTest.AssemblyInfoInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\obj\Debug\netcoreapp2.1\CalendarTest.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\bin\Debug\netcoreapp2.1\CalendarTest.pdb
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\obj\Debug\netcoreapp2.1\CalendarTest.dll
+C:\Users\Nik\Git_Repos\DataWarehouse\CalendarTest\CalendarTest\obj\Debug\netcoreapp2.1\CalendarTest.pdb
