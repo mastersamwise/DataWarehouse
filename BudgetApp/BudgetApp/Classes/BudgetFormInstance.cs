@@ -19,6 +19,8 @@ namespace BudgetApp.Classes
         public bool isBackup1Latest { get; set; }
         public List<Entry> budgetEntries { get; set; }
         public List<Entry> selectedEntries { get; set; }
+        public Dictionary<string, double> runningTotals { get; set; }
+
 
         // Constructor
         public BudgetFormInstance(string user)
