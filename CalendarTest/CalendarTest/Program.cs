@@ -58,6 +58,7 @@ namespace CalendarQuickstart
             Console.WriteLine("Upcoming events:");
             if (events.Items != null && events.Items.Count > 0)
             {
+                Console.WriteLine("Number of Upcoming Events: {0}", events.Items.Count);
                 foreach (var eventItem in events.Items)
                 {
                     string when = eventItem.Start.DateTime.ToString();
