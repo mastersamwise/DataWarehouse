@@ -1,19 +1,21 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "17eb9c31cb8b26a144ed32855a8f8d3fc786ca81"
+    "signature": "b821d474a189a6ff6b38c53f0102dc81c23a3dcd"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "CalendarTest/1.0.0": {
         "dependencies": {
+          "GitForWindows": "2.23.0",
           "Google.Apis.Calendar.v3": "1.40.2.1620"
         },
         "runtime": {
           "CalendarTest.dll": {}
         }
       },
+      "GitForWindows/2.23.0": {},
       "Google.Apis/1.40.2": {
         "dependencies": {
           "Google.Apis.Core": "1.40.2",
@@ -429,31 +431,38 @@
       "serviceable": false,
       "sha512": ""
     },
+    "GitForWindows/2.23.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yN2cJUgTSfV9eU/pgx2WTZUe0PG6FRl46Zc3lbAViu3ujhAjBHFMaQ6d7MzBEDYdyFSEZjKHpi/HIA/V1ljsug==",
+      "path": "gitforwindows/2.23.0",
+      "hashPath": "gitforwindows.2.23.0.nupkg.sha512"
+    },
     "Google.Apis/1.40.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cA0x/6oV3K2zpcK3OdqkCUB80QkuVUe9naAdlVcshelPSL9tJzKdBR11LMz4hAOpTc2vtqMm9rkQa4jgOfHRWw==",
+      "sha512": "sha512-McG+IUvi20U5nTjtZ7Z/6ucB4ZU4YSRoGWp5YbCZDL1iqMk1GP5o+RYSAEtShq/bwS8DznPvkV8N3fPV4+09Ng==",
       "path": "google.apis/1.40.2",
       "hashPath": "google.apis.1.40.2.nupkg.sha512"
     },
     "Google.Apis.Auth/1.40.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0YHiCwWF5DkKf7kpe89AjAB9FoJTu1qpPdkw3eUwfFc8ohuGQbxSVgyiieAtWhSvJ01iKH7zepdNR1PyrFPRvQ==",
+      "sha512": "sha512-2iVtgzEXz7aWGXjPP5Onfy8wA3qy7vRMDa+QN5VDqLHmOyxdbgXRsxzWCigG6zoKy7YUH8MJrSZ3fNz3/fhDfQ==",
       "path": "google.apis.auth/1.40.2",
       "hashPath": "google.apis.auth.1.40.2.nupkg.sha512"
     },
     "Google.Apis.Calendar.v3/1.40.2.1620": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XZrCJGhF/0mNWPs+uZhJ3SvH1EmMBQ1rdnUrP3DN3LYU1rgFQRBxoI16f0cuHnKs1+FsZdjHI+rqkB/BHHs//w==",
+      "sha512": "sha512-DqpLWPuj3WOHCUE3vvE4bg71YbOlbOV/mEJAFE4YW0NfPP5OkhxvZao1aiwRMqPrvvXvmWbJGIPR/WQ1IZ5G6g==",
       "path": "google.apis.calendar.v3/1.40.2.1620",
       "hashPath": "google.apis.calendar.v3.1.40.2.1620.nupkg.sha512"
     },
     "Google.Apis.Core/1.40.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eOI5/BdxfRgrI+3ZGVrogatR7VvHyKvcPCRNDi1KS/ptm0CTf4+zY8I/ryrMCIrKMoW9aQamMoNjbKFruRIv8A==",
+      "sha512": "sha512-kuCdS0/RbPC2phdIZHDobskPweXjhv+vBq3wmnRcn73M6se+B0TFUP4oU+0eDKIl0x+iqJR7SHg66MAt9B6Cuw==",
       "path": "google.apis.core/1.40.2",
       "hashPath": "google.apis.core.1.40.2.nupkg.sha512"
     },
@@ -467,7 +476,7 @@
     "Newtonsoft.Json/10.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iwElSU2IXmwGvytJsezyDML2ZWDkG2JzTYzlU/BNlmzMdlmRvbnwITsGGY74gwVEpDli1UdOLkMT7/3jxWvXzA==",
+      "sha512": "sha512-vcX8ci+srBr5scnSKCUNNoFo5BQ6KjdfeJ5LCJQhvxncNkTy7w3pAWsnRJrsF9WBBdMiaQp0aOa3YRh1CDCc7A==",
       "path": "newtonsoft.json/10.0.2",
       "hashPath": "newtonsoft.json.10.0.2.nupkg.sha512"
     },
