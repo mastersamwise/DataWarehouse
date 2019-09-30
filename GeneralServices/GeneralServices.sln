@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralServices", "GeneralServices\GeneralServices.csproj", "{586A426F-1363-45E1-9F13-40C0605DBA62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralServices", "GeneralServices\GeneralServices.csproj", "{586A426F-1363-45E1-9F13-40C0605DBA62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralServices-Web", "GeneralServices-Web\GeneralServices-Web.csproj", "{6B017995-776E-494E-8E87-BA5317CE51D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralServices-Web", "GeneralServices-Web\GeneralServices-Web.csproj", "{6B017995-776E-494E-8E87-BA5317CE51D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
