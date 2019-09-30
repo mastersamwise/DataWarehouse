@@ -1,0 +1,14 @@
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/bin/Debug/netcoreapp2.1/GeneralServices.deps.json
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/bin/Debug/netcoreapp2.1/GeneralServices.runtimeconfig.json
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/bin/Debug/netcoreapp2.1/GeneralServices.runtimeconfig.dev.json
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/bin/Debug/netcoreapp2.1/GeneralServices.dll
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/bin/Debug/netcoreapp2.1/GeneralServices.pdb
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.csprojAssemblyReference.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.csproj.CoreCompileInputs.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.RazorAssemblyInfo.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.RazorAssemblyInfo.cs
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.AssemblyInfoInputs.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.AssemblyInfo.cs
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.RazorTargetAssemblyInfo.cache
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.dll
+/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.pdb

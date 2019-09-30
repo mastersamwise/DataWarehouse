@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{586A426F-1363-45E1-9F13-40C0605DBA62}|Default">
+  <MonoDevelop.Ide.ItemProperties.GeneralServices PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeneralServices/DataAccessLayer/ConcertDAL.cs">
+    <Files>
+      <File FileName="GeneralServices/Controllers/ConcertController.cs" Line="26" Column="13" />
+      <File FileName="GeneralServices/DataAccessLayer/ConcertDAL.cs" Line="25" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GeneralServices" expanded="True">
+            <Node name="GeneralServices" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="DataAccessLayer" expanded="True">
+                <Node name="ConcertDAL.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
