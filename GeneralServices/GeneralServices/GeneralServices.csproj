@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="DataAccessLayer\" />
   </ItemGroup>
 
   <ItemGroup>

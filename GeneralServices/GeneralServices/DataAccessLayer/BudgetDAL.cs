@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GeneralServices.DataAccessLayer
 {
-    public class ConcertDAL
+    public class BudgetDAL
     {
 
     }
