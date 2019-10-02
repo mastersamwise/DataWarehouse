@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GeneralServices.Controllers
+using GeneralServices.DataAccessLayer;
+
+namespace GeneralServices
 {
     public class BudgetController : ControllerBase
     {
@@ -12,61 +14,96 @@ namespace GeneralServices.Controllers
         [Route("[controller]")]
         public class ConcertController : ControllerBase
         {
+            #region Properties
+
+            BudgetDAL budgetDAL = new BudgetDAL();
+
+            #endregion Properties
+
+            #region Methods
+
             [HttpPost]
             [Route("AddBudgetEntry")]
             public ActionResult<string> AddBudgetEntry([FromBody]string value)
             {
-                return "Add Budget Entry";
+                string result = "empty";
+
+                result = budgetDAL.AddBudgetEntry();
+                return result;
             }
 
             [HttpPost]
             [Route("EditBudgetEntry")]
             public ActionResult<string> EditBudgetEntry([FromBody]string value)
             {
-                return "Edit Budget Entry";
+                string result = "empty";
+
+                BudgetEntry entry = new BudgetEntry();
+                result = budgetDAL.EditBudgetEntry(entry);
+                return result;
             }
 
             [HttpPost]
             [Route("DeleteBudgetEntry/{inBudgetEntry}")]
             public ActionResult<string> DeleteBudgetEntry(int inBudgetEntry)
             {
-                return "Delete Budget Entry";
+                string result = "empty";
+
+                result = budgetDAL.DeleteBudgetEntry();
+                return result;
             }
 
             [HttpGet]
             [Route("GetAllBudgetEntries")]
             public ActionResult<string> GetAllBudgetEntries()
             {
-                return "Get All Budget Entries";
+                string result = "empty";
+
+                result = budgetDAL.GetAllBudgetEntries();
+                return result;
             }
 
             [HttpPost]
             [Route("AddBudgetCategory")]
             public ActionResult<string> AddBudgetCategory([FromBody]string value)
             {
-                return "Add Budget Category";
+                string result = "empty";
+
+                result = budgetDAL.AddBudgetCategory();
+                return result;
             }
 
             [HttpPost]
             [Route("EditBudgetCategory")]
             public ActionResult<string> EditBudgetCategory([FromBody]string value)
             {
-                return "Edit Budget Category";
+                string result = "empty";
+
+                result = budgetDAL.EditBudgetCategory();
+                return result;
             }
 
             [HttpPost]
             [Route("DeleteBudgetCategory/{inBudgetCategory}")]
             public ActionResult<string> DeleteBudgetCategory(int inBudgetCategory)
             {
-                return "Delete Budget Category";
+                string result = "empty";
+
+                result = budgetDAL.DeleteBudgetCategory();
+                return result;
             }
 
             [HttpGet]
             [Route("GetBudgetEntriesByCategory")]
             public ActionResult<string> GetBudgetEntriesByCategory(int inBudgetCategory)
             {
-                return "Get Budget Entries By Category";
+                string result = "empty";
+
+                result = budgetDAL.GetBudgetEntriesByCategory();
+                return result;
             }
+
+            #endregion Methods
         }
     }
 }

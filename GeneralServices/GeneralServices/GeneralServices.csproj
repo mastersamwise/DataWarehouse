@@ -7,6 +7,8 @@
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="wwwroot\" />
+    <Folder Include="Classes\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
