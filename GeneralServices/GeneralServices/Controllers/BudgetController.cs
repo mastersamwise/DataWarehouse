@@ -27,8 +27,9 @@ namespace GeneralServices
             public ActionResult<string> AddBudgetEntry([FromBody]string value)
             {
                 string result = "empty";
+                BudgetEntry entry = new BudgetEntry();
 
-                result = budgetDAL.AddBudgetEntry();
+                result = budgetDAL.AddBudgetEntry(entry);
                 return result;
             }
 
@@ -37,8 +38,8 @@ namespace GeneralServices
             public ActionResult<string> EditBudgetEntry([FromBody]string value)
             {
                 string result = "empty";
-
                 BudgetEntry entry = new BudgetEntry();
+
                 result = budgetDAL.EditBudgetEntry(entry);
                 return result;
             }
@@ -48,8 +49,9 @@ namespace GeneralServices
             public ActionResult<string> DeleteBudgetEntry(int inBudgetEntry)
             {
                 string result = "empty";
+                int entryID = 1;
 
-                result = budgetDAL.DeleteBudgetEntry();
+                result = budgetDAL.DeleteBudgetEntry(entryID);
                 return result;
             }
 
@@ -68,8 +70,9 @@ namespace GeneralServices
             public ActionResult<string> AddBudgetCategory([FromBody]string value)
             {
                 string result = "empty";
+                BudgetCategory category = new BudgetCategory();
 
-                result = budgetDAL.AddBudgetCategory();
+                result = budgetDAL.AddBudgetCategory(category);
                 return result;
             }
 
@@ -78,8 +81,9 @@ namespace GeneralServices
             public ActionResult<string> EditBudgetCategory([FromBody]string value)
             {
                 string result = "empty";
+                BudgetCategory category = new BudgetCategory();
 
-                result = budgetDAL.EditBudgetCategory();
+                result = budgetDAL.EditBudgetCategory(category);
                 return result;
             }
 
@@ -88,8 +92,9 @@ namespace GeneralServices
             public ActionResult<string> DeleteBudgetCategory(int inBudgetCategory)
             {
                 string result = "empty";
+                int categoryID = 1;
 
-                result = budgetDAL.DeleteBudgetCategory();
+                result = budgetDAL.DeleteBudgetCategory(categoryID);
                 return result;
             }
 
@@ -98,8 +103,9 @@ namespace GeneralServices
             public ActionResult<string> GetBudgetEntriesByCategory(int inBudgetCategory)
             {
                 string result = "empty";
+                int categoryID = 1;
 
-                result = budgetDAL.GetBudgetEntriesByCategory();
+                result = budgetDAL.GetBudgetEntriesByCategory(categoryID);
                 return result;
             }
 
