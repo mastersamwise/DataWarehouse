@@ -11,7 +11,7 @@ namespace GeneralServices
     public class BudgetController : ControllerBase
     {
         [ApiController]
-        [Route("[controller]")]
+        [Route("Budget/[controller]")]
         public class ConcertController : ControllerBase
         {
             #region Properties

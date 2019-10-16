@@ -2,9 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.GeneralServices PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GeneralServices/Controllers/BudgetController.cs">
     <Files>
-      <File FileName="GeneralServices/Controllers/BudgetController.cs" Line="41" Column="54" />
-      <File FileName="GeneralServices/DataAccessLayer/BudgetDAL.cs" Line="6" Column="42" />
+      <File FileName="GeneralServices/Controllers/BudgetController.cs" Line="50" Column="14" />
+      <File FileName="GeneralServices/DataAccessLayer/BudgetDAL.cs" Line="18" Column="1" />
       <File FileName="GeneralServices/Classes/BudgetCategory.cs" Line="3" Column="26" />
+      <File FileName="GeneralServices/Controllers/ValuesController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,5 +28,11 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Debug" Name="Debug">
+      <Items>
+        <StartupItem ItemId="{586A426F-1363-45E1-9F13-40C0605DBA62}" ItemName="GeneralServices" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
 </Properties>
