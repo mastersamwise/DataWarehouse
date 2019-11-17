@@ -19,7 +19,7 @@ namespace GeneralServices.DataAccessLayer
 
         public static SqlCommand SetUpStoredProcedure(SqlConnection inConnection, string inStoredProcedureName, string inConnectionString = "")
         {
-            if (inConnectionString == "" || inConnectionString == null)
+            if (String.IsNullOrEmpty(inConnectionString))
             {
                 inConnectionString = CONNECTION_STRING;
             }
