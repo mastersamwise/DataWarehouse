@@ -11,7 +11,8 @@ namespace GeneralServices.DataAccessLayer
     {
         #region Properties
 
-        public static string CONNECTION_STRING { get; } = "Data Source = localhost;Initial Catalog = master; User ID = DESKTOP-1FBPA48\\Nik; Password=";
+        //public static string CONNECTION_STRING { get; } = "Data Source = localhost;Initial Catalog = master; User ID = DESKTOP-1FBPA48\\Nik; Password=";
+        public static string CONNECTION_STRING { get; } = "Server=localhost\\MSSQLSERVER01;Database=master;Trusted_Connection=True;";
 
         #endregion Properties
 
