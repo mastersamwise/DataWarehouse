@@ -13,7 +13,8 @@ namespace GeneralServices.DataAccessLayer
 
         //public static string CONNECTION_STRING { get; } = "Data Source = localhost;Initial Catalog = master; User ID = DESKTOP-1FBPA48\\Nik; Password=";
         //"Server=localhost\\MSSQLSERVER01;Database=master;Trusted_Connection=True;"
-        public static string CONNECTION_STRING { get; } = "Server=localhost;Database=general_services;Trusted_Connection=True;User ID=DESKTOP-1FBPA48\\Nik;";
+        public static string CONNECTION_STRING { get; } = "Server=DESKTOP-QBTM174\\TEST;Database=general_services;Trusted_Connection=True;User ID=DESKTOP-QBTM174\\Nik;";
+        // DESKTOP-1FBPA48\\Nik    (Mac's SqlServer DB user)
 
         #endregion Properties
 
