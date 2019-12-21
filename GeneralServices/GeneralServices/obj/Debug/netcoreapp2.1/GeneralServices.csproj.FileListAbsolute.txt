@@ -28,3 +28,4 @@ C:\Users\Nik\Git_Repos\DataWarehouse\GeneralServices\GeneralServices\obj\Debug\n
 C:\Users\Nik\Git_Repos\DataWarehouse\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.csproj.CopyComplete
 C:\Users\Nik\Git_Repos\DataWarehouse\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.dll
 C:\Users\Nik\Git_Repos\DataWarehouse\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.pdb
+C:\Users\Nik\Git_Repos\DataWarehouse\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.csprojAssemblyReference.cache
