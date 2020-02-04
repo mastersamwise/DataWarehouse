@@ -25,7 +25,7 @@ namespace GeneralServices
 
         [HttpGet]
         [Route("GetUpcomingEvents")]
-        public string GetUpcomingEvents()
+        public ActionResult<string> GetUpcomingEvents()
         {
             UserCredential credential;
             string result = "empty";
