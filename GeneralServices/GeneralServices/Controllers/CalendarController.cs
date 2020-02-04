@@ -22,6 +22,7 @@ namespace GeneralServices
         // at ~/.credentials/calendar-dotnet-quickstart.json
         public static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
         public static string ApplicationName = "Google Calendar API .NET Quickstart";
+        public CalendarService service = new CalendarService();
 
         [HttpGet]
         [Route("GetUpcomingEvents")]
@@ -45,29 +46,60 @@ namespace GeneralServices
             }
 
             // Create Google Calendar API service.
-            var service = new CalendarService(new BaseClientService.Initializer()
+            service = new CalendarService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
+            string primaryCalendarEvents = GetEvents("primary", new DateTime(2020, 01, 30));
+            string billCalendarEvents = null; //GetEvents("bills", new DateTime(2020, 01, 30));
+            string goCalendarEvents = null; //GetEvents("go", new DateTime(2020, 01, 30));
+
+            if (!String.IsNullOrEmpty(primaryCalendarEvents))
+            {
+                result = primaryCalendarEvents + "\n\n";
+            }
+            if (!String.IsNullOrEmpty(billCalendarEvents))
+            {
+                result += billCalendarEvents + "\n\n";
+            }
+            if (!String.IsNullOrEmpty(goCalendarEvents))
+            {
+                result += goCalendarEvents + "\n\n";
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get a list of events, provided a latest start date and the calendar name
+        /// </summary>
+        /// <returns>The events.</returns>
+        /// <param name="inCalendarName">calendar name</param>
+        /// <param name="inLatestStartDate">date to stop fetching items</param>
+        public string GetEvents(string inCalendarName, DateTime inLatestStartDate, int inMaxResults = 250)
+        {
+            string result = "null";
+
             // Define parameters of request.
-            EventsResource.ListRequest request = service.Events.List("primary");
+            EventsResource.ListRequest request = service.Events.List(inCalendarName);
             request.TimeMin = DateTime.Now;
             request.ShowDeleted = false;
             request.SingleEvents = true;
-            request.MaxResults = 10;
+            request.MaxResults = inMaxResults;
+            request.TimeMax = inLatestStartDate;
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
             // List events.
-            Events events = request.Execute();
+            Events eventsToReturn = request.Execute();
             //Console.WriteLine("Upcoming events:");
-            result += "\n Upcoming events: ";
-            if (events.Items != null && events.Items.Count > 0)
+            if (eventsToReturn.Items != null && eventsToReturn.Items.Count > 0)
             {
+                result = "Upcoming events: ";
                 //Console.WriteLine("Number of Upcoming Events: {0}", events.Items.Count);
-                result += String.Format("\n Number of Upcoming Events: {0}", events.Items.Count);
-                foreach (var eventItem in events.Items)
+                result += String.Format("\n Number of Upcoming Events: {0}", eventsToReturn.Items.Count);
+                foreach (var eventItem in eventsToReturn.Items)
                 {
                     string when = eventItem.Start.DateTime.ToString();
                     if (String.IsNullOrEmpty(when))
@@ -75,13 +107,13 @@ namespace GeneralServices
                         when = eventItem.Start.Date;
                     }
                     //Console.WriteLine("{0} ({1})", eventItem.Summary, when);
-                    result += String.Format("{0} ({1})", eventItem.Summary, when);
+                    result += String.Format("\n {0} ({1})", eventItem.Summary, when);
                 }
             }
             else
             {
                 //Console.WriteLine("No upcoming events found.");
-                result += "No upcoming events found.";
+                result = String.Format("No upcoming events found for calendar: {0}.", inCalendarName);
             }
             //Console.Read();
 
