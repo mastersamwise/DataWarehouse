@@ -24,6 +24,15 @@ namespace GeneralServices
         public static string ApplicationName = "Google Calendar API .NET Quickstart";
         public CalendarService service = new CalendarService();
 
+        public string primaryCalendarID = "primary";
+        public string billsCalendarID = "g386rnld8s48mc390j4pg6b12s@group.calendar.google.com";
+        public string pokemonGoCalendarID = "nlrq494bf4oqmr9hoemib9g4ho@group.calendar.google.com";
+        public string whitneyCalendarID = "5db4a2ppudspvlgicae3cmigrk@group.calendar.google.com";
+        public string usHolidayCalendarID = "en.usa#holiday@group.v.calendar.google.com";
+        public string ianTravelItineraryCalendarID = "cjf9u06rnt4it5v91f6j7nnj1o@group.calendar.google.com";
+        public string lxaCalendarID = "5vfo6fip46u8piimc75dgoc9ao@group.calendar.google.com";
+
+
         [HttpGet]
         [Route("GetUpcomingEvents")]
         public ActionResult<string> GetUpcomingEvents()
@@ -52,9 +61,15 @@ namespace GeneralServices
                 ApplicationName = ApplicationName,
             });
 
-            string primaryCalendarEvents = GetEvents("primary", new DateTime(2020, 01, 30));
-            string billCalendarEvents = null; //GetEvents("bills", new DateTime(2020, 01, 30));
-            string goCalendarEvents = null; //GetEvents("go", new DateTime(2020, 01, 30));
+            string primaryCalendarEvents = GetEvents(primaryCalendarID, new DateTime(2020, 03, 30));
+            string billCalendarEvents = GetEvents(billsCalendarID, new DateTime(2020, 03, 30));
+            string goCalendarEvents = GetEvents(pokemonGoCalendarID, new DateTime(2020, 03, 30));
+            string whitneyCalendarEvents = GetEvents(whitneyCalendarID, new DateTime(2020, 03, 30));
+            string usHolidayCalendarEvents = GetEvents(usHolidayCalendarID, new DateTime(2020, 03, 30));
+            string ianTravelItineraryCalendarEvents = GetEvents(ianTravelItineraryCalendarID, new DateTime(2020, 03, 30));
+            string lxaCalendarEvents = GetEvents(lxaCalendarID, new DateTime(2020, 03, 30));
+
+
 
             if (!String.IsNullOrEmpty(primaryCalendarEvents))
             {
@@ -68,6 +83,22 @@ namespace GeneralServices
             {
                 result += goCalendarEvents + "\n\n";
             }
+            if (!String.IsNullOrEmpty(whitneyCalendarEvents))
+            {
+                result += whitneyCalendarEvents + "\n\n";
+            }
+            if (!String.IsNullOrEmpty(usHolidayCalendarEvents))
+            {
+                result += usHolidayCalendarEvents + "\n\n";
+            }
+            if (!String.IsNullOrEmpty(ianTravelItineraryCalendarEvents))
+            {
+                result += ianTravelItineraryCalendarEvents + "\n\n";
+            }
+            if (!String.IsNullOrEmpty(lxaCalendarEvents))
+            {
+                result += lxaCalendarEvents + "\n\n";
+            }
 
             return result;
         }
@@ -76,14 +107,14 @@ namespace GeneralServices
         /// Get a list of events, provided a latest start date and the calendar name
         /// </summary>
         /// <returns>The events.</returns>
-        /// <param name="inCalendarName">calendar name</param>
+        /// <param name="inCalendarID">calendar name</param>
         /// <param name="inLatestStartDate">date to stop fetching items</param>
-        public string GetEvents(string inCalendarName, DateTime inLatestStartDate, int inMaxResults = 250)
+        public string GetEvents(string inCalendarID, DateTime inLatestStartDate, int inMaxResults = 250)
         {
             string result = "null";
 
             // Define parameters of request.
-            EventsResource.ListRequest request = service.Events.List(inCalendarName);
+            EventsResource.ListRequest request = service.Events.List(inCalendarID);
             request.TimeMin = DateTime.Now;
             request.ShowDeleted = false;
             request.SingleEvents = true;
@@ -113,7 +144,7 @@ namespace GeneralServices
             else
             {
                 //Console.WriteLine("No upcoming events found.");
-                result = String.Format("No upcoming events found for calendar: {0}.", inCalendarName);
+                result = String.Format("No upcoming events found for calendar: {0}.", inCalendarID);
             }
             //Console.Read();
 
