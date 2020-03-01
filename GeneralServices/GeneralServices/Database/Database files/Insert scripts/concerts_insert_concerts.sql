@@ -97,7 +97,3 @@ BEGIN
 	SET @id = (SELECT MIN( id_ ) FROM @concertsTable WHERE id_ > @id)
 END
 
-
-
-
-
