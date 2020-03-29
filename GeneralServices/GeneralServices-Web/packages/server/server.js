@@ -2,10 +2,10 @@
 
 'use strict'
 const express = require('express');
-const path = requre('path');
+const path = require('path');
 const http = require("http");
-const fs = requre('fs');
-const bodyParser = requre('body-parser');
+const fs = require('fs');
+const bodyParser = require('body-parser');
 const app = express();
 
 var now = new Date();
