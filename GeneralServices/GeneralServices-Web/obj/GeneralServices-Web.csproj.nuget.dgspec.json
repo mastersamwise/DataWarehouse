@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices-Web\\GeneralServices-Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices-Web\\GeneralServices-Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices-Web\\GeneralServices-Web.csproj",
+        "projectName": "GeneralServices-Web",
+        "projectPath": "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices-Web\\GeneralServices-Web.csproj",
+        "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices-Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

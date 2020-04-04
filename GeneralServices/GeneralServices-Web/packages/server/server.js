@@ -1,13 +1,39 @@
 // https://malcoded.com/posts/angular-backend-express/
 
-const express = require('express')
-const http = require("http")
-const app = express()
+'use strict'
+const express = require('express');
+const path = require('path');
+const http = require("http");
+const fs = require('fs');
+const bodyParser = require('body-parser');
+const app = express();
 
 var now = new Date();
-var timeStr = now.getUTCDate() + " " + now.getUTCHours() + ":" + now.getUTCMinutes() + ":" + now.getUTCSeconds() + " - ";
+var timeStr = '\n' + now.getUTCDate().toString() + " " + now.getUTCHours() + ":" + now.getUTCMinutes() + ":" + now.getUTCSeconds() + " - ";
 
-app.listen(8000, () => {
+// load configurations
+const result = require('dotenv-override').config({
+    override: true,
+    path: './config/server/server-config.env'
+});
+if (result.error) {
+    console.warn(timeStr + 'Error reading config file: ' + result.error);
+}
+
+// point static path to dist
+app.use(express.static(path.join(__dirname, '../../dist')));
+
+// support json encoded bodies
+app.use(
+    bodyParser.json({ limit: '5mb' })
+);
+
+// create HTTP server
+const httpapp = express();
+const httpport = process.env.PORT || '80';
+const httpserver = http.createServer(httpapp);
+
+app.listen(httpport, () => {
     console.log(timeStr + 'Server started');
 })
 
