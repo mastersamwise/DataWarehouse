@@ -1,4 +1,4 @@
-INSERT INTO [concerts].[People]
+INSERT INTO [common].[People]
 ( [person_first_name], [person_last_name], [person_relationship] )
 VALUES
 ('Nik', 'Bournelis', ''),
@@ -9,7 +9,7 @@ VALUES
 ('Whitney', 'Weinstein', ''),
 ('Michael', 'Hains', ''),
 ('Chris', 'Wozunk', ''),
-('Abby', '', 'Wozunk''s girlfriend'),
+('Abby', '', 'Wozunk''s girlfriend (at the time)'),
 ('Mike', 'LeCastre', ''),
 ('Anita', '', 'Mike LeCastre''s girlfriend'),
 ('Sean', 'Flynn', ''),
@@ -39,7 +39,7 @@ VALUES
 ('Joey', 'Painter', ''),
 ('Mike', 'Batson', 'Steve DiPietro''s cousin'),
 ('Greta', 'Ertzgard', ''),
-('Stephan', '', 'Veronika''s boyfriend'),
+('Stephan', '', 'Veronika''s husband'),
 ('Sean', 'Harrington', ''),
 ('Christine', 'Kantonides', ''),
 ('Ian', 'Kerrington', 'Whitney'' friend'),

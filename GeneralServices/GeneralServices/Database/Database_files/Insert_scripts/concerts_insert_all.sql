@@ -4,7 +4,7 @@
 	Inserting People  
 
  ************************************************************************/
-INSERT INTO [concerts].[People]
+INSERT INTO [common].[People]
 ( [person_first_name], [person_last_name], [person_relationship] )
 VALUES
 ('Nik', 'Bournelis', ''),
@@ -15,7 +15,7 @@ VALUES
 ('Whitney', 'Weinstein', ''),
 ('Michael', 'Hains', ''),
 ('Chris', 'Wozunk', ''),
-('Abby', '', 'Wozunk''s girlfriend'),
+('Abby', '', 'Wozunk''s girlfriend (at the time)'),
 ('Mike', 'LeCastre', ''),
 ('Anita', '', 'Mike LeCastre''s girlfriend'),
 ('Sean', 'Flynn', ''),
@@ -45,10 +45,10 @@ VALUES
 ('Joey', 'Painter', ''),
 ('Mike', 'Batson', 'Steve DiPietro''s cousin'),
 ('Greta', 'Ertzgard', ''),
-('Stephan', '', 'Veronika''s boyfriend'),
+('Stephan', '', 'Veronika''s husband'),
 ('Sean', 'Harrington', ''),
 ('Christine', 'Kantonides', ''),
-('Ian', 'Kerrington', 'Whitney'' friend'),
+('Ian', 'Kerrington', ''),
 ('Duncan', '', 'Met through Ian and Whitney'),
 ('John', 'Sinis', 'Met through Ian and Whitney'),
 ('Tim', '', 'Duncan''s friend from childhood, Met through Ian and Whitney'),
@@ -489,11 +489,11 @@ BEGIN
 	
 	IF @ln IS NULL OR @ln = ''
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [concerts].[People] WHERE [person_first_name] = @fn AND ([person_last_name] = '' OR [person_last_name] IS NULL))
+		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND ([person_last_name] = '' OR [person_last_name] IS NULL))
 	END
 	ELSE
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [concerts].[People] WHERE [person_first_name] = @fn AND [person_last_name] = @ln)
+		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND [person_last_name] = @ln)
 	END
 
 	IF @person_id IS NULL 

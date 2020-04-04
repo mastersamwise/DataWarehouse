@@ -8,14 +8,14 @@ SELECT	[p].[person_first_name] + ' ' + [p].[person_last_name] AS [Person],
 		) AS [Bands],
 		STUFF((
 			SELECT  ', ' + [ip].[person_first_name] + ' ' + [ip].[person_last_name] AS [text()]
-			FROM [concerts].[People] [ip]
+			FROM [common].[People] [ip]
 				INNER JOIN [concerts].[concertPerson_xref] [icpx] ON [ip].[person_id] = [icpx].[person_id]
 			WHERE [icpx].[concert_id] = [cpx].[concert_id]
 				AND ([ip].[person_first_name] + ' ' + [ip].[person_last_name]) <> ([p].[person_first_name] + ' ' + [p].[person_last_name])
 			FOR XML PATH('')), 1, 2, ''
 		) AS [OtherPeople],
 		[c].[concert_date] AS [ConcertDate]
-FROM [concerts].[People] [p]
+FROM [common].[People] [p]
 	INNER JOIN [concerts].[ConcertPerson_xref] [cpx] ON [p].[person_id] = [cpx].[person_id]
 	INNER JOIN [concerts].[Concerts] [c] ON [cpx].[concert_id] = [c].[concert_id]
 WHERE [p].[person_first_name] = 'Nik' 

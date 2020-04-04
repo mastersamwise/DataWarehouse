@@ -6,16 +6,6 @@ CREATE TABLE [concerts].[Bands]
 )
 GO
 
-CREATE TABLE [concerts].[People]
-(
-	[person_id]				int	identity(1,1)	not null,
-	[person_first_name]		nvarchar (25)		not null,
-	[person_last_name]		nvarchar (25)		null,
-	[person_relationship]	nvarchar (100)		null,
-	CONSTRAINT [PK_People] PRIMARY KEY CLUSTERED ( [person_id] ASC )
-)
-GO
-
 CREATE TABLE [concerts].[Venues]
 (
 	[venue_id]		int identity(1,1)	not null,
@@ -95,7 +85,7 @@ ALTER TABLE [concerts].[ConcertSong_xref]		ADD CONSTRAINT [FK_ConcertSong_Songs]
 ALTER TABLE [concerts].[ConcertSong_xref]		ADD CONSTRAINT [FK_ConcertSong_Concerts]		FOREIGN KEY ( [concert_id] )	REFERENCES [concerts].[Concerts]	( [concert_id] )
 ALTER TABLE [concerts].[ConcertSong_xref]		ADD CONSTRAINT [FK_ConcertSong_Bands]			FOREIGN KEY ( [band_id] )		REFERENCES [concerts].[Bands]		( [band_id] )
 ALTER TABLE [concerts].[ConcertPerson_xref]		ADD CONSTRAINT [FK_ConcertPerson_Concerts]		FOREIGN KEY ( [concert_id] )	REFERENCES [concerts].[Concerts]	( [concert_id] )
-ALTER TABLE [concerts].[ConcertPerson_xref]		ADD CONSTRAINT [FK_ConcertPerson_People]		FOREIGN KEY ( [person_id] )		REFERENCES [concerts].[People]		( [person_id] )
+ALTER TABLE [concerts].[ConcertPerson_xref]		ADD CONSTRAINT [FK_ConcertPerson_People]		FOREIGN KEY ( [person_id] )		REFERENCES [common].[People]		( [person_id] )
 ALTER TABLE [concerts].[ConcertBand_xref]		ADD CONSTRAINT [FK_ConcertBand_Concerts]		FOREIGN KEY ( [concert_id] )	REFERENCES [concerts].[Concerts]	( [concert_id] )
 ALTER TABLE [concerts].[ConcertBand_xref]		ADD CONSTRAINT [FK_ConcertBand_Bands]			FOREIGN KEY ( [band_id] )		REFERENCES [concerts].[Bands]		( [band_id] )
 ALTER TABLE [concerts].[Concerts]				ADD CONSTRAINT [FK_Concerts_Venues]				FOREIGN KEY ( [venue_id] )		REFERENCES [concerts].[Venues]		( [venue_id] )
@@ -117,7 +107,7 @@ ALTER TABLE [concerts].[Concerts]				ADD CONSTRAINT [FK_Concerts_Venues]				FORE
 
 --DROP TABLE [concerts].[Bands]
 --DROP TABLE [concerts].[Concerts]
---DROP TABLE [concerts].[People]
+--DROP TABLE [common].[People]
 --DROP TABLE [concerts].[Venues]
 --DROP TABLE [concerts].[ConcertPerson_xref]
 --DROP TABLE [concerts].[ConcertBand_xref]

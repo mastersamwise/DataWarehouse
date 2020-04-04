@@ -21,6 +21,7 @@ CREATE TABLE [lxa].[Members]
 	[IsDeleted]				BIT				NOT NULL DEFAULT(0),
 	CONSTRAINT [PK_Members] PRIMARY KEY CLUSTERED ( [member_id] ASC )
 )
+GO
 
 CREATE TABLE [lxa].[InitiationClasses]
 (
@@ -33,6 +34,7 @@ CREATE TABLE [lxa].[InitiationClasses]
 	[IsDeleted]				BIT				NOT NULL DEFAULT(0),
 	CONSTRAINT [PK_InitiationClasses] PRIMARY KEY CLUSTERED ( [initiation_class_id] ASC )
 )
+GO
 
 CREATE TABLE [lxa].[HighZetaPositions]
 (
@@ -41,6 +43,7 @@ CREATE TABLE [lxa].[HighZetaPositions]
 	[position_description]	NVARCHAR (50)	NOT NULL,
 	CONSTRAINT [PK_HighZetaPositions] PRIMARY KEY CLUSTERED ( [position_id] ASC )
 )
+GO
 
 CREATE TABLE [lxa].[MemberZetaXREF]
 (
@@ -50,8 +53,9 @@ CREATE TABLE [lxa].[MemberZetaXREF]
 	[end_date]		DATETIME2 (7)	NOT NULL,
 	[is_active]		BIT				NOT NULL DEFAULT(1)
 )
+GO
 
-CREATE TABLE [AlumniBoards]
+CREATE TABLE [lxa].[AlumniBoards]
 (
 	[board_id]				INT				NOT NULL IDENTITY(1,1),
 	[board_name]			NVARCHAR (100)	NOT NULL,
@@ -61,6 +65,7 @@ CREATE TABLE [AlumniBoards]
 	[IsDeleted]				BIT				NOT NULL DEFAULT(0),
 	CONSTRAINT [PK_AlumniBoards] PRIMARY KEY CLUSTERED ( [board_id] ASC )
 )
+GO
 
 CREATE TABLE [lxa].[AlumniBoardMemberXREF]
 (
@@ -73,6 +78,7 @@ CREATE TABLE [lxa].[AlumniBoardMemberXREF]
 	[LastModified]		DATETIME2 (7)	NOT NULL DEFAULT(GETDATE()),
 	[IsDeleted]			BIT				NOT NULL DEFAULT(0)
 )
+GO
 
 CREATE TABLE [lxa].[EmergencyContacts]
 (
@@ -86,6 +92,7 @@ CREATE TABLE [lxa].[EmergencyContacts]
 	[LastModified]			DATETIME2 (7)	NOT NULL DEFAULT(GETDATE()),
 	[IsDeleted]				BIT				NOT NULL DEFAULT(0)
 )
+GO
 
 CREATE TABLE [lxa].[AnnualAwards]
 (
@@ -97,6 +104,7 @@ CREATE TABLE [lxa].[AnnualAwards]
 	[IsDeleted]				BIT				NOT NULL DEFAULT(0),
 	CONSTRAINT [PK_AnnualAwards] PRIMARY KEY CLUSTERED ( [award_id] ASC )
 )
+GO
 
 CREATE TABLE [lxa].[AnnualAwardsMembersXREF]
 (
@@ -104,18 +112,7 @@ CREATE TABLE [lxa].[AnnualAwardsMembersXREF]
 	[member_id]		INT		NOT NULL,
 	[year_awarded]	INT		NOT NULL	
 )
-
-ALTER TABLE [lxa].[Members] ADD CONSTRAINT [FK_Members_InitiationClasses] FOREIGN KEY ( [initiation_class_id] ) REFERENCES [lxa].[InitiationClasses] ( [initiation_class_id] )
-ALTER TABLE [lxa].[InitiationClasses] ADD CONSTRAINT [FK_InitiationClasses_Members] FOREIGN KEY ( [e_member_id] ) REFERENCES [lxa].[Members] ( [e_member_id] )
-ALTER TABLE [lxa].[MembersHighZetaPositionsXREF] ADD CONSTRAINT [FK_MembersHighZetaPositionsXREF_Members] FOREIGN KEY ( [member_id] ) REFERENCES [lxa].[Members] ( [member_id] )
-ALTER TABLE [lxa].[MembersHighZetaPositionsXREF] ADD CONSTRAINT [FK_MembersHighZetaPositionsXREF_HighZetaPositions] FOREIGN KEY ( [position_id] ) REFERENCES [lxa].[HighZetaPositions] ( [position_id] )
-ALTER TABLE [lxa].[AlumniBoardMemberXREF] ADD CONSTRAINT [FK_AlumniBoardsMembersXREF_AlumniBoards] FOREIGN KEY ( [board_id] ) REFERENCES [lxa].[AlumniBoards] ( [board_id] )
-ALTER TABLE [lxa].[AlumniBoardMemberXREF] ADD CONSTRAINT [FK_AlumniBoardsMembersXREF_Members] FOREIGN KEY ( [position_id] ) REFERENCES [lxa].[Members] ( [member_id] )
-ALTER TABLE [lxa].[EmergencyContacts] ADD CONSTRAINT [FK_EmergencyContacts_Members] FOREIGN KEY ( [member_id] ) REFERENCES [lxa].[Members] ( [member_id] )
-ALTER TABLE [lxa].[AnnualAwardsMembersXREF] ADD CONSTRAINT [FK_AnnualAwardsMembersXREF_AlumniBoards] FOREIGN KEY ( [board_id] ) REFERENCES [lxa].[AlumniBoards] ( [board_id] )
-ALTER TABLE [lxa].[AnnualAwardsMembersXREF] ADD CONSTRAINT [FK_AnnualAwardsMembersXREF_Members] FOREIGN KEY ( [position_id] ) REFERENCES [lxa].[Members] ( [member_id] )
-
-
+GO
 
 INSERT INTO [lxa].[InitiationClasses]
 ( [initiation_class], [initiation_date] )
@@ -137,6 +134,7 @@ VALUES
 ( 'Ni', '5/16/2015' ),
 ( 'Xi', '1/16/2016' ),
 ( 'Omiron', '4/2/2016' )
+GO
 
 INSERT INTO [lxa].[Members]
 ( [member_first_name], [member_last_name], [member_type], [phone_number], [initiation_class_id], [member_status], [IsDeleted] )
@@ -146,6 +144,7 @@ VALUES
 ( 'Jamal', 'Atif', 'Brother', '000-000-0000', 2, 'Alumni', 0 ),
 ( 'Nik', 'Bournelis', 'Brother', '000-000-0000', 2, 'Alumni', 0 ),
 ( 'Sunkwon', 'Bush', 'Brother', '000-000-0000', 2, 'Alumni', 0 )
+GO
 
 INSERT INTO [lxa].[HighZetaPositions]
 ( [position_name], [position_description] )
@@ -173,3 +172,28 @@ VALUES
 ( 'Exec Alternate', 'Non-Voting Executive Committee Member, fill-in for absent voting members' ),
 ( 'Greek Week Chair', 'Greek Week Chair' ),
 ( 'Deepher Dude', 'Deepher Dude' )
+GO
+
+
+ALTER TABLE [lxa].[Members] ADD CONSTRAINT [FK_Members_InitiationClasses] FOREIGN KEY ( [initiation_class_id] ) REFERENCES [lxa].[InitiationClasses] ( [initiation_class_id] )
+ALTER TABLE [lxa].[InitiationClasses] ADD CONSTRAINT [FK_InitiationClasses_Members] FOREIGN KEY ( [e_member_id] ) REFERENCES [lxa].[Members] ( [member_id] )
+ALTER TABLE [lxa].[MemberZetaXREF] ADD CONSTRAINT [FK_MemberZetaXREF_Members] FOREIGN KEY ( [member_id] ) REFERENCES [lxa].[Members] ( [member_id] )
+ALTER TABLE [lxa].[MemberZetaXREF] ADD CONSTRAINT [FK_MemberZetaXREF_HighZeta] FOREIGN KEY ( [position_id] ) REFERENCES [lxa].[HighZetaPositions] ( [position_id] )
+ALTER TABLE [lxa].[AlumniBoardMemberXREF] ADD CONSTRAINT [FK_AlumniBoardsMembersXREF_AlumniBoards] FOREIGN KEY ( [board_id] ) REFERENCES [lxa].[AlumniBoards] ( [board_id] )
+ALTER TABLE [lxa].[AlumniBoardMemberXREF] ADD CONSTRAINT [FK_AlumniBoardsMembersXREF_Members] FOREIGN KEY ( [member_id] ) REFERENCES [lxa].[Members] ( [member_id] )
+ALTER TABLE [lxa].[EmergencyContacts] ADD CONSTRAINT [FK_EmergencyContacts_Members] FOREIGN KEY ( [member_id] ) REFERENCES [lxa].[Members] ( [member_id] )
+ALTER TABLE [lxa].[AnnualAwardsMembersXREF] ADD CONSTRAINT [FK_AnnualAwardsMembersXREF_AnnualAwards] FOREIGN KEY ( [award_id] ) REFERENCES [lxa].[AnnualAwards] ( [award_id] )
+ALTER TABLE [lxa].[AnnualAwardsMembersXREF] ADD CONSTRAINT [FK_AnnualAwardsMembersXREF_Members] FOREIGN KEY ( [position_id] ) REFERENCES [lxa].[Members] ( [member_id] )
+
+
+--ALTER TABLE [lxa].[AnnualAwardsMembersXREF] DROP CONSTRAINT [FK_AnnualAwardsMembersXREF_AnnualAwards]
+--DROP TABLE [lxa].[AlumniBoards]
+--DROP TABLE [lxa].[AlumniBoardMemberXREF]
+--DROP TABLE [lxa].[AnnualAwards]
+--DROP TABLE [lxa].[EmergencyContacts]
+--DROP TABLE [lxa].[MemberZetaXREF]
+--DROP TABLE [lxa].[HighZetaPositions]
+--DROP TABLE [lxa].[AnnualAwardsMembersXREF]
+--ALTER TABLE [lxa].[Members] DROP CONSTRAINT [FK_Members_InitiationClasses]
+--DROP TABLE [lxa].[InitiationClasses]
+--DROP TABLE [lxa].[Members]

@@ -40,7 +40,7 @@ GO
 /***********************************************************************************************************
 			Foreign Keys
 ***********************************************************************************************************/
-ALTER TABLE [bills].[Servies]	ADD CONSTRAINT [FK_CreditCards]		FOREIGN KEY ( [credit_card_id] )	REFERENCES [bills].[CreditCards]	( [credit_card_id] )
+ALTER TABLE [bills].[Services]	ADD CONSTRAINT [FK_CreditCards]		FOREIGN KEY ( [credit_card_id] )	REFERENCES [bills].[CreditCards]	( [credit_card_id] )
 
 
 /***********************************************************************************************************
@@ -48,6 +48,6 @@ ALTER TABLE [bills].[Servies]	ADD CONSTRAINT [FK_CreditCards]		FOREIGN KEY ( [cr
 ***********************************************************************************************************/
 --ALTER TABLE [bills].[Services]					DROP CONSTRAINT [FK_CreditCards]
 
---DROP [bills].[Services]
---DROP [bills].[CreditCards]
---DROP [bills].[Payments]
+--DROP TABLE [bills].[Services]
+--DROP TABLE [bills].[CreditCards]
+--DROP TABLE [bills].[Payments]

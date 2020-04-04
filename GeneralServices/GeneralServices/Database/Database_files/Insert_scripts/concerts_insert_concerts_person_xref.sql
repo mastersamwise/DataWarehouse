@@ -238,11 +238,11 @@ BEGIN
 	
 	IF @ln IS NULL OR @ln = ''
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [concerts].[People] WHERE [person_first_name] = @fn AND ([person_last_name] = '' OR [person_last_name] IS NULL))
+		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND ([person_last_name] = '' OR [person_last_name] IS NULL))
 	END
 	ELSE
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [concerts].[People] WHERE [person_first_name] = @fn AND [person_last_name] = @ln)
+		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND [person_last_name] = @ln)
 	END
 
 	IF @person_id IS NULL 
