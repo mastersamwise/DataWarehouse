@@ -92,6 +92,9 @@ CREATE TABLE [acnh].[SeasonalItems]
 	[item_id]		int		identity(1,1)	not null,
 	[item_name]		nvarchar (50)			not null,
 	[season]		nvarchar (50)			not null,
+	[how_to_obtain]	nvarchar (200)			null,
+	[comment]		nvarchar (500)			null,
+	CONSTRAINT [PK_SeasonalItems] PRIMARY KEY CLUSTERED ( [item_id] )
 )
 GO
 

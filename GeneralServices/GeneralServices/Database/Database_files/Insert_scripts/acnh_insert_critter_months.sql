@@ -9,11 +9,11 @@ DECLARE @tempTable table
 	critter_name_	nvarchar(25),
 	jan_			bit,
 	feb_			bit,
-	march_			bit,
-	april_			bit,
+	mar_			bit,
+	apr_			bit,
 	may_			bit,
-	june_			bit,
-	july_			bit,
+	jun_			bit,
+	jul_			bit,
 	aug_			bit,
 	sep_			bit,
 	oct_			bit,
@@ -24,6 +24,8 @@ DECLARE @tempTable table
 INSERT INTO @tempTable
 ( critter_name_, jan_, feb_, march_, april_, may_, june_, july_, aug_, sep_, oct_, nov_, dec_ )
 VALUES 
+
+/*    Fish     */
 ( 'Bitterling', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1 ),
 ( 'Pale Chub', 1, 1, 1,    1, 1, 1,    1, 1, 1,    1, 1, 1 ),
 ( 'Crucian Carp', 1, 1, 1,    1, 1, 1,    1, 1, 1,    1, 1, 1 ),
@@ -187,3 +189,81 @@ VALUES
 ( 'Spider', 1, 1, 1,    1, 1, 1,    1, 1, 1,    1, 1, 1 ),
 ( 'Tarantula', 1, 1, 1,    1, 0, 0,    0, 0, 0,    0, 1, 1 ),
 ( 'Scorpion', 0, 0, 0,    0, 1, 1,    1, 1, 1,    1, 0, 0 )
+
+/* Now insert the data into the table in the proper format */
+DECLARE @id int = (SELECT TOP 1 id_ FROM @tempTable ORDER BY id_ ASC)
+DECLARE @critterID int
+DECLARE @critterName nvarchar (25)
+DECLARE @jan bit
+DECLARE @feb bit
+DECLARE @mar bit
+DECLARE @apr bit
+DECLARE @may bit
+DECLARE @jun bit
+DECLARE @jul bit
+DECLARE @aug bit
+DECLARE @sep bit
+DECLARE @oct bit
+DECLARE @nov bit
+DECLARE @dec bit
+
+WHILE @id IS NOT NULL
+BEGIN
+
+	SET @critterName = (SELECT critter_name_ FROM @tempTable WHERE id_ = @id)
+	SET @critterID = (SELECT critter_id FROM [acnh].[Critters] WHERE [critter_name] = @critterName)
+	
+	SET @jan = (SELECT jan_ FROM @tempTable WHERE id_ = @id)
+	SET @feb = (SELECT feb_ FROM @tempTable WHERE id_ = @id)
+	SET @mar = (SELECT mar_ FROM @tempTable WHERE id_ = @id)
+	SET @apr = (SELECT apr_ FROM @tempTable WHERE id_ = @id)
+	SET @may = (SELECT may_ FROM @tempTable WHERE id_ = @id)
+	SET @jun = (SELECT jun_ FROM @tempTable WHERE id_ = @id)
+	SET @jul = (SELECT jul_ FROM @tempTable WHERE id_ = @id)
+	SET @aug = (SELECT aug_ FROM @tempTable WHERE id_ = @id)
+	SET @sep = (SELECT sep_ FROM @tempTable WHERE id_ = @id)
+	SET @oct = (SELECT oct_ FROM @tempTable WHERE id_ = @id)
+	SET @nov = (SELECT nov_ FROM @tempTable WHERE id_ = @id)
+	SET @dec = (SELECT dec_ FROM @tempTable WHERE id_ = @id)
+
+	IF @critterID IS NULL 
+	BEGIN
+		PRINT 'Critter ' + @critterName + ' is invalid.'
+		RETURN
+	END
+
+	INSERT INTO [acnh].[Months]
+	(
+		[january],
+		[february],
+		[march],
+		[april],
+		[may],
+		[june],
+		[july],
+		[august],
+		[september],
+		[october],
+		[november],
+		[december],
+		[critter_id]
+	)
+	VALUES
+	(
+		@jan,
+		@feb,
+		@mar,
+		@apt,
+		@may,
+		@jun,
+		@jul,
+		@aug,
+		@sep,
+		@oct,
+		@nov,
+		@dec,
+		@critterID
+	)
+	
+	SET @id = (SELECT MIN( id_ ) FROM @tempTable WHERE id_ > @id)
+END

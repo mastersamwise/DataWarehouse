@@ -35,6 +35,8 @@ DECLARE @tempTable table
 INSERT INTO @tempTable
 ( critter_name_, [1am_], [2am_],[ 3am_], [4am_], [5am_], [6am_], [7am_], [8am_], [9am_], [10am_], [11am_], [12pm_], [1pm_], [2pm_], [3pm_], [4pm_], [5pm_], [6pm_], [7pm_], [8pm_], [9pm_], [10pm_], [11pm_], [12am_] )
 VALUES
+
+/*    Fish     */
 ( 'Bitterling', 1, 1, 1, 1, 1, 1,    1, 1, 1, 1, 1, 1,    1, 1, 1, 1, 1, 1,     1, 1, 1, 1, 1, 1 ), 
 ( 'Pale Chub', 0, 0, 0, 0, 0, 0,    0, 0, 1, 1, 1, 1,    1, 1, 1, 1, 0, 0,     0, 0, 0, 0, 0, 0 ), -- 9am - 4pm
 ( 'Crucian Carp', 1, 1, 1, 1, 1, 1,    1, 1, 1, 1, 1, 1,    1, 1, 1, 1, 1, 1,     1, 1, 1, 1, 1, 1 ), 
@@ -198,3 +200,129 @@ VALUES
 ( 'Spider', 1, 1, 1, 1, 1, 1,    1, 1, 0, 0, 0, 0,    0, 0, 0, 0, 0, 0,     1, 1, 1, 1, 1, 1 ), -- 7pm - 8am
 ( 'Tarantula', 1, 1, 1, 1, 0, 0,    0, 0, 0, 0, 0, 0,    0, 0, 0, 0, 0, 0,     1, 1, 1, 1, 1, 1 ), -- 7pm - 4am
 ( '', 1, 1, 1, 1, 0, 0,    0, 0, 0, 0, 0, 0,    0, 0, 0, 0, 0, 0,     1, 1, 1, 1, 1, 1 ) -- 7pm - 4am
+
+/* Now insert the data into the table in the proper format */
+DECLARE @id int = (SELECT TOP 1 id_ FROM @tempTable ORDER BY id_ ASC)
+DECLARE @critterID int
+DECLARE @critterName nvarchar (25)
+DECLARE @1am bit
+DECLARE @2am bit
+DECLARE @3am bit
+DECLARE @4am bit
+DECLARE @5am bit
+DECLARE @6am bit
+DECLARE @7am bit
+DECLARE @8am bit
+DECLARE @9am bit
+DECLARE @10am bit
+DECLARE @11am bit
+DECLARE @12pm bit
+DECLARE @1pm bit
+DECLARE @2pm bit
+DECLARE @3pm bit
+DECLARE @4pm bit
+DECLARE @5pm bit
+DECLARE @6pm bit
+DECLARE @7pm bit
+DECLARE @8pm bit
+DECLARE @9pm bit
+DECLARE @10pm bit
+DECLARE @11pm bit
+DECLARE @12am bit
+
+WHILE @id IS NOT NULL
+BEGIN
+	
+	SET @critterName = (SELECT critter_name_ FROM @tempTable WHERE id_ = @id)
+	SET @critterID = (SELECT critter_id FROM [acnh].[Critters] WHERE [critter_name] = @critterName)
+
+	SET @1am = (SELECT [1am] FROM @tempTable WHERE id_ = @id)
+	SET @2am = (SELECT [2am] FROM @tempTable WHERE id_ = @id)
+	SET @3am = (SELECT [3am] FROM @tempTable WHERE id_ = @id)
+	SET @4am = (SELECT [4am] FROM @tempTable WHERE id_ = @id)
+	SET @5am = (SELECT [5am] FROM @tempTable WHERE id_ = @id)
+	SET @6am = (SELECT [6am] FROM @tempTable WHERE id_ = @id)
+	SET @7am = (SELECT [7am] FROM @tempTable WHERE id_ = @id)
+	SET @8am = (SELECT [8am] FROM @tempTable WHERE id_ = @id)
+	SET @9am = (SELECT [9am] FROM @tempTable WHERE id_ = @id)
+	SET @10am = (SELECT [10am] FROM @tempTable WHERE id_ = @id)
+	SET @11am = (SELECT [11am] FROM @tempTable WHERE id_ = @id)
+	SET @12pm = (SELECT [12pm] FROM @tempTable WHERE id_ = @id)
+	SET @1pm = (SELECT [1pm] FROM @tempTable WHERE id_ = @id)
+	SET @2pm = (SELECT [2pm] FROM @tempTable WHERE id_ = @id)
+	SET @3pm = (SELECT [3pm] FROM @tempTable WHERE id_ = @id)
+	SET @4pm = (SELECT [4pm] FROM @tempTable WHERE id_ = @id)
+	SET @5pm = (SELECT [5pm] FROM @tempTable WHERE id_ = @id)
+	SET @6pm = (SELECT [6pm] FROM @tempTable WHERE id_ = @id)
+	SET @7pm = (SELECT [7pm] FROM @tempTable WHERE id_ = @id)
+	SET @8pm = (SELECT [8pm] FROM @tempTable WHERE id_ = @id)
+	SET @9pm = (SELECT [9pm] FROM @tempTable WHERE id_ = @id)
+	SET @10pm = (SELECT [10pm] FROM @tempTable WHERE id_ = @id)
+	SET @11pm = (SELECT [11pm] FROM @tempTable WHERE id_ = @id)
+	SET @12am = (SELECT [12am] FROM @tempTable WHERE id_ = @id)
+
+	IF @critterID IS NULL 
+	BEGIN
+		PRINT 'Critter ' + @critterName + ' is invalid.'
+		RETURN
+	END
+
+	INSERT INTO [acnh].[Hours]
+	(
+		[1_AM],
+		[2_AM],
+		[3_AM],
+		[4_AM],
+		[5_AM],
+		[6_AM],
+		[7_AM],
+		[8_AM],
+		[9_AM],
+		[10_AM],
+		[11_AM],
+		[12_PM],
+		[1_PM],
+		[2_PM],
+		[3_PM],
+		[4_PM],
+		[5_PM],
+		[6_PM],
+		[7_PM],
+		[8_AM],
+		[9_PM],
+		[10_PM],
+		[11_PM],
+		[12_AM],
+		[critter_id]
+	)
+	VALUES
+	(
+		@1am,
+		@2am,
+		@3am,
+		@4am,
+		@5am,
+		@6am,
+		@7am,
+		@8am,
+		@9am,
+		@10am,
+		@11am,
+		@12pm,
+		@1pm,
+		@2pm,
+		@3pm,
+		@4pm,
+		@5pm,
+		@6pm,
+		@7pm,
+		@8pm,
+		@9pm,
+		@10pm,
+		@11pm,
+		@12am,
+		@critterID
+	)
+	
+	SET @id = (SELECT MIN( id_ ) FROM @concertsTable WHERE id_ > @id)
+END
