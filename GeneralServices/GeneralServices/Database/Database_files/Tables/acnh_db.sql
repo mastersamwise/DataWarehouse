@@ -4,7 +4,7 @@ CREATE TABLE [acnh].[Critters]
 	[critter_type]				nvarchar (10)		not null,
 	[critter_name]				nvarchar (25)		null,
 	[sale_price]				decimal (8,2)		null,
-	[location]					nvarchar (100)		null,
+	[location]					nvarchar (200)		null,
 	[comment]					nvarchar (500)		null,
 	CONSTRAINT [PK_Critters] PRIMARY KEY CLUSTERED ( [critter_id] ASC )
 )
