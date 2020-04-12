@@ -5,7 +5,7 @@
 DECLARE @tempTable table
 (
 	[id_]			int identity(1, 1),
-	[critter_name_]	nvarchar(25),
+	[critter_name_]	nvarchar(50),
 	[1am_]			bit,
 	[2am_]			bit,
 	[3am_]			bit,
@@ -33,7 +33,7 @@ DECLARE @tempTable table
 )
 
 INSERT INTO @tempTable
-( critter_name_, [1am_], [2am_],[ 3am_], [4am_], [5am_], [6am_], [7am_], [8am_], [9am_], [10am_], [11am_], [12pm_], [1pm_], [2pm_], [3pm_], [4pm_], [5pm_], [6pm_], [7pm_], [8pm_], [9pm_], [10pm_], [11pm_], [12am_] )
+( critter_name_, [1am_], [2am_], [3am_], [4am_], [5am_], [6am_], [7am_], [8am_], [9am_], [10am_], [11am_], [12pm_], [1pm_], [2pm_], [3pm_], [4pm_], [5pm_], [6pm_], [7pm_], [8pm_], [9pm_], [10pm_], [11pm_], [12am_] )
 VALUES
 
 /*    Fish     */
@@ -236,30 +236,30 @@ BEGIN
 	SET @critterName = (SELECT critter_name_ FROM @tempTable WHERE id_ = @id)
 	SET @critterID = (SELECT critter_id FROM [acnh].[Critters] WHERE [critter_name] = @critterName)
 
-	SET @1am = (SELECT [1am] FROM @tempTable WHERE id_ = @id)
-	SET @2am = (SELECT [2am] FROM @tempTable WHERE id_ = @id)
-	SET @3am = (SELECT [3am] FROM @tempTable WHERE id_ = @id)
-	SET @4am = (SELECT [4am] FROM @tempTable WHERE id_ = @id)
-	SET @5am = (SELECT [5am] FROM @tempTable WHERE id_ = @id)
-	SET @6am = (SELECT [6am] FROM @tempTable WHERE id_ = @id)
-	SET @7am = (SELECT [7am] FROM @tempTable WHERE id_ = @id)
-	SET @8am = (SELECT [8am] FROM @tempTable WHERE id_ = @id)
-	SET @9am = (SELECT [9am] FROM @tempTable WHERE id_ = @id)
-	SET @10am = (SELECT [10am] FROM @tempTable WHERE id_ = @id)
-	SET @11am = (SELECT [11am] FROM @tempTable WHERE id_ = @id)
-	SET @12pm = (SELECT [12pm] FROM @tempTable WHERE id_ = @id)
-	SET @1pm = (SELECT [1pm] FROM @tempTable WHERE id_ = @id)
-	SET @2pm = (SELECT [2pm] FROM @tempTable WHERE id_ = @id)
-	SET @3pm = (SELECT [3pm] FROM @tempTable WHERE id_ = @id)
-	SET @4pm = (SELECT [4pm] FROM @tempTable WHERE id_ = @id)
-	SET @5pm = (SELECT [5pm] FROM @tempTable WHERE id_ = @id)
-	SET @6pm = (SELECT [6pm] FROM @tempTable WHERE id_ = @id)
-	SET @7pm = (SELECT [7pm] FROM @tempTable WHERE id_ = @id)
-	SET @8pm = (SELECT [8pm] FROM @tempTable WHERE id_ = @id)
-	SET @9pm = (SELECT [9pm] FROM @tempTable WHERE id_ = @id)
-	SET @10pm = (SELECT [10pm] FROM @tempTable WHERE id_ = @id)
-	SET @11pm = (SELECT [11pm] FROM @tempTable WHERE id_ = @id)
-	SET @12am = (SELECT [12am] FROM @tempTable WHERE id_ = @id)
+	SET @1am = (SELECT [1am_] FROM @tempTable WHERE id_ = @id)
+	SET @2am = (SELECT [2am_] FROM @tempTable WHERE id_ = @id)
+	SET @3am = (SELECT [3am_] FROM @tempTable WHERE id_ = @id)
+	SET @4am = (SELECT [4am_] FROM @tempTable WHERE id_ = @id)
+	SET @5am = (SELECT [5am_] FROM @tempTable WHERE id_ = @id)
+	SET @6am = (SELECT [6am_] FROM @tempTable WHERE id_ = @id)
+	SET @7am = (SELECT [7am_] FROM @tempTable WHERE id_ = @id)
+	SET @8am = (SELECT [8am_] FROM @tempTable WHERE id_ = @id)
+	SET @9am = (SELECT [9am_] FROM @tempTable WHERE id_ = @id)
+	SET @10am = (SELECT [10am_] FROM @tempTable WHERE id_ = @id)
+	SET @11am = (SELECT [11am_] FROM @tempTable WHERE id_ = @id)
+	SET @12pm = (SELECT [12pm_] FROM @tempTable WHERE id_ = @id)
+	SET @1pm = (SELECT [1pm_] FROM @tempTable WHERE id_ = @id)
+	SET @2pm = (SELECT [2pm_] FROM @tempTable WHERE id_ = @id)
+	SET @3pm = (SELECT [3pm_] FROM @tempTable WHERE id_ = @id)
+	SET @4pm = (SELECT [4pm_] FROM @tempTable WHERE id_ = @id)
+	SET @5pm = (SELECT [5pm_] FROM @tempTable WHERE id_ = @id)
+	SET @6pm = (SELECT [6pm_] FROM @tempTable WHERE id_ = @id)
+	SET @7pm = (SELECT [7pm_] FROM @tempTable WHERE id_ = @id)
+	SET @8pm = (SELECT [8pm_] FROM @tempTable WHERE id_ = @id)
+	SET @9pm = (SELECT [9pm_] FROM @tempTable WHERE id_ = @id)
+	SET @10pm = (SELECT [10pm_] FROM @tempTable WHERE id_ = @id)
+	SET @11pm = (SELECT [11pm_] FROM @tempTable WHERE id_ = @id)
+	SET @12am = (SELECT [12am_] FROM @tempTable WHERE id_ = @id)
 
 	IF @critterID IS NULL 
 	BEGIN
@@ -288,7 +288,7 @@ BEGIN
 		[5_PM],
 		[6_PM],
 		[7_PM],
-		[8_AM],
+		[8_PM],
 		[9_PM],
 		[10_PM],
 		[11_PM],
@@ -324,5 +324,5 @@ BEGIN
 		@critterID
 	)
 	
-	SET @id = (SELECT MIN( id_ ) FROM @concertsTable WHERE id_ > @id)
+	SET @id = (SELECT MIN( id_ ) FROM @tempTable WHERE id_ > @id)
 END

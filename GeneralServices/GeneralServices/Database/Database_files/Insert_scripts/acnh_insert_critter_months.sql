@@ -6,7 +6,7 @@
 DECLARE @tempTable table
 (
 	id_				int identity(1, 1),
-	critter_name_	nvarchar(25),
+	critter_name_	nvarchar(50),
 	jan_			bit,
 	feb_			bit,
 	mar_			bit,
@@ -22,7 +22,7 @@ DECLARE @tempTable table
 )
 
 INSERT INTO @tempTable
-( critter_name_, jan_, feb_, march_, april_, may_, june_, july_, aug_, sep_, oct_, nov_, dec_ )
+( critter_name_, jan_, feb_, mar_, apr_, may_, jun_, jul_, aug_, sep_, oct_, nov_, dec_ )
 VALUES 
 
 /*    Fish     */
@@ -253,7 +253,7 @@ BEGIN
 		@jan,
 		@feb,
 		@mar,
-		@apt,
+		@apr,
 		@may,
 		@jun,
 		@jul,
