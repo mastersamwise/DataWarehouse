@@ -2,8 +2,8 @@ CREATE TABLE [acnh].[Critters]
 (
 	[critter_id]				int	identity(1,1)	not null,
 	[critter_type]				nvarchar (10)		not null,
-	[critter_name]				nvarchar (25)		null,
-	[sale_price]				decimal (8,2)		null,
+	[critter_name]				nvarchar (50)		null,
+	[sale_price]				int					null,
 	[location]					nvarchar (200)		null,
 	[comment]					nvarchar (500)		null,
 	CONSTRAINT [PK_Critters] PRIMARY KEY CLUSTERED ( [critter_id] ASC )
@@ -51,7 +51,7 @@ CREATE TABLE [acnh].[Hours]
 	[5_PM]		bit		default(0) not null,
 	[6_PM]		bit		default(0) not null,
 	[7_PM]		bit		default(0) not null,
-	[8_AM]		bit		default(0) not null,
+	[8_PM]		bit		default(0) not null,
 	[9_PM]		bit		default(0) not null,
 	[10_PM]		bit		default(0) not null,
 	[11_PM]		bit		default(0) not null,
