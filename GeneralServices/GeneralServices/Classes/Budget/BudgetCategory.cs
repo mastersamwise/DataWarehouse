@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GeneralServices
+namespace GeneralServices.Classes
 {
     public class BudgetCategory
     {
