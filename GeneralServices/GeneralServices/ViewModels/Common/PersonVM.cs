@@ -13,9 +13,7 @@ namespace GeneralServices.ViewModels
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string relation { get; set; }
-        public DateTime dateCreated { get; }
-        public DateTime dateUpdated { get; set; }
-        public bool isDeleted { get; set; }
+        public AuditInfo auditInfo { get; set; }
 
         #region Constructors
 
@@ -26,19 +24,21 @@ namespace GeneralServices.ViewModels
         /// <param name="inFirstName"></param>
         /// <param name="inLastName"></param>
         /// <param name="inRelation"></param>
-        public PersonVM(int inPersonID, string inFirstName, string inLastName, string inRelation, DateTime inDateCreated, DateTime inDateUpdated, bool inIsDeleted = false)
+        /// <param name="inAuditInfo"></param>
+        public PersonVM(int inPersonID, string inFirstName, string inLastName, string inRelation, AuditInfo inAuditInfo)
         {
             personID = inPersonID;
             firstName = inFirstName;
             lastName = inLastName;
             relation = inRelation;
+            auditInfo = inAuditInfo;
         }
 
         /// <summary>
         /// Default Constructor
         /// </summary>
         public PersonVM()
-            :this(-1, "", "", "", DateTime.UtcNow, DateTime.UtcNow)
+            :this(-1, "", "", "", new AuditInfo())
         {
 
         }
@@ -48,7 +48,7 @@ namespace GeneralServices.ViewModels
         /// </summary>
         /// <param name="inVM"></param>
         public PersonVM(PersonVM inVM)
-            : this(inVM.personID, inVM.firstName, inVM.lastName, inVM.relation, inVM.dateCreated, inVM.dateUpdated, inVM.isDeleted)
+            : this(inVM.personID, inVM.firstName, inVM.lastName, inVM.relation, inVM.auditInfo)
         {
 
         }

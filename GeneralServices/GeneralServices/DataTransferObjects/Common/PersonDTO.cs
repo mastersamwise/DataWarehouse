@@ -13,9 +13,7 @@ namespace GeneralServices.DTO
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string relation { get; set; }
-        public DateTime dateCreated { get; }
-        public DateTime dateUpdated { get; set; }
-        public bool isDeleted { get; set; }
+        public AuditInfo auditInfo { get; set; }
 
         #region Constructors
 
@@ -26,19 +24,21 @@ namespace GeneralServices.DTO
         /// <param name="inFirstName"></param>
         /// <param name="inLastname"></param>
         /// <param name="inRelation"></param>
-        public PersonDTO(int inPersonID, string inFirstName, string inLastname, string inRelation, DateTime inDateCreated, DateTime inDateUpdated, bool inIsDeleted = false)
+        /// <param name="inAuditInfo"></param>
+        public PersonDTO(int inPersonID, string inFirstName, string inLastname, string inRelation, AuditInfo inAuditInfo)
         {
             personID = inPersonID;
             firstName = inFirstName;
             lastName = inLastname;
             relation = inRelation;
+            auditInfo = inAuditInfo;
         }
 
         /// <summary>
         /// Default Constructor
         /// </summary>
         public PersonDTO()
-            :this(-1, "", "", "", DateTime.UtcNow, DateTime.UtcNow)
+            :this(-1, "", "", "", new AuditInfo())
         {
 
         }
@@ -48,7 +48,7 @@ namespace GeneralServices.DTO
         /// </summary>
         /// <param name="inPersonDTO"></param>
         public PersonDTO(PersonDTO inPersonDTO)
-            :this(inPersonDTO.personID, inPersonDTO.firstName, inPersonDTO.lastName, inPersonDTO.relation, inPersonDTO.dateCreated, inPersonDTO.dateUpdated, inPersonDTO.isDeleted)
+            :this(inPersonDTO.personID, inPersonDTO.firstName, inPersonDTO.lastName, inPersonDTO.relation, inPersonDTO.auditInfo)
         {
 
         }

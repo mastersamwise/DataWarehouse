@@ -41,7 +41,7 @@ namespace GeneralServices.DataAccessLayer
                 }
                 catch(SqlException ex)
                 {
-                    //CustomTools.Logger.Error("Sql Error: " + ex.Message);
+                    CustomTools.Logger.Error("Sql Error: " + ex.Message);
                     result = ex.Message;
                 }
                 finally

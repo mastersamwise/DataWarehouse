@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 using GeneralServices.DataAccessLayer;
+using GeneralServices.Classes;
 
 namespace GeneralServices
 {

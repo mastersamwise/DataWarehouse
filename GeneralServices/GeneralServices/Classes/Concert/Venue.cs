@@ -12,9 +12,7 @@ namespace GeneralServices.Classes
         public string city { get; set; }
         public string state { get; set; }
         public string comment { get; set; }
-        public DateTime dateCreated { get; }
-        public DateTime dateUpdated { get; set; }
-        public bool isDeleted { get; set; }
+        public AuditInfo auditInfo { get; set; }
 
         #region Constructors
 

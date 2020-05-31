@@ -9,8 +9,6 @@ namespace GeneralServices.Classes
     {
         public int bandID { get; set; }
         public string bandName { get; set; }
-        public DateTime dateCreated { get; }
-        public DateTime dateUpdated { get; set; }
-        public bool isDeleted { get; set; }
+        public AuditInfo auditInfo { get; set; }
     }
 }

@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="DataTransferObjects\Budget\" />
+    <Folder Include="ViewModels\Budget\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="Classes\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

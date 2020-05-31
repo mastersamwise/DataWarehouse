@@ -14,9 +14,7 @@ namespace GeneralServices.Classes
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string relation { get; set; }
-        public DateTime dateCreated { get; }
-        public DateTime dateUpdated { get; set; }
-        public bool isDeleted { get; set; }
+        public AuditInfo auditInfo { get; set; }
 
         #region Constructors
 
@@ -27,25 +25,21 @@ namespace GeneralServices.Classes
         /// <param name="inFirstName"></param>
         /// <param name="inLastName"></param>
         /// <param name="inRelation"></param>
-        /// <param name="inDateCreated"></param>
-        /// <param name="inDateUpdated"></param>
-        /// <param name="inIsDeleted"></param>
-        public Person(int inPersonID, string inFirstName, string inLastName, string inRelation, DateTime inDateCreated, DateTime inDateUpdated, bool inIsDeleted = false)
+        /// <param name="inAuditInfo"></param>
+        public Person(int inPersonID, string inFirstName, string inLastName, string inRelation, AuditInfo inAuditInfo)
         {
             personID = inPersonID;
             firstName = inFirstName;
             lastName = inLastName;
             relation = inRelation;
-            dateCreated = inDateCreated;
-            dateUpdated = inDateUpdated;
-            isDeleted = inIsDeleted;
+            auditInfo = inAuditInfo;
         }
 
         /// <summary>
         /// Default Constructor
         /// </summary>
         public Person()
-            :this(-1, "", "", "", DateTime.UtcNow, DateTime.UtcNow)
+            :this(-1, "", "", "", new AuditInfo())
         {
 
         }
@@ -55,7 +49,7 @@ namespace GeneralServices.Classes
         /// </summary>
         /// <param name="inPerson"></param>
         public Person(Person inPerson)
-            :this(inPerson.personID, inPerson.firstName, inPerson.lastName, inPerson.relation, inPerson.dateCreated, inPerson.dateUpdated, inPerson.isDeleted)
+            :this(inPerson.personID, inPerson.firstName, inPerson.lastName, inPerson.relation, inPerson.auditInfo)
         {
 
         }
