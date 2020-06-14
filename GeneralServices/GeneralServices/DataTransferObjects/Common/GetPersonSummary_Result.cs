@@ -4,9 +4,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeneralServices.DataTransferObjects.Common
+using GeneralServices.DTOs.Interfaces;
+
+namespace GeneralServices.DTOs
 {
-    public class GetPersonSummary_Result : ISqlResult
+    public class GetPersonSummary_Result
     {
         public string personName { get; set; }
         public string bands { get; set; }
@@ -28,26 +30,32 @@ namespace GeneralServices.DataTransferObjects.Common
             concertDate = inConcertDate;
         }
 
-        public List<GetPersonSummary_Result> ReadDataToObject(SqlDataReader inReader)
+        public GetPersonSummary_Result()
+            : this("", "", "", DateTime.UtcNow)
         {
-            List<GetPersonSummary_Result> resultSet = new List<GetPersonSummary_Result>();
-            GetPersonSummary_Result tempResult;
+            // intionionally blank
+        }
 
-            while (inReader.Read())
-            {
-                int index = inReader.GetOrdinal("ConcertDate");
+        /// <summary>
+        /// Turn the Sql Data into the C# Object
+        /// </summary>
+        /// <param name="inReader"></param>
+        /// <returns></returns>
+        public GetPersonSummary_Result ReadDataToObject(SqlDataReader inReader)
+        {
+            GetPersonSummary_Result result;
+            
+            // find index of the 
+            int index = inReader.GetOrdinal("ConcertDate");
 
-                string person = inReader["Person"].ToString();
-                string bands = inReader["Bands"].ToString();
-                string otherPeople = inReader["OtherPeople"].ToString();
-                DateTime concertDate = DateTime.Parse(inReader.GetDateTime(index).ToString());
+            string person = inReader["Person"].ToString();
+            string bands = inReader["Bands"].ToString();
+            string otherPeople = inReader["OtherPeople"].ToString();
+            DateTime concertDate = DateTime.Parse(inReader.GetDateTime(index).ToString());
 
-                //tempResult = new GetPersonSummary_Result(person, bands, otherPeople, concertDate);
-                //resultSet.Add(tempResult);
-                
-            }
-
-            return resultSet;
+            result = new GetPersonSummary_Result(person, bands, otherPeople, concertDate);
+            
+            return result;
         }
     }
 }

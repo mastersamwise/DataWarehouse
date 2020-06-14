@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeneralServices.DataTransferObjects.Common
+namespace GeneralServices.DTOs.Interfaces
 {
     public interface ISqlResult
     {

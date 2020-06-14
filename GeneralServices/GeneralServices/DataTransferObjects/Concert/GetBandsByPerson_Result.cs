@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeneralServices.DataTransferObjects
+namespace GeneralServices.DTOs
 {
     public class GetBandsByPerson_Result
     {
