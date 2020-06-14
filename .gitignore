@@ -1,4 +1,5 @@
 *.pdb
+.vs/*
 
 obj/**
 **/GeneralServices/.vs
