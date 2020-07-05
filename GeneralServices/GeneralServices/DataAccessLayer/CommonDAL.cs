@@ -11,7 +11,7 @@ namespace GeneralServices.DataAccessLayer
     {
         #region Properties
 
-        public static string laptop_windows_conn_str { get; } = "Server=localhost;Database=general_services;Trusted_Connection=True;User ID=DESKTOP-1FBPA48\\Nik;";
+        public static string laptop_windows_conn_str { get; } = "Server=localhost;Database=general_services_test;Trusted_Connection=True;User ID=DESKTOP-1FBPA48\\Nik;";
         public static string laptop_unsure { get; } = "Server=DESKTOP-QBTM174\\TEST;Database=general_services;Trusted_Connection=True;User ID=DESKTOP-QBTM174\\Nik;";
         public static string aws_1_conn_str_2 { get; } = "Server=general-services-1.c1y5lxnjkppg.us-east-1.rds.amazonaws.com;Database=general-services;User ID=admin;Password=password;";
         public static string aws_1_conn_str { get; } = "Server=general-services-1.c1y5lxnjkppg.us-east-1.rds.amazonaws.com;Database=general-services;Trusted_Connection=True;User ID=admin;Password=password;";

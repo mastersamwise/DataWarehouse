@@ -17,10 +17,10 @@ DECLARE @personID int = (SELECT [person_id]
 							WHERE [person_first_name] = @personFirstName 
 								AND [person_last_name] = @personLastName)
 
-SELECT	DISTINCT([b].[band_name]),
-		[p].[person_first_name],
-		[p].[person_last_name],
-		[c].[concert_date]
+SELECT	DISTINCT([b].[band_name]) AS [band_name],
+		[p].[person_first_name] AS [person_first_name],
+		[p].[person_last_name] AS [person_last_name],
+		[c].[concert_date] AS [concert_date]
 FROM [common].[People] [p]
 	INNER JOIN [concerts].[ConcertPerson_xref] [cpx] ON [p].[person_id] = [cpx].[person_id]
 	INNER JOIN [concerts].[ConcertBand_xref] [cbx] ON [cpx].[concert_id] = [cbx].[concert_id]

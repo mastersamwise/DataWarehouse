@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using GeneralServices.DTO;
+using GeneralServices.DTOs;
 using GeneralServices.ViewModels;
 
 namespace GeneralServices.Classes
