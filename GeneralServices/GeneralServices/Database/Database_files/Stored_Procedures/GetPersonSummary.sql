@@ -11,14 +11,14 @@ CREATE PROCEDURE [concerts].[GetPersonSummary]
 )
 AS
 
-SELECT	[p].[person_first_name] + ' ' + [p].[person_last_name] AS [Person],
+SELECT	[p].[person_first_name] + ' ' + [p].[person_last_name] AS [person],
 		STUFF((
 			SELECT ', ' + [ib].[band_name] AS [text()]
 			FROM [concerts].[Bands] [ib]
 				INNER JOIN [concerts].[ConcertBand_xref] [icbx] ON [ib].[band_id] = [icbx].[band_id]
 			WHERE [icbx].[concert_id] = [cpx].[concert_id]
 			FOR XML PATH('')), 1, 2, ''
-		) AS [Bands],
+		) AS [bands],
 		STUFF((
 			SELECT  ', ' + [ip].[person_first_name] + ' ' + [ip].[person_last_name] AS [text()]
 			FROM [common].[People] [ip]
@@ -27,8 +27,8 @@ SELECT	[p].[person_first_name] + ' ' + [p].[person_last_name] AS [Person],
 				AND [ip].[person_first_name] <> [p].[person_first_name]
 				AND [ip].[person_last_name] <> [p].[person_last_name]
 			FOR XML PATH('')), 1, 2, ''
-		) AS [OtherPeople],
-		[c].[concert_date] AS [ConcertDate]
+		) AS [other_people],
+		[c].[concert_date] AS [concert_date]
 FROM [common].[People] [p]
 	INNER JOIN [concerts].[ConcertPerson_xref] [cpx] ON [p].[person_id] = [cpx].[person_id]
 	INNER JOIN [concerts].[Concerts] [c] ON [cpx].[concert_id] = [c].[concert_id]
