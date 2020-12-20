@@ -4,36 +4,36 @@
 */
 DECLARE @tempTable table
 (
-	[id_]			int identity(1, 1),
-	[critter_name_]	nvarchar(50),
-	[1am_]			bit,
-	[2am_]			bit,
-	[3am_]			bit,
-	[4am_]			bit,
-	[5am_]			bit,
-	[6am_]			bit,
-	[7am_]			bit,
-	[8am_]			bit,
-	[9am_]			bit,
-	[10am_]			bit,
-	[11am_]			bit,
-	[12pm_]			bit,
-	[1pm_]			bit,
-	[2pm_]			bit,
-	[3pm_]			bit,
-	[4pm_]			bit,
-	[5pm_]			bit,
-	[6pm_]			bit,
-	[7pm_]			bit,
-	[8pm_]			bit,
-	[9pm_]			bit,
-	[10pm_]			bit,
-	[11pm_]			bit,
-	[12am_]			bit
+	id_			int identity(1, 1),
+	critter_name_	nvarchar(50),
+	1am_			bit,
+	2am_			bit,
+	3am_			bit,
+	4am_			bit,
+	5am_			bit,
+	6am_			bit,
+	7am_			bit,
+	8am_			bit,
+	9am_			bit,
+	10am_			bit,
+	11am_			bit,
+	12pm_			bit,
+	1pm_			bit,
+	2pm_			bit,
+	3pm_			bit,
+	4pm_			bit,
+	5pm_			bit,
+	6pm_			bit,
+	7pm_			bit,
+	8pm_			bit,
+	9pm_			bit,
+	10pm_			bit,
+	11pm_			bit,
+	12am_			bit
 )
 
 INSERT INTO @tempTable
-( critter_name_, [1am_], [2am_], [3am_], [4am_], [5am_], [6am_], [7am_], [8am_], [9am_], [10am_], [11am_], [12pm_], [1pm_], [2pm_], [3pm_], [4pm_], [5pm_], [6pm_], [7pm_], [8pm_], [9pm_], [10pm_], [11pm_], [12am_] )
+( critter_name_, 1am_, 2am_, 3am_, 4am_, 5am_, 6am_, 7am_, 8am_, 9am_, 10am_, 11am_, 12pm_, 1pm_, 2pm_, 3pm_, 4pm_, 5pm_, 6pm_, 7pm_, 8pm_, 9pm_, 10pm_, 11pm_, 12am_ )
 VALUES
 
 /*    Fish     */
@@ -234,32 +234,32 @@ WHILE @id IS NOT NULL
 BEGIN
 	
 	SET @critterName = (SELECT critter_name_ FROM @tempTable WHERE id_ = @id)
-	SET @critterID = (SELECT critter_id FROM [acnh].[Critters] WHERE [critter_name] = @critterName)
+	SET @critterID = (SELECT critter_id FROM acnh.Critters WHERE critter_name = @critterName)
 
-	SET @1am = (SELECT [1am_] FROM @tempTable WHERE id_ = @id)
-	SET @2am = (SELECT [2am_] FROM @tempTable WHERE id_ = @id)
-	SET @3am = (SELECT [3am_] FROM @tempTable WHERE id_ = @id)
-	SET @4am = (SELECT [4am_] FROM @tempTable WHERE id_ = @id)
-	SET @5am = (SELECT [5am_] FROM @tempTable WHERE id_ = @id)
-	SET @6am = (SELECT [6am_] FROM @tempTable WHERE id_ = @id)
-	SET @7am = (SELECT [7am_] FROM @tempTable WHERE id_ = @id)
-	SET @8am = (SELECT [8am_] FROM @tempTable WHERE id_ = @id)
-	SET @9am = (SELECT [9am_] FROM @tempTable WHERE id_ = @id)
-	SET @10am = (SELECT [10am_] FROM @tempTable WHERE id_ = @id)
-	SET @11am = (SELECT [11am_] FROM @tempTable WHERE id_ = @id)
-	SET @12pm = (SELECT [12pm_] FROM @tempTable WHERE id_ = @id)
-	SET @1pm = (SELECT [1pm_] FROM @tempTable WHERE id_ = @id)
-	SET @2pm = (SELECT [2pm_] FROM @tempTable WHERE id_ = @id)
-	SET @3pm = (SELECT [3pm_] FROM @tempTable WHERE id_ = @id)
-	SET @4pm = (SELECT [4pm_] FROM @tempTable WHERE id_ = @id)
-	SET @5pm = (SELECT [5pm_] FROM @tempTable WHERE id_ = @id)
-	SET @6pm = (SELECT [6pm_] FROM @tempTable WHERE id_ = @id)
-	SET @7pm = (SELECT [7pm_] FROM @tempTable WHERE id_ = @id)
-	SET @8pm = (SELECT [8pm_] FROM @tempTable WHERE id_ = @id)
-	SET @9pm = (SELECT [9pm_] FROM @tempTable WHERE id_ = @id)
-	SET @10pm = (SELECT [10pm_] FROM @tempTable WHERE id_ = @id)
-	SET @11pm = (SELECT [11pm_] FROM @tempTable WHERE id_ = @id)
-	SET @12am = (SELECT [12am_] FROM @tempTable WHERE id_ = @id)
+	SET @1am = (SELECT 1am_ FROM @tempTable WHERE id_ = @id)
+	SET @2am = (SELECT 2am_ FROM @tempTable WHERE id_ = @id)
+	SET @3am = (SELECT 3am_ FROM @tempTable WHERE id_ = @id)
+	SET @4am = (SELECT 4am_ FROM @tempTable WHERE id_ = @id)
+	SET @5am = (SELECT 5am_ FROM @tempTable WHERE id_ = @id)
+	SET @6am = (SELECT 6am_ FROM @tempTable WHERE id_ = @id)
+	SET @7am = (SELECT 7am_ FROM @tempTable WHERE id_ = @id)
+	SET @8am = (SELECT 8am_ FROM @tempTable WHERE id_ = @id)
+	SET @9am = (SELECT 9am_ FROM @tempTable WHERE id_ = @id)
+	SET @10am = (SELECT 10am_ FROM @tempTable WHERE id_ = @id)
+	SET @11am = (SELECT 11am_ FROM @tempTable WHERE id_ = @id)
+	SET @12pm = (SELECT 12pm_ FROM @tempTable WHERE id_ = @id)
+	SET @1pm = (SELECT 1pm_ FROM @tempTable WHERE id_ = @id)
+	SET @2pm = (SELECT 2pm_ FROM @tempTable WHERE id_ = @id)
+	SET @3pm = (SELECT 3pm_ FROM @tempTable WHERE id_ = @id)
+	SET @4pm = (SELECT 4pm_ FROM @tempTable WHERE id_ = @id)
+	SET @5pm = (SELECT 5pm_ FROM @tempTable WHERE id_ = @id)
+	SET @6pm = (SELECT 6pm_ FROM @tempTable WHERE id_ = @id)
+	SET @7pm = (SELECT 7pm_ FROM @tempTable WHERE id_ = @id)
+	SET @8pm = (SELECT 8pm_ FROM @tempTable WHERE id_ = @id)
+	SET @9pm = (SELECT 9pm_ FROM @tempTable WHERE id_ = @id)
+	SET @10pm = (SELECT 10pm_ FROM @tempTable WHERE id_ = @id)
+	SET @11pm = (SELECT 11pm_ FROM @tempTable WHERE id_ = @id)
+	SET @12am = (SELECT 12am_ FROM @tempTable WHERE id_ = @id)
 
 	IF @critterID IS NULL 
 	BEGIN
@@ -267,33 +267,33 @@ BEGIN
 		RETURN
 	END
 
-	INSERT INTO [acnh].[Hours]
+	INSERT INTO acnh.Hours
 	(
-		[1_AM],
-		[2_AM],
-		[3_AM],
-		[4_AM],
-		[5_AM],
-		[6_AM],
-		[7_AM],
-		[8_AM],
-		[9_AM],
-		[10_AM],
-		[11_AM],
-		[12_PM],
-		[1_PM],
-		[2_PM],
-		[3_PM],
-		[4_PM],
-		[5_PM],
-		[6_PM],
-		[7_PM],
-		[8_PM],
-		[9_PM],
-		[10_PM],
-		[11_PM],
-		[12_AM],
-		[critter_id]
+		1_AM,
+		2_AM,
+		3_AM,
+		4_AM,
+		5_AM,
+		6_AM,
+		7_AM,
+		8_AM,
+		9_AM,
+		10_AM,
+		11_AM,
+		12_PM,
+		1_PM,
+		2_PM,
+		3_PM,
+		4_PM,
+		5_PM,
+		6_PM,
+		7_PM,
+		8_PM,
+		9_PM,
+		10_PM,
+		11_PM,
+		12_AM,
+		critter_id
 	)
 	VALUES
 	(

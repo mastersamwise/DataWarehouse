@@ -238,11 +238,11 @@ BEGIN
 	
 	IF @ln IS NULL OR @ln = ''
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND ([person_last_name] = '' OR [person_last_name] IS NULL))
+		SET @person_id = (SELECT person_id FROM common.People WHERE person_first_name = @fn AND (person_last_name = '' OR person_last_name IS NULL))
 	END
 	ELSE
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND [person_last_name] = @ln)
+		SET @person_id = (SELECT person_id FROM common.People WHERE person_first_name = @fn AND person_last_name = @ln)
 	END
 
 	IF @person_id IS NULL 
@@ -251,14 +251,14 @@ BEGIN
 		RETURN
 	END
 	
-	INSERT INTO [concerts].[ConcertPerson_xref]
-	( [concert_id], [person_id] )
+	INSERT INTO concerts.ConcertPerson_xref
+	( concert_id, person_id )
 	VALUES
 	( @concert_id, @person_id )
 
 	SET @id = (SELECT MIN( id_ ) FROM @concertPerson_xref WHERE id_ > @id)
 END
---DELETE FROM [concerts].[ConcertPerson_xref]
+--DELETE FROM concerts.ConcertPerson_xref
 
 
 

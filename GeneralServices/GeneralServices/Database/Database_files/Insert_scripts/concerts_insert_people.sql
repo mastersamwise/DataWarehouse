@@ -1,5 +1,5 @@
-INSERT INTO [common].[People]
-( [person_first_name], [person_last_name], [person_relationship] )
+INSERT INTO common.People
+( person_first_name, person_last_name, person_relationship )
 VALUES
 ('Nik', 'Bournelis', ''),
 ('Ian', 'Bournelis', ''),

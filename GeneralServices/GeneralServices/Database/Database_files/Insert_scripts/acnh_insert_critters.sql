@@ -2,8 +2,8 @@
 	https://www.ign.com/wikis/animal-crossing-new-horizons/Fish_Guide:_Fish_List,_Sell_Price,_and_Fishing_Tips#Pop-eyed_Goldfish 
 	https://www.ign.com/wikis/animal-crossing-new-horizons/Bug_Guide:_Bugs_List,_Sell_Price,_and_Bug_Catching_Tips#Yellow_Butterfly_.E2.9C.93
 */
-INSERT INTO [acnh].[Critters]
-( [critter_name], [critter_type], [sale_price], [location], [comment] )
+INSERT INTO acnh.Critters
+( critter_name, critter_type, sale_price, location, comment )
 VALUES 
 ( 'Bitterling', 'FISH', 900, 'River', '' ),
 ( 'Pale Chub', 'FISH', 160, 'River', '' ),

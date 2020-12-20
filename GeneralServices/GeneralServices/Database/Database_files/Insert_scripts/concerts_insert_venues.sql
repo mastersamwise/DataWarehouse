@@ -1,5 +1,5 @@
-INSERT INTO [concerts].[Venues]
-( [venue_name], [venue_city], [venue_state] )
+INSERT INTO concerts.Venues
+( venue_name, venue_city, venue_state )
 VALUES 
 ( 'Wachovia Spectrum', 'Philadelphia', 'PA' ),
 ( 'Susquehanna Bank Center', 'Camden', 'NJ' ),

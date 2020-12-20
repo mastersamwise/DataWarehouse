@@ -1,6 +1,6 @@
 DECLARE @concertBand_xref table
 (
-	id_			int identity (1,1),
+	id_			int auto_increment,
 	concert_id_	int,
 	band_name_	nvarchar (100)
 )
@@ -91,7 +91,7 @@ BEGIN
 	SET @concert_id = (SELECT concert_id_ FROM @concertBand_xref WHERE id_ = @id)
 	SET @band_name = (SELECT band_name_ FROM @concertBand_xref WHERE id_ = @id)
 
-	SET @band_id = (SELECT [band_id] FROM [concerts].[Bands] WHERE [band_name] = @band_name)
+	SET @band_id = (SELECT band_id FROM concerts.Bands WHERE band_name = @band_name)
 
 	IF @band_id IS NULL 
 	BEGIN
@@ -99,14 +99,14 @@ BEGIN
 		RETURN
 	END
 	
-	INSERT INTO [concerts].[ConcertBand_xref]
-	( [concert_id], [band_id] )
+	INSERT INTO concerts.ConcertBand_xref
+	( concert_id, band_id )
 	VALUES
 	( @concert_id, @band_id )
 
 	SET @id = (SELECT MIN( id_ ) FROM @concertBand_xref WHERE id_ > @id)
 END
---DELETE FROM [concerts].[ConcertBand_xref]
+--DELETE FROM concerts.ConcertBand_xref
 
 
 

@@ -4,7 +4,7 @@
 
 DECLARE @apptsTable table
 (
-	id_			int identity(1,1),
+	id_			int auto_increment,
 	type_		nvarchar (75),
 	reason_		nvarchar (150),
 	date_		datetime2 (7),

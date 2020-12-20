@@ -1,6 +1,6 @@
 DECLARE @concertsTable table
 (
-	id_			int identity(1,1),
+	id_			int auto_increment,
 	date_		nvarchar (10),
 	dow_		nvarchar (10),
 	venue_		nvarchar (75),
@@ -64,10 +64,10 @@ DECLARE @comment nvarchar (500)
 
 WHILE @id IS NOT NULL
 BEGIN
-	SET @date = CONVERT(datetime2(7),(SELECT date_ FROM @concertsTable WHERE id_ = @id))
+	SET @date = CONVERT(datetime,(SELECT date_ FROM @concertsTable WHERE id_ = @id))
 	SET @dow = (SELECT dow_ FROM @concertsTable WHERE id_ = @id)
 	SET @venue_name = (SELECT venue_ FROM @concertsTable WHERE id_ = @id)
-	SET @venue_id = (SELECT [venue_id] FROM [concerts].[venues] WHERE [venue_name] = @venue_name)
+	SET @venue_id = (SELECT venue_id FROM concerts.venues WHERE venue_name = @venue_name)
 	SET @cost = (SELECT cost_ FROM @concertsTable WHERE id_ = @id)
 	SET @comment = (SELECT comment_ FROM @concertsTable WHERE id_ = @id)
 	
@@ -77,13 +77,13 @@ BEGIN
 		RETURN
 	END
 
-	INSERT INTO [concerts].[concerts]
+	INSERT INTO concerts.concerts
 	(
-		[ticket_price],
-		[concert_date],
-		[concert_day_of_week],
-		[venue_id],
-		[comment]
+		ticket_price,
+		concert_date,
+		concert_day_of_week,
+		venue_id,
+		comment
 	)
 	VALUES
 	(

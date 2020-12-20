@@ -1069,12 +1069,12 @@ VALUES
 
 
 
-INSERT INTO [concerts].[Songs]
-( [song_title] )
+INSERT INTO concerts.Songs
+( song_title )
 VALUES
 ( )
 
-INSERT INTO [concerts].[ConcertSong_xref]
-( [concert_id], [band_id], [song_number], [song_id], [comment] )
+INSERT INTO concerts.ConcertSong_xref
+( concert_id, band_id, song_number, song_id, comment )
 VALUES
 ( )

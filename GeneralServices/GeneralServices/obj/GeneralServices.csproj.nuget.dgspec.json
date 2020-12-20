@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices\\GeneralServices.csproj": {}
+    "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices\\GeneralServices.csproj": {
+    "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
+        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
         "projectName": "GeneralServices",
-        "projectPath": "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
+        "projectPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
         "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nik\\Git_Repos\\GeneralServices\\GeneralServices\\obj\\",
+        "outputPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

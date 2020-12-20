@@ -1,7 +1,7 @@
 --------------------------------------------------------------
 --------------------------------------------------------------
 Foo Fighters - Bamboozle
-[Waisting Light World Tour]
+Waisting Light World Tour
 1. All My Life
 2. Rope
 3. The Pretender
@@ -24,7 +24,7 @@ Foo Fighters - Bamboozle
 --------------------------------------------------------------
 --------------------------------------------------------------
 Jimmy Eat World - Bamboozle
-[null]
+null
 1. Sweetness
 2. My Best Theory
 3. A Praise Chorus
@@ -39,7 +39,7 @@ Jimmy Eat World - Bamboozle
 --------------------------------------------------------------
 --------------------------------------------------------------
 All American Rejects - Bamboozle
-[Kids in the Street]
+Kids in the Street
 1. Dirty Little Secret
 2. Swing, Swing
 3. Beekeeper's Daughter
@@ -52,7 +52,7 @@ All American Rejects - Bamboozle
 --------------------------------------------------------------
 --------------------------------------------------------------
 My Chemical Romance - Bamboozle 
-[Danger Days: The True Lives of the Fabulous Killjoys Promotional Work] 
+Danger Days: The True Lives of the Fabulous Killjoys Promotional Work 
 1. I'm Not Okay (I Promise)
 2. Thank You for the Venom
 3. Mama
@@ -68,7 +68,7 @@ My Chemical Romance - Bamboozle
 --------------------------------------------------------------
 --------------------------------------------------------------
 Blink-182 - Susquehanna Bank Center (9/2011)
-[Honda Civic Tour]
+Honda Civic Tour
 1. Feeling This
 2. Up All Night
 3. The Rock Show

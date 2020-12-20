@@ -1,5 +1,5 @@
-INSERT INTO [concerts].[Bands]
-( [band_name] )
+INSERT INTO concerts.Bands
+( band_name )
 VALUES
 ( 'Green Day' ),
 ( 'The Bravery' ),

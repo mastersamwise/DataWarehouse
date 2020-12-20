@@ -4,8 +4,8 @@
 	Inserting People  
 
  ************************************************************************/
-INSERT INTO [common].[People]
-( [person_first_name], [person_last_name], [person_relationship] )
+INSERT INTO common.People
+( person_first_name, person_last_name, person_relationship )
 VALUES
 ('Nik', 'Bournelis', ''),
 ('Ian', 'Bournelis', ''),
@@ -60,8 +60,8 @@ VALUES
 	Inserting Venues  
 
  ************************************************************************/
-INSERT INTO [concerts].[Venues]
-( [venue_name], [venue_city], [venue_state] )
+INSERT INTO concerts.Venues
+( venue_name, venue_city, venue_state )
 VALUES 
 ( 'Wachovia Spectrum', 'Philadelphia', 'PA' ),
 ( 'Susquehanna Bank Center', 'Camden', 'NJ' ),
@@ -92,8 +92,8 @@ VALUES
 	Inserting Bands  
 
  ************************************************************************/
-INSERT INTO [concerts].[Bands]
-( [band_name] )
+INSERT INTO concerts.Bands
+( band_name )
 VALUES
 ( 'Green Day' ),
 ( 'The Bravery' ),
@@ -149,7 +149,7 @@ VALUES
  ************************************************************************/
 DECLARE @concertsTable table
 (
-	id_			int identity(1,1),
+	id_			int auto_increment,
 	date_		nvarchar (10),
 	dow_		nvarchar (10),
 	venue_		nvarchar (75),
@@ -213,10 +213,10 @@ DECLARE @comment nvarchar (500)
 
 WHILE @id IS NOT NULL
 BEGIN
-	SET @date = CONVERT(datetime2(7),(SELECT date_ FROM @concertsTable WHERE id_ = @id))
+	SET @date = CONVERT(datetime,(SELECT date_ FROM @concertsTable WHERE id_ = @id))
 	SET @dow = (SELECT dow_ FROM @concertsTable WHERE id_ = @id)
 	SET @venue_name = (SELECT venue_ FROM @concertsTable WHERE id_ = @id)
-	SET @venue_id = (SELECT [venue_id] FROM [concerts].[venues] WHERE [venue_name] = @venue_name)
+	SET @venue_id = (SELECT venue_id FROM concerts.venues WHERE venue_name = @venue_name)
 	SET @cost = (SELECT cost_ FROM @concertsTable WHERE id_ = @id)
 	SET @comment = (SELECT comment_ FROM @concertsTable WHERE id_ = @id)
 	
@@ -226,13 +226,13 @@ BEGIN
 		RETURN
 	END
 
-	INSERT INTO [concerts].[concerts]
+	INSERT INTO concerts.concerts
 	(
-		[ticket_price],
-		[concert_date],
-		[concert_day_of_week],
-		[venue_id],
-		[comment]
+		ticket_price,
+		concert_date,
+		concert_day_of_week,
+		venue_id,
+		comment
 	)
 	VALUES
 	(
@@ -489,11 +489,11 @@ BEGIN
 	
 	IF @ln IS NULL OR @ln = ''
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND ([person_last_name] = '' OR [person_last_name] IS NULL))
+		SET @person_id = (SELECT person_id FROM common.People WHERE person_first_name = @fn AND (person_last_name = '' OR person_last_name IS NULL))
 	END
 	ELSE
 	BEGIN
-		SET @person_id = (SELECT [person_id] FROM [common].[People] WHERE [person_first_name] = @fn AND [person_last_name] = @ln)
+		SET @person_id = (SELECT person_id FROM common.People WHERE person_first_name = @fn AND person_last_name = @ln)
 	END
 
 	IF @person_id IS NULL 
@@ -502,8 +502,8 @@ BEGIN
 		RETURN
 	END
 	
-	INSERT INTO [concerts].[ConcertPerson_xref]
-	( [concert_id], [person_id] )
+	INSERT INTO concerts.ConcertPerson_xref
+	( concert_id, person_id )
 	VALUES
 	( @concert_id, @person_id )
 
@@ -610,7 +610,7 @@ BEGIN
 	SET @concert_id = (SELECT concert_id_ FROM @concertBand_xref WHERE id_ = @id)
 	SET @band_name = (SELECT band_name_ FROM @concertBand_xref WHERE id_ = @id)
 
-	SET @band_id = (SELECT [band_id] FROM [concerts].[Bands] WHERE [band_name] = @band_name)
+	SET @band_id = (SELECT band_id FROM concerts.Bands WHERE band_name = @band_name)
 
 	IF @band_id IS NULL 
 	BEGIN
@@ -618,8 +618,8 @@ BEGIN
 		RETURN
 	END
 	
-	INSERT INTO [concerts].[ConcertBand_xref]
-	( [concert_id], [band_id] )
+	INSERT INTO concerts.ConcertBand_xref
+	( concert_id, band_id )
 	VALUES
 	( @concert_id, @band_id )
 

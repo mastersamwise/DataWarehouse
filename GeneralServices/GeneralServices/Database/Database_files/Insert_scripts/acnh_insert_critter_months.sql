@@ -211,7 +211,7 @@ WHILE @id IS NOT NULL
 BEGIN
 
 	SET @critterName = (SELECT critter_name_ FROM @tempTable WHERE id_ = @id)
-	SET @critterID = (SELECT critter_id FROM [acnh].[Critters] WHERE [critter_name] = @critterName)
+	SET @critterID = (SELECT critter_id FROM acnh.Critters WHERE critter_name = @critterName)
 	
 	SET @jan = (SELECT jan_ FROM @tempTable WHERE id_ = @id)
 	SET @feb = (SELECT feb_ FROM @tempTable WHERE id_ = @id)
@@ -232,21 +232,21 @@ BEGIN
 		RETURN
 	END
 
-	INSERT INTO [acnh].[Months]
+	INSERT INTO acnh.Months
 	(
-		[january],
-		[february],
-		[march],
-		[april],
-		[may],
-		[june],
-		[july],
-		[august],
-		[september],
-		[october],
-		[november],
-		[december],
-		[critter_id]
+		january,
+		february,
+		march,
+		april,
+		may,
+		june,
+		july,
+		august,
+		september,
+		october,
+		november,
+		december,
+		critter_id
 	)
 	VALUES
 	(

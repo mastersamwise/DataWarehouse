@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nik\\Git_Repos\\General_Services\\CalendarTest\\CalendarTest\\CalendarTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nik\\Git_Repos\\General_Services\\CalendarTest\\CalendarTest\\CalendarTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\General_Services\\CalendarTest\\CalendarTest\\CalendarTest.csproj",
+        "projectName": "CalendarTest",
+        "projectPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\CalendarTest\\CalendarTest\\CalendarTest.csproj",
+        "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\CalendarTest\\CalendarTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Google.Apis.Calendar.v3": {
+              "target": "Package",
+              "version": "[1.40.2.1620, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
