@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{841E9F29-D4C4-45CA-B3F1-AC62A20000E3}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CalendarTest/Program.cs">
+    <Files>
+      <File FileName="CalendarTest/Program.cs" Line="26" Column="13" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CalendarTest" expanded="True">
+            <Node name="CalendarTest" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CalendarTest PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

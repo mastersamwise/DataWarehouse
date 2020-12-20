@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "driver": "MSSQL",
+            "name": "DESKTOP-1FBPA48\\Nik",
+            "previewLimit": 100
+        },
+        {
+            "driver": "MSSQL",
+            "name": "DESKTOP-1FBPA48",
+            "previewLimit": 100
+        }
+    ]
+}
