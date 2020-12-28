@@ -15,8 +15,9 @@ namespace GeneralServices.DataAccessLayer
         public static string laptop_unsure { get; } = "Server=DESKTOP-QBTM174\\TEST;Database=general_services;Trusted_Connection=True;User ID=DESKTOP-QBTM174\\Nik;";
         public static string aws_1_conn_str_2 { get; } = "Server=general-services-1.c1y5lxnjkppg.us-east-1.rds.amazonaws.com;Database=general-services;User ID=admin;Password=password;";
         public static string aws_1_conn_str { get; } = "Server=general-services-1.c1y5lxnjkppg.us-east-1.rds.amazonaws.com;Database=general-services;Trusted_Connection=True;User ID=admin;Password=password;";
+        public static string raspberry_pi_conn_str { get; } = "Server=71.58.146.118:3306;Database=concerts;Trusted_Connection=True;User ID=Nik;Password=root;";
 
-        public static string CONNECTION_STRING { get; } = laptop_windows_conn_str;
+        public static string CONNECTION_STRING { get; } = raspberry_pi_conn_str;
 
         #endregion Properties
 
