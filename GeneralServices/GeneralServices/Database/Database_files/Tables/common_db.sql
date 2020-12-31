@@ -5,5 +5,4 @@ CREATE TABLE common.People
 	person_last_name		nvarchar (25)		null,
 	person_relationship	nvarchar (100)		null,
 	CONSTRAINT PK_People PRIMARY KEY CLUSTERED ( person_id ASC )
-)
-GO
+);
