@@ -9,7 +9,7 @@ CREATE PROCEDURE lxa.GetMemberContactInfo
 	@memberID	int
 )
 AS
-
+/* this stored procedure needs updated to reflect table structure */
 SELECT	m.member_id AS memberID,
 		m.member_first_name AS memberFirstName,
 		m.member_last_name AS memberLastName,
