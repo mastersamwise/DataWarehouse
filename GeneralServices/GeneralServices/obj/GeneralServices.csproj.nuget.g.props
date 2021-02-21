@@ -7,7 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/nikolasbournelis/.nuget/packages/</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/nikolasbournelis/.nuget/packages/;/usr/local/share/dotnet/sdk/NuGetFallbackFolder</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.8.2</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.9.4</NuGetToolVersion>
   </PropertyGroup>
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -21,4 +21,7 @@
     <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.razor.design/2.1.2/build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.razor.design/2.1.2/build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props')" />
     <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.app/2.1.1/build/netcoreapp2.1/Microsoft.AspNetCore.App.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.app/2.1.1/build/netcoreapp2.1/Microsoft.AspNetCore.App.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.entityframeworkcore.tools/2.1.1</PkgMicrosoft_EntityFrameworkCore_Tools>
+  </PropertyGroup>
 </Project>

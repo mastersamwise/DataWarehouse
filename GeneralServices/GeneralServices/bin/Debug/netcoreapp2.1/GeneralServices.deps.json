@@ -27,7 +27,12 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
-          "CustomTools": "1.0.0.0"
+          "CustomTools": "1.0.0.0",
+          "Google.Apis.Auth": "1.40.2.0",
+          "Google.Apis.Auth.PlatformServices": "1.40.2.0",
+          "Google.Apis.Calendar.v3": "1.40.2.1620",
+          "Google.Apis.Core": "1.40.2.0",
+          "Google.Apis": "1.40.2.0"
         },
         "runtime": {
           "GeneralServices.dll": {}
@@ -217,6 +222,61 @@
         },
         "compile": {
           "CustomTools.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.40.2.0": {
+        "runtime": {
+          "Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.40.2.0",
+            "fileVersion": "1.40.2.0"
+          }
+        },
+        "compile": {
+          "Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Auth.PlatformServices/1.40.2.0": {
+        "runtime": {
+          "Google.Apis.Auth.PlatformServices.dll": {
+            "assemblyVersion": "1.40.2.0",
+            "fileVersion": "1.40.2.0"
+          }
+        },
+        "compile": {
+          "Google.Apis.Auth.PlatformServices.dll": {}
+        }
+      },
+      "Google.Apis.Calendar.v3/1.40.2.1620": {
+        "runtime": {
+          "Google.Apis.Calendar.v3.dll": {
+            "assemblyVersion": "1.40.2.1620",
+            "fileVersion": "1.40.2.1620"
+          }
+        },
+        "compile": {
+          "Google.Apis.Calendar.v3.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.40.2.0": {
+        "runtime": {
+          "Google.Apis.Core.dll": {
+            "assemblyVersion": "1.40.2.0",
+            "fileVersion": "1.40.2.0"
+          }
+        },
+        "compile": {
+          "Google.Apis.Core.dll": {}
+        }
+      },
+      "Google.Apis/1.40.2.0": {
+        "runtime": {
+          "Google.Apis.dll": {
+            "assemblyVersion": "1.40.2.0",
+            "fileVersion": "1.40.2.0"
+          }
+        },
+        "compile": {
+          "Google.Apis.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3170,7 +3230,7 @@
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fe1+dpy+eM4IX1zodsvkihO1Spuj0NecfStWzvkYoMo7/ziOsqSv4vFK36ZpBfHa4gpdCEwaU46EPzdq+ZDYhQ==",
+      "sha512": "sha512-ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "hashPath": "microsoft.aspnetcore.razor.design.2.1.2.nupkg.sha512"
     },
@@ -3224,6 +3284,31 @@
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
     "CustomTools/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Apis.Auth/1.40.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Apis.Auth.PlatformServices/1.40.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Apis.Calendar.v3/1.40.2.1620": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Apis.Core/1.40.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Apis/1.40.2.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
