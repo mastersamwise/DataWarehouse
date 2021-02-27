@@ -2,4 +2,7 @@
 .vs/*
 
 obj/**
-**/GeneralServices/.vs
+**/GeneralServices/.vs/**
+**/GeneralServices/.vscode/**
+**/GeneralServices/bin/**
+**/GeneralServices/obj/**
