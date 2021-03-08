@@ -52,7 +52,7 @@ VALUES
 ('Duncan', '', 'Met through Ian and Whitney'),
 ('John', 'Sinis', 'Met through Ian and Whitney'),
 ('Tim', '', 'Duncan''s friend from childhood, Met through Ian and Whitney'),
-('Will', '', 'Met through Ian and Whitney')
+('Will', '', 'Met through Ian and Whitney');
 
 
 /************************************************************************
@@ -84,7 +84,7 @@ VALUES
 ( '1stBANK Center', 'Broomfield', 'CO' ),
 ( 'GIANT Center', 'Hershey', 'PA' ),
 ( 'Festival Pier Plaza', 'Philadelphia', 'PA' ),
-( 'Fillmore Theater', 'Philadelphia', 'PA' )
+( 'Fillmore Theater', 'Philadelphia', 'PA' );
 
 
 /************************************************************************
@@ -139,7 +139,7 @@ VALUES
 ( 'Peter Frampton' ),
 ( 'Dave Matthews and Tim Reynolds' ),
 ( 'Boston' ),
-( 'Arcade Fire' )
+( 'Arcade Fire' );
 
 
 /************************************************************************
