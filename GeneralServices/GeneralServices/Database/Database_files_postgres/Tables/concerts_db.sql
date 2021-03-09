@@ -1,50 +1,44 @@
 CREATE TABLE concerts.Bands 
 (
-    band_id int     auto_increment  not null,
-    band_name       nvarchar (100)      not null,
-    CONSTRAINT PK_Bands PRIMARY KEY ( band_id ASC )
+    band_id         serial  primary key     not null,
+    band_name       varchar (100)      not null
 );
 
 CREATE TABLE concerts.Venues
 (
-    venue_id        int auto_increment  not null,
-    venue_name      nvarchar (100)      not null,
-    venue_city      nvarchar (50)       not null,
-    venue_state     nvarchar (50)       not null,
-    comment         nvarchar (500)      null,
-    CONSTRAINT PK_Venues PRIMARY KEY ( venue_id ASC )
+    venue_id        serial  primary key  not null,
+    venue_name      varchar (100)      not null,
+    venue_city      varchar (50)       not null,
+    venue_state     varchar (50)       not null,
+    comment         varchar (500)      null
 );
 
 CREATE TABLE concerts.Concerts
 (
-    concert_id              int auto_increment  not null,
+    concert_id              serial  primary key  not null,
     ticket_price            int                 null,
-    concert_date            datetime        not null,
-    concert_day_of_week     nvarchar (10)       not null,
+    concert_date            timestamp        not null,
+    concert_day_of_week     varchar (10)       not null,
     venue_id                int                 not null,
-    comment                 nvarchar (150)      null,
-    CONSTRAINT PK_Concerts PRIMARY KEY ( concert_id ASC )
+    comment                 varchar (150)      null
 );
 
 CREATE TABLE concerts.ConcertPerson_xref
 (
     concert_id      int     not null,
-    person_id       int     not null,
-    CONSTRAINT PK_ConcertPerson PRIMARY KEY ( concert_id ASC, person_id ASC )
+    person_id       int     not null
 );
 
 CREATE TABLE concerts.ConcertBand_xref
 (
     concert_id  int not null,
-    band_id     int not null,
-    CONSTRAINT PK_ConcertBand PRIMARY KEY ( concert_id ASC, band_id ASC )
+    band_id     int not null
 );
 
 CREATE TABLE concerts.Songs
 (
-    song_id     int auto_increment  not null,
-    song_title  nvarchar (50)       not null,
-    CONSTRAINT PK_Songs PRIMARY KEY ( song_id ASC )
+    song_id     serial  primary key  not null,
+    song_title  varchar (50)       not null
 );
 
 CREATE TABLE concerts.ConcertSong_xref
@@ -54,7 +48,7 @@ CREATE TABLE concerts.ConcertSong_xref
     song_id         int             not null,
     song_number     int             null,
     encore_song     bit             not null default 0,
-    comment         nvarchar (500)  null
+    comment         varchar (500)  null
 );
 
 CREATE TABLE concerts.ConcertSongEncore_xref
@@ -64,7 +58,7 @@ CREATE TABLE concerts.ConcertSongEncore_xref
     song_id         int             not null,
     song_number     int             null,
     encore_number   int             not null default 1,
-    comment         nvarchar (500)  null
+    comment         varchar (500)  null
 );
 
 /***********************************************************************************************************

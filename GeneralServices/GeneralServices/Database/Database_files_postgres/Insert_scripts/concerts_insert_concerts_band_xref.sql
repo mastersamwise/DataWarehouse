@@ -1,17 +1,17 @@
 DO $$
 
 	DECLARE 
-			id_ integer := (SELECT id_col_ FROM concertBand_xref_table_ ORDER BY id_ ASC LIMIT 1);
+			id_ integer;
 			concert_id_ integer;
 			band_name_ varchar (100);
 			band_id integer;
 
-	BEGIN
+	BEGIN 
 		CREATE TEMP TABLE concertBand_xref_table_
 		(
 			id_col_			serial	primary key,
 			concert_id_col_	int,
-			band_name_col_	nvarchar (100)
+			band_name_col_	varchar (100)
 		);
 		
 		INSERT INTO concertBand_xref_table_
@@ -89,26 +89,28 @@ DO $$
 		( 41, 'Arcade Fire' ),
 		( 42, 'Macklemore' );
 
-		WHILE id_ IS NOT NULL
-		BEGIN
-			SET concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_)
-			SET band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_)
+		loop
+			exit when id_ is NULL;
+			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_);
+			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_);
 
-			SET band_id := (SELECT band_id_ FROM concerts.Bands WHERE band_name = band_name_)
+			band_id := (SELECT band_id_ FROM concerts.Bands WHERE band_name = band_name_);
 
-			IF band_id IS NULL 
-			BEGIN
-				PRINT 'Band name ' + band_name_ + ' is invalid.'
-				RETURN
-			END
+			IF band_id IS NULL then
+				raise notice 'Band name % is invalid', band_name_;
+				exit;
+			END IF;
 
+			raise notice 'concert_id: % | band_id: %', concert_id_, band_id_;
 			INSERT INTO concerts.ConcertBand_xref
 			( concert_id, band_id )
 			VALUES
-			( concert_id_, band_id_ )
+			( concert_id_, band_id_ );
 
-			SET id_ := (SELECT MIN( id_col_ ) FROM concertBand_xref_table_ WHERE id_col_ > id_)
-		END
+			id_ := (SELECT MIN( id_col_ ) FROM concertBand_xref_table_ WHERE id_col_ > id_);
+		end loop;
 		--DELETE FROM concerts.ConcertBand_xref
 END $$;
+
+SELECT * FROM concertBand_xref_table_;
 
