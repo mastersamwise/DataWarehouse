@@ -4,13 +4,14 @@ DO $$
 			id_ integer;
 			concert_id_ integer;
 			band_name_ varchar (100);
-			band_id integer;
+			band_id_ integer;
 
 	BEGIN 
 		CREATE TEMP TABLE concertBand_xref_table_
 		(
 			id_col_			serial	primary key,
 			concert_id_col_	int,
+			band_id_col_	int,
 			band_name_col_	varchar (100)
 		);
 		
@@ -91,26 +92,38 @@ DO $$
 
 		loop
 			exit when id_ is NULL;
-			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_);
-			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_);
+			id_ := 1;
+			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
+			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
 
-			band_id := (SELECT band_id_ FROM concerts.Bands WHERE band_name = band_name_);
+			band_id_ := (SELECT band_id FROM concerts.Bands WHERE band_name = band_name_);
+ 			IF band_id_ IS NULL then
+ 				raise notice 'Band name % is invalid', band_name_;
+ 				exit;
+ 			END IF;
 
-			IF band_id IS NULL then
-				raise notice 'Band name % is invalid', band_name_;
-				exit;
-			END IF;
+			UPDATE concertBand_xref_table_
+			SET band_id_col_ = band_id_
+			WHERE id_col_ = id_;
 
 			raise notice 'concert_id: % | band_id: %', concert_id_, band_id_;
 			INSERT INTO concerts.ConcertBand_xref
 			( concert_id, band_id )
-			VALUES
-			( concert_id_, band_id_ );
+			SELECT 
+				concert_id_, band_id_;
 
 			id_ := (SELECT MIN( id_col_ ) FROM concertBand_xref_table_ WHERE id_col_ > id_);
 		end loop;
-		--DELETE FROM concerts.ConcertBand_xref
-END $$;
-
-SELECT * FROM concertBand_xref_table_;
+		
+		-- INSERT INTO concerts.ConcertBand_xref
+		-- ( concert_id, band_id )
+		-- SELECT 
+		-- 	concert_id_col_, band_id_col_
+		-- FROM concertBand_xref_table_;
+		
+	END; 
+$$;
+SELECT * FROM concerts.concertband_xref;
+--SELECT * FROM concertBand_xref_table_;
+--DROP TABLE concertBand_xref_table_;
 
