@@ -7,7 +7,7 @@ obj/**
 **/GeneralServices/bin/**
 **/GeneralServices/obj/**
 
-GeneralServices/GeneralServices/.vs/**
-GeneralServices/GeneralServices/GeneralServices/.vscode/**
-GeneralServices/GeneralServices/GeneralServices/bin/**
-GeneralServices/GeneralServices/GeneralServices/obj/**
+GeneralServices/.vs/**
+GeneralServices/GeneralServices/.vscode/**
+GeneralServices/GeneralServices/bin/**
+GeneralServices/GeneralServices/obj/**
