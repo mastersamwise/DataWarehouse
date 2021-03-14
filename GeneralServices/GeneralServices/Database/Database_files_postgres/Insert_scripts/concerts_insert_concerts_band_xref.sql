@@ -4,7 +4,7 @@ DO $$
 			id_ integer;
 			concert_id_ integer;
 			band_name_ varchar (100);
-			band_id integer;
+			band_id_ integer;
 
 	BEGIN 
 		CREATE TEMP TABLE concertBand_xref_table_
@@ -91,12 +91,12 @@ DO $$
 
 		loop
 			exit when id_ is NULL;
-			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_);
-			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_ = id_col_);
+			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
+			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
 
-			band_id := (SELECT band_id_ FROM concerts.Bands WHERE band_name = band_name_);
+			band_id_ := (SELECT band_id FROM concerts.Bands WHERE band_name = band_name_);
 
-			IF band_id IS NULL then
+			IF band_id_ IS NULL then
 				raise notice 'Band name % is invalid', band_name_;
 				exit;
 			END IF;
