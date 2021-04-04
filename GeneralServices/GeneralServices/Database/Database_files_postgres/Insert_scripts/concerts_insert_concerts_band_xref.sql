@@ -91,6 +91,7 @@ DO $$
 
 		loop
 			exit when id_ is NULL;
+			id_ := 0;
 			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
 			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
 
