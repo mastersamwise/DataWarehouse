@@ -1,25 +1,25 @@
 DO $$
 
-	DECLARE
-		id_ integer;
-		date_ timestamp;
-		dow_ varchar (10);
-		venue_name_ varchar (75);
-		venue_id_ integer;
-		cost_ integer;
-		comment_ varchar (500);
+	DECLARE 
+			id_ integer := 1;
+			date_ timestamp;
+			dow_ varchar (10);
+			venue_name_ varchar (75);
+			venue_id_ integer;
+			cost_ integer;
+			comment_ varchar (500);
 
-	BEGIN
-		CREATE temp TABLE concerts_table_
+	BEGIN 
+		CREATE TEMP TABLE concerts_table_
 		(
-			id_col_			serial 	primary key,
+			id_col_			serial primary key,
 			date_col_		varchar (10),
 			dow_col_		varchar (10),
 			venue_col_		varchar (75),
-			cost_col_		integer,
+			cost_col_		int,
 			comment_col_	varchar (500)
 		);
-
+		
 		INSERT INTO concerts_table_
 		( date_col_, dow_col_, venue_col_, cost_col_, comment_col_ )
 		VALUES
@@ -66,20 +66,21 @@ DO $$
 		( '20170917',	'Sunday', 'Wells Fargo Center', 105, '' ),
 		( '20171113',	'Monday', 'Fillmore Theater', 49, 'Mem had to travel for work, Whitney couldn''t join.' );
 
-		loop
-			exit when id_ is NULL;
-			id_ := 0;
+
+		LOOP
+			EXIT WHEN id_ IS NULL;
+			
+			--id_ := 1;
 			date_ := (SELECT date_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			dow_ := (SELECT dow_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			venue_name_ := (SELECT venue_col_ FROM concerts_table_ WHERE id_col_ = id_);
-			venue_id_ := (SELECT venue_id FROM concerts.venues WHERE venue_name = venue_name_);
+			venue_id_ := (SELECT venue_id FROM concerts.Venues WHERE venue_name = venue_name_);
 			cost_ := (SELECT cost_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			comment_ := (SELECT comment_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			
- 			IF venue_id_ IS NULL THEN
- 				raise notice 'Venue % is invalid.', venue_name_;
- 				EXIT;
- 			END IF;
+			IF venue_id_ IS NULL THEN
+				RAISE INFO 'Venue % is invalid', venue_name_;
+			END IF;
 
 			INSERT INTO concerts.concerts
 			(
@@ -96,11 +97,14 @@ DO $$
 				dow_,
 				venue_id_,
 				comment_
-			);
-		
+			);	
+
 			id_ := (SELECT MIN( id_col_ ) FROM concerts_table_ WHERE id_col_ > id_);
-		end loop;
+		END LOOP;
+		--DELETE FROM concerts.ConcertBand_xref
 END $$;
--- drop table concerts_table_;
-select * from concerts_table_;
-select * from concerts.concerts;
+
+--DROP TABLE concerts_table_;
+SELECT * FROM concerts.concerts;
+--SELECT * from concerts_table_;
+
