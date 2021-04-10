@@ -1,7 +1,7 @@
 DO $$
 
 	DECLARE 
-			id_ integer;
+			id_ integer := 1;
 			date_ timestamp;
 			dow_ varchar (10);
 			venue_name_ varchar (75);
@@ -12,7 +12,7 @@ DO $$
 	BEGIN 
 		CREATE TEMP TABLE concerts_table_
 		(
-			id_col_			serial primary key
+			id_col_			serial primary key,
 			date_col_		varchar (10),
 			dow_col_		varchar (10),
 			venue_col_		varchar (75),
@@ -70,7 +70,7 @@ DO $$
 		LOOP
 			EXIT WHEN id_ IS NULL;
 			
-			id_ := 1;
+			--id_ := 1;
 			date_ := (SELECT date_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			dow_ := (SELECT dow_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			venue_name_ := (SELECT venue_col_ FROM concerts_table_ WHERE id_col_ = id_);
@@ -79,7 +79,7 @@ DO $$
 			comment_ := (SELECT comment_col_ FROM concerts_table_ WHERE id_col_ = id_);
 			
 			IF venue_id_ IS NULL THEN
-				RAISE NOTICE 'Venue % is invalid', venue_name_;
+				RAISE INFO 'Venue % is invalid', venue_name_;
 			END IF;
 
 			INSERT INTO concerts.concerts
@@ -94,7 +94,7 @@ DO $$
 			(
 				cost_,
 				date_,
-				dow,_
+				dow_,
 				venue_id_,
 				comment_
 			);	
@@ -104,5 +104,7 @@ DO $$
 		--DELETE FROM concerts.ConcertBand_xref
 END $$;
 
+--DROP TABLE concerts_table_;
 SELECT * FROM concerts.concerts;
+--SELECT * from concerts_table_;
 
