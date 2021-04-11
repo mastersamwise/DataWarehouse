@@ -38,7 +38,7 @@ CREATE TABLE concerts.ConcertBand_xref
 CREATE TABLE concerts.Songs
 (
     song_id     serial  primary key  not null,
-    song_title  varchar (50)       not null
+    song_title  varchar (200)       not null
 );
 
 CREATE TABLE concerts.ConcertSong_xref

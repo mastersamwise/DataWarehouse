@@ -10,6 +10,7 @@ DO $$
 		id_	integer := 1;
 		concert_id_ integer;
 		date_ timestamp;
+		band_id_ integer;
 		band_ varchar (100);
 		song_title_ varchar (100);
 		song_number_ integer;
@@ -21,19 +22,19 @@ DO $$
 		CREATE TEMP TABLE song_table_
 		(
 			id_col_				serial	primary key,
-			date_col_			int,
+			date_col_			timestamp,
 			band_col_			varchar (100),
-			song_title_col_		varchar (100),
+			song_title_col_		varchar (200),
 			song_number_col_	int,
 			encore_col_			int,
 			comment_col_		varchar (500)
 		);
 
 		INSERT INTO song_table_
-		( date__col_, band_col_, song_title_col_, song_number_col_, encore_col_, comment_col_ )
+		( date_col_, band_col_, song_title_col_, song_number_col_, encore_col_, comment_col_ )
 		VALUES
 		-- https://www.setlist.fm/setlist/green-day/2009/wachovia-spectrum-philadelphia-pa-43d64fdf.html
-		( 20090721, 'Green Day', 'Song of the Century', 0, 0, 'Song played from a tape' ),
+		( '20090721', 'Green Day', 'Song of the Century', 0, 0, 'Song played from a tape' ),
 		( 20090721, 'Green Day', '21st Century Breakdown', 1, 0, '' ),
 		( 20090721, 'Green Day', 'Know Your Enemy', 2, 0, '' ),
 		( 20090721, 'Green Day', 'East Jesus Nowhere', 3, 0, '' ),
@@ -1287,32 +1288,10 @@ DO $$
 		( 20170831, 'Green Day', 'American Idiot', 23, 1, '' ),
 		( 20170831, 'Green Day', 'Jesus of Suburbia', 24, 1, '' ),
 		( 20170831, 'Green Day', '21 Guns', 25, 2, 'solo acoustic' ),
-		( 20170831, 'Green Day', 'Good Riddance (Time of Your Life)', 26, 2, '' ),
-
+		( 20170831, 'Green Day', 'Good Riddance (Time of Your Life)', 26, 2, '' );
 
 		LOOP
 			EXIT WHEN id_ IS NULL;
-
-			-- DECLARE
-			-- 	id_	integer := 1;
-			-- 	date_ timestamp;
-			-- 	band_ varchar (100);
-			-- 	song_title_ varchar (100);
-			-- 	song_number_ integer;
-			-- 	encore_ integer;
-			-- 	comment_ varchar (500);
-
-			-- BEGIN
-			-- 	CREATE TEMP TABLE song_table_
-			-- 	(
-			-- 		id_col_				serial	primary key,
-			-- 		date_col_			int,
-			-- 		band_col_			varchar (100),
-			-- 		song_title_col_		varchar (100),
-			-- 		song_number_col_	int,
-			-- 		encore_col_			int,
-			-- 		comment_col_		varchar (500)
-			-- 	);
 
 			date_ := (SELECT date_col_ FROM song_table_ WHERE id_col_ = id_);
 			concert_id_ := (SELECT concert_id FROM concerts.Concerts WHERE concert_date = date_);
@@ -1369,11 +1348,13 @@ DO $$
 				band_id_,
 				song_id_,
 				song_number_,
-				encore_number_,
+				encore_,
 				comment_
 			);
 
-			id_ := (SELECT MIN( id_col_ ) FROM concerts_table_ WHERE id_col_ > id_);
+			id_ := (SELECT MIN( id_col_ ) FROM song_table_ WHERE id_col_ > id_);
 		END LOOP;	
 
 END $$;
+
+--drop table song_table_;
