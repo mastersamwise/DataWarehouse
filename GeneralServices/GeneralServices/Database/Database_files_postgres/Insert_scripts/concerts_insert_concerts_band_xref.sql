@@ -92,23 +92,18 @@ DO $$
 
 		loop
 			exit when id_ is NULL;
-			id_ := 1;
 			concert_id_ := (SELECT concert_id_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
 			band_name_ := (SELECT band_name_col_ FROM concertBand_xref_table_ WHERE id_col_ = id_);
 
 			band_id_ := (SELECT band_id FROM concerts.Bands WHERE band_name = band_name_);
+
  			IF band_id_ IS NULL then
  				raise notice 'Band name % is invalid', band_name_;
  				exit;
- 			END IF;
-
-			UPDATE concertBand_xref_table_
-			SET band_id_col_ = band_id_
-			WHERE id_col_ = id_;
+			END IF;
 
 			raise notice 'concert_id: % | band_id: %', concert_id_, band_id_;
 			INSERT INTO concerts.ConcertBand_xref
-			( concert_id, band_id )
 			SELECT 
 				concert_id_, band_id_;
 
