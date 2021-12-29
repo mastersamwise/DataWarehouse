@@ -47,7 +47,7 @@ CREATE TABLE concerts.ConcertSong_xref
     band_id         int             not null,
     song_id         int             not null,
     song_number     int             null,
-    encore_song     bit             not null default 0,
+    is_encore_song  boolean         not null default false,
     comment         varchar (500)  null
 );
 
