@@ -1,23 +1,13 @@
-CREATE TABLE finances.Payments
+CREATE TABLE finances.ConfirmationRecords
 (
-    payment_id          serial  primary key     not null,
-    service_id          varchar (100)           not null,
-    payment_date        timestamp               not null,
-    arrival_date        TIMESTAMP               null,
-    due_date            timestamp               not null,
-    category            VARCHAR                 null,
-    payment_amount      decimal (6,2)           not null default 0.0,
-    confirmation_number varchar (50)            not null default '-',
-    comment             varchar (500)           null
-);
-
-CREATE TABLE finances.CreditCards
-(
-    credit_card_id      serial  primary key     not null,
-    credit_card_type    varchar (50)            not null,
-    activation_date     timestamp               not null,
-    cancelation_date    timestamp               null,
-    comment             varchar (500)           null
+    confirmation_record_id      serial  primary key     not null,
+    payment_date                timestamp               not null,
+    arrival_date                timestamp               null,
+    recipient                   varchar (100)           not null,
+    category                    varchar                 null,
+    payment_amount              decimal (6,2)           not null default 0.0,
+    confirmation_number         varchar (50)            not null default '-',
+    comment                     varchar (500)           null
 );
 
 CREATE TABLE finances.PaymentMethods
@@ -36,8 +26,9 @@ CREATE TABLE finances.Services
     recurring_payment   bit                     not null default b'0',
     start_date          timestamp               null,
     end_date            timestamp               null,
-    comment             varchar (500)           null,
-    credit_card_id      int                     not null
+    due_date            varchar (20)            null,
+    payment_method_id   int                     not null,
+    comment             varchar (500)           null
 );
 
 /***********************************************************************************************************
