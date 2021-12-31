@@ -1,5 +1,5 @@
 *.pdb
-.vs/*
+.vs/**
 
 obj/**
 **/GeneralServices/.vs/**
@@ -11,3 +11,7 @@ GeneralServices/.vs/**
 GeneralServices/GeneralServices/.vscode/**
 GeneralServices/GeneralServices/bin/**
 GeneralServices/GeneralServices/obj/**
+GeneralServices/.vs/GeneralServices/DesignTimeBuild/.dtbcache
+GeneralServices/.vs/GeneralServices/v15/.suo
+GeneralServices/GeneralServices/GeneralServices.csproj.user
+GeneralServices/GeneralServices/GeneralServices.csproj

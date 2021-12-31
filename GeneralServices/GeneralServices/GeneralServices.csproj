@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataTransferObjects\Budget\" />
-    <Folder Include="ViewModels\Budget\" />
+    <Folder Include="Content\DataTransferObjects\Budget\" />
+    <Folder Include="Content\ViewModels\Budget\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -50,6 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Classes\CalendarEvent.cs" />
+    <Compile Remove="Content\Classes\CalendarEvent.cs" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeneralServices.DTOs
 {
-    public class GetBandsByPerson_Result
+    public class GetBandsByPerson_Result 
     {
         // column names
         public const string BAND_NAME = "band_name";
