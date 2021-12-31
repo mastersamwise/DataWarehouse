@@ -5,9 +5,9 @@ namespace Utilities
 {
     public class ExcelReaderDriver
     {
-        private string SLASH = Path.DirectorySeparatorChar.ToString();
-        public const string EXCEL_FILE = $"C:{SLASH}Users{SLASH}Nik{SLASH}Desktop{SLASH}Confirmation_Numbers_test.xlsx";
-        public const string OUTPUT_SQL_FILE = $"output{SLASH}output.txt";
+
+        public static string EXCEL_FILE = $"C:{Path.DirectorySeparatorChar}Users{Path.DirectorySeparatorChar}Nik{Path.DirectorySeparatorChar}Desktop{Path.DirectorySeparatorChar}Confirmation_Numbers_test.xlsx";
+        public static string OUTPUT_SQL_FILE = $"output{Path.DirectorySeparatorChar}output.txt";
 
         public static void Main(string[] args)
         {
