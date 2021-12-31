@@ -20,6 +20,13 @@ CREATE TABLE finances.CreditCards
     comment             varchar (500)           null
 );
 
+CREATE TABLE finances.PaymentMethods
+(
+	payment_method_id	serial	primary key		not null,
+	payment_method		varchar (50)			not null,
+	comment				varchar (500)			null
+);
+
 /*   List of cards and which cards they are linked to    */
 CREATE TABLE finances.Services
 (
