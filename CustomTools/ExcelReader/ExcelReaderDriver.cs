@@ -1,12 +1,13 @@
 ﻿using System;
+using System.IO;
 
 namespace Utilities
 {
     public class ExcelReaderDriver
     {
-        
-        public const string EXCEL_FILE = @"C:\Users\Nik\Desktop\Confirmation_Numbers_test.xlsx";
-        public const string OUTPUT_SQL_FILE = @"output\output.txt";
+        private string SLASH = Path.DirectorySeparatorChar.ToString();
+        public const string EXCEL_FILE = $"C:{SLASH}Users{SLASH}Nik{SLASH}Desktop{SLASH}Confirmation_Numbers_test.xlsx";
+        public const string OUTPUT_SQL_FILE = $"output{SLASH}output.txt";
 
         public static void Main(string[] args)
         {

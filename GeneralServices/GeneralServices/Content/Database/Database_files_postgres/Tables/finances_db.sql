@@ -5,6 +5,7 @@ CREATE TABLE finances.Payments
     payment_date        timestamp               not null,
     arrival_date        TIMESTAMP               null,
     due_date            timestamp               not null,
+    category            VARCHAR                 null,
     payment_amount      decimal (6,2)           not null default 0.0,
     confirmation_number varchar (50)            not null default '-',
     comment             varchar (500)           null
