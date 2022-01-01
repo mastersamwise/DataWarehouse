@@ -7,3 +7,12 @@ C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\CustomTools\obj\Debug\netstanda
 C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.dll
 C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.pdb
 C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\bin\Debug\netstandard2.0\CustomTools.deps.json
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\bin\Debug\netstandard2.0\CustomTools.dll
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\bin\Debug\netstandard2.0\CustomTools.pdb
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.AssemblyInfoInputs.cache
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.dll
+C:\Users\Nik\Git_Repos\General_Services\CustomTools\CustomTools\obj\Debug\netstandard2.0\CustomTools.pdb
