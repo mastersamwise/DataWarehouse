@@ -7,7 +7,22 @@ obj/**
 **/GeneralServices/bin/**
 **/GeneralServices/obj/**
 
+CustomTools/CustomTools/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
+CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.assets.cache
+CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.csproj.AssemblyReference.cache
+CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.assets.cache
+
 GeneralServices/.vs/**
+GeneralServices/.vs/GeneralServices/DesignTimeBuild/.dtbcache
+GeneralServices/.vs/GeneralServices/DesignTimeBuild/.dtbcache
+GeneralServices/.vs/GeneralServices/v15/.suo
+
 GeneralServices/GeneralServices/.vscode/**
 GeneralServices/GeneralServices/bin/**
 GeneralServices/GeneralServices/obj/**
+GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/.NETCoreApp,Version=v2.1.AssemblyAttributes.cs
+GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.assets.cache
+GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/project.razor.json
+
+GeneralServices/GeneralServices/GeneralServices.csproj.user
+GeneralServices/GeneralServices/GeneralServices.csproj

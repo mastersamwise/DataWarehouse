@@ -1,0 +1,11 @@
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\bin\Debug\netcoreapp2.1\ExcelReader.deps.json
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\bin\Debug\netcoreapp2.1\ExcelReader.runtimeconfig.json
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\bin\Debug\netcoreapp2.1\ExcelReader.runtimeconfig.dev.json
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\bin\Debug\netcoreapp2.1\ExcelReader.dll
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\obj\Debug\netcoreapp2.1\ExcelReader.csprojAssemblyReference.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\obj\Debug\netcoreapp2.1\ExcelReader.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\obj\Debug\netcoreapp2.1\ExcelReader.AssemblyInfoInputs.cache
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\obj\Debug\netcoreapp2.1\ExcelReader.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\bin\Debug\netcoreapp2.1\ExcelReader.pdb
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\obj\Debug\netcoreapp2.1\ExcelReader.dll
+C:\Users\Nik\Git_Repos\DataWarehouse\CustomTools\ExcelReader\obj\Debug\netcoreapp2.1\ExcelReader.pdb
