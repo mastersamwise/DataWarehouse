@@ -15,8 +15,16 @@ DO $$
     BEGIN
         CREATE TEMP TABLE services_table_
         (
-            id_col_         serial  primary key,
-            
+            id_col_             serial  primary key,
+            service_id_col_     integer,
+            service_name_col_   varchar (100),
+            service_desc_col_   varchar (500),
+            recur_pmt_col_      bit,
+            start_date_col_     timestamp,
+            end_date_col_       timestamp,
+            due_date_col        varchar (20),
+            pmt_method_col_     varchar (50),
+            comment_col_        varchar (500)
         );
 
 END $$;
