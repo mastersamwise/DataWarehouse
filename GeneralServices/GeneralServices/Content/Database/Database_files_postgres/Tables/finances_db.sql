@@ -7,7 +7,10 @@ CREATE TABLE finances.ConfirmationRecords
     category                    varchar                 null,
     payment_amount              decimal (6,2)           not null default 0.0,
     confirmation_number         varchar (50)            not null default '-',
-    comment                     varchar (500)           null
+    comment                     varchar (500)           null,
+	created_date				timestamp				null,
+	updated_date				timestamp				null,
+	is_deleted					boolean					not null default false
 );
 
 CREATE TABLE finances.PaymentMethods
@@ -20,15 +23,15 @@ CREATE TABLE finances.PaymentMethods
 /*   List of cards and which cards they are linked to    */
 CREATE TABLE finances.Services
 (
-    service_id          serial  primary key     not null,
-    service_name        varchar (100)           not null,
-    service_description varchar (500)           not null,
-    recurring_payment   bit                     not null default b'0',
-    start_date          timestamp               null,
-    end_date            timestamp               null,
-    due_date            varchar (20)            null,
-    payment_method_id   int                     not null,
-    comment             varchar (500)           null
+    service_id				serial  primary key     not null,
+    service_name			varchar (100)           not null,
+    service_description		varchar (500)           not null,
+    is_recurring_payment	boolean                 not null default false,
+    start_date				timestamp               null,
+    end_date				timestamp               null,
+    due_date				varchar (20)            null,
+    payment_method_id		int                     not null,
+    comment					varchar (500)           null
 );
 
 /***********************************************************************************************************

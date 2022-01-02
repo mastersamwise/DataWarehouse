@@ -5238,7 +5238,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
+      "sha512": "fe1+dpy+eM4IX1zodsvkihO1Spuj0NecfStWzvkYoMo7/ziOsqSv4vFK36ZpBfHa4gpdCEwaU46EPzdq+ZDYhQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "hasTools": true,
@@ -11796,29 +11796,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/nikolasbournelis/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Nik\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/GeneralServices.csproj",
+      "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
       "projectName": "GeneralServices",
-      "projectPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/GeneralServices.csproj",
-      "packagesPath": "/Users/nikolasbournelis/.nuget/packages/",
-      "outputPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/",
+      "projectPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
+      "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/nikolasbournelis/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Nik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
@@ -11858,13 +11859,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/GeneralServices.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
