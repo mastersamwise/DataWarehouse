@@ -26,3 +26,10 @@ GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/project.razor.json
 
 GeneralServices/GeneralServices/GeneralServices.csproj.user
 GeneralServices/GeneralServices/GeneralServices.csproj
+CustomTools/.vs/CustomTools/xs/UserPrefs.xml
+CustomTools/.vs/CustomTools/xs/sqlite3/db.lock
+CustomTools/.vs/CustomTools/xs/sqlite3/storage.ide
+CustomTools/.vs/CustomTools/xs/sqlite3/storage.ide-shm
+CustomTools/.vs/CustomTools/xs/sqlite3/storage.ide-wal
+CustomTools/resources/Confirmation_Numbers_test.xlsx
+GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/.NETCoreApp,Version=v2.1.AssemblyAttributes.cs
