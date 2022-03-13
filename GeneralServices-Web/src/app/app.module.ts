@@ -9,34 +9,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 
-import { FinancesComponent } from './finances/finances.component';
 import { Router, RouterModule } from '@angular/router';
-import { MainPageComponent } from './main-page/main-page.component';
+import { DashboardMainComponent } from './dashboard-main/dashboard-main.component';
+import { DashboardFinancesComponent } from './dashboard-finances/dashboard-finances.component';
+
+// Routing
+const routes =
+[
+  { path: 'finance', component: DashboardFinancesComponent }
+];
 
 @NgModule({
-  declarations: [
+  declarations:
+  [
     AppComponent,
-    FinancesComponent,
-    MainPageComponent
+    DashboardMainComponent,
+    DashboardFinancesComponent
   ],
-  imports: [
+  imports:
+  [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
 
     // Material Components
     MatSliderModule,
-    MatTableModule,
+    MatTableModule
 
-    //
-    RouterModule.forRoot
-    (
-      [
-        { path: 'finance', component: FinancesComponent },
-      ]
-    )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 
 })
 export class AppModule { }

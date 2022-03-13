@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 
 export interface PeriodicElement
 {
@@ -24,12 +23,12 @@ const ELEMENT_DATA: PeriodicElement[] =
 ];
 
 @Component({
-  selector: 'app-finances',
-  templateUrl: './finances.component.html',
-  styleUrls: ['./finances.component.css']
+  selector: 'app-dashboard-finances',
+  templateUrl: './dashboard-finances.component.html',
+  styleUrls: ['./dashboard-finances.component.css']
 })
-export class FinancesComponent implements OnInit
-{
+export class DashboardFinancesComponent implements OnInit {
+
 
   columns = [
     {
