@@ -10,8 +10,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 
 import { Router, RouterModule } from '@angular/router';
-import { DashboardMainComponent } from './dashboard-main/dashboard-main.component';
-import { DashboardFinancesComponent } from './dashboard-finances/dashboard-finances.component';
+import { DashboardMainComponent } from './modules/dashboard-main/dashboard-main.component';
+import { DashboardFinancesComponent } from './modules/dashboard-finances/dashboard-finances.component';
 
 @NgModule({
   declarations:

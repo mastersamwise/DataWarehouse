@@ -27,9 +27,8 @@ const ELEMENT_DATA: PeriodicElement[] =
   templateUrl: './dashboard-finances.component.html',
   styleUrls: ['./dashboard-finances.component.css']
 })
-export class DashboardFinancesComponent implements OnInit {
-
-
+export class DashboardFinancesComponent implements OnInit
+{
   columns = [
     {
       columnDef: 'position',
