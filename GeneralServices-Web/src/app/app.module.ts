@@ -13,12 +13,6 @@ import { Router, RouterModule } from '@angular/router';
 import { DashboardMainComponent } from './dashboard-main/dashboard-main.component';
 import { DashboardFinancesComponent } from './dashboard-finances/dashboard-finances.component';
 
-// Routing
-const routes =
-[
-  { path: 'finance', component: DashboardFinancesComponent }
-];
-
 @NgModule({
   declarations:
   [
@@ -28,9 +22,9 @@ const routes =
   ],
   imports:
   [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
 
     // Material Components
     MatSliderModule,
