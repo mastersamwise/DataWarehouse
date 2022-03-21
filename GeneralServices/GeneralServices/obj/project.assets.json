@@ -4333,6 +4333,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "CustomTools/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/CustomTools.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CustomTools.dll": {}
+        }
       }
     }
   },
@@ -5238,7 +5248,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "fe1+dpy+eM4IX1zodsvkihO1Spuj0NecfStWzvkYoMo7/ziOsqSv4vFK36ZpBfHa4gpdCEwaU46EPzdq+ZDYhQ==",
+      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "hasTools": true,
@@ -11786,44 +11796,53 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "CustomTools/1.0.0": {
+      "type": "project",
+      "path": "../../CustomTools/CustomTools/CustomTools.csproj",
+      "msbuildProject": "../../CustomTools/CustomTools/CustomTools.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "CustomTools >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nik\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/nikolasbournelis/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
+      "projectUniqueName": "/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/GeneralServices.csproj",
       "projectName": "GeneralServices",
-      "projectPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\GeneralServices.csproj",
-      "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\GeneralServices\\obj\\",
+      "projectPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/GeneralServices.csproj",
+      "packagesPath": "/Users/nikolasbournelis/.nuget/packages/",
+      "outputPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nik\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/nikolasbournelis/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/CustomTools.csproj": {
+              "projectPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/CustomTools.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

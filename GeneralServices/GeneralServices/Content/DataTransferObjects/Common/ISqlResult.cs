@@ -8,6 +8,6 @@ namespace GeneralServices.DTOs.Interfaces
 {
     public interface ISqlResult
     {
-        object ReadDataToObject(SqlDataReader inReader);
+        T ReadDataToObject<T>(SqlDataReader inReader);
     }
 }

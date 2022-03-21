@@ -52,4 +52,7 @@
   <ItemGroup>
     <Compile Remove="Content\Classes\CalendarEvent.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CustomTools\CustomTools\CustomTools.csproj" />
+  </ItemGroup>
 </Project>
