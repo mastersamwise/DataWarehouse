@@ -17,7 +17,7 @@ CREATE TABLE concerts.Concerts
 (
     concert_id              serial  primary key  not null,
     ticket_price            int                 null,
-    concert_date            timestamp        not null,
+    concert_date            timestampz        not null,
     concert_day_of_week     varchar (10)       not null,
     venue_id                int                 not null,
     comment                 varchar (150)      null
