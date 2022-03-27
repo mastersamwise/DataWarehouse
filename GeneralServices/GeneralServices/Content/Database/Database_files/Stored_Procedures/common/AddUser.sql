@@ -4,56 +4,79 @@
  *      2022-03-26      Initial creation
  */
 
- CREATE PROCEDURE common.AddUser
+ CREATE OR REPLACE FUNCTION common.AddUser
  (
-     IN in_user_name        varchar (50),
-     IN in_username         varchar (25),
-     IN in_pin              varchar (25),
-     IN in_comment          varchar (500),
-     IN in_created_date     timestamp,
-     IN in_last_updated     timestamp,
-
-     OUT out_user_id       integer
+    in_user_name_       varchar (50),
+    in_username_        varchar (25),
+    in_pin_             varchar (25),
+    in_comment_         varchar (500),
+    in_created_date_    timestamp   -- pass in through C# to make sure we get UTC time, or else test UTC time with psql
  )
- BEGIN
+ RETURNS integer
+ AS
+ $$
+    /******************************************************************/
+    /*      Declarations                                              */
+    /******************************************************************/
     DECLARE is_deleted_ boolean := false;
     DECLARE pin_last_updated_ timestamp := in_created_date;
+    DECLARE out_user_id_ integer := -1;
 
-    /* Add data to common.Users table */
-    INSERT INTO common.Users
-    ( 
-        user_name, 
-        username, 
-        comment,
-        created_date, 
-        last_updated, 
-        is_deleted 
-    )
-    VALUES
-    ( 
-        in_user_name, 
-        in_username, 
-        in_comment,
-        in_created_date, 
-        in_last_updated, 
-        is_deleted 
-    )
-    RETURNING user_id INTO out_user_id;
+    /******************************************************************/
+    /*      Logic                                                     */
+    /******************************************************************/
+    BEGIN
+        
+        /******************************************************************/
+        /*      Error Handling                                            */
+        /******************************************************************/
+        IF EXISTS (SELECT 1 FROM common.Users WHERE username = in_username_) THEN
+            RAISE EXCEPTION '[common].[AddUser]: A record in [common].[Users] with [username] = % already exists.', in_username_;
 
-    /* Add credentials to common.Credentials table */
-    INSERT INTO common.Credentials
-    (
-        user_id,
-        pin,
-        pin_last_updated
-    )
-    VALUES
-    (
-        out_user_id,
-        in_pin,
-        pin_last_updated_
-    );
+        ELSE
+        BEGIN
+            /******************************************************************/
+            /*      Body                                                      */
+            /******************************************************************/
 
-    RETURN out_user_id;
+            /* Add data to common.Users table */
+            INSERT INTO common.Users
+            ( 
+                user_name, 
+                username, 
+                comment,
+                created_date, 
+                last_updated, 
+                is_deleted 
+            )
+            VALUES
+            ( 
+                in_user_name_, 
+                in_username_, 
+                in_comment_,
+                in_created_date_, 
+                in_last_updated_, 
+                is_deleted_ 
+            )
+            RETURNING user_id INTO out_user_id_;
 
- END;
+            /* Add credentials to common.Credentials table */
+            INSERT INTO common.Credentials
+            (
+                user_id,
+                pin,
+                pin_last_updated
+            )
+            VALUES
+            (
+                out_user_id_,
+                in_pin_,
+                pin_last_updated_
+            );
+
+            RETURN out_user_id_;
+        END;
+        END IF;
+
+    END;
+$$ LANGUAGE plpgsql;

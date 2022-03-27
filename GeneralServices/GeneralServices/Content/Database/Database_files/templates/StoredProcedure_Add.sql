@@ -4,28 +4,28 @@
  *      2022-03-26      Initial creation
  */
 
- CREATE OR REPLACE FUNCTION common.DeleteUser
+ CREATE OR REPLACE FUNCTION schema.AddExample
  (
-    in_user_id  integer
+    in_column_1_   type
  )
- RETURNS boolean
+ RETURNS integer
  AS
  $$
     /******************************************************************/
     /*      Declarations                                              */
     /******************************************************************/
-    DECLARE out_success := false;
+    DECLARE out_id_ integer;
 
     /******************************************************************/
     /*      Logic                                                     */
     /******************************************************************/
     BEGIN
-
+        
         /******************************************************************/
         /*      Error Handling                                            */
         /******************************************************************/
-        IF NOT EXISTS (SELECT 1 FROM common.Users WHERE user_id = in_user_id__) THEN
-            RAISE EXCEPTION '[common].[DeleteUser]: A record in [common].[Users] with [user_id] = % does not exist.', in_user_id;
+        IF EXISTS (SELECT 1 FROM schema.table WHERE column_1 = in_column_1_) THEN
+            RAISE EXCEPTION '[schema].[AddExample]: A record in [schema].[table] with [column_1] = % already exists.', in_column_1_;
             
         ELSE
         BEGIN
@@ -33,17 +33,20 @@
             /*      Body                                                      */
             /******************************************************************/
 
-            /* Rather than a hard delete, just flip the "is_deleted" flag to true */
-            UPDATE common.Users
-            SET is_deleted = true
-            WHERE user_id = in_user_id;
+            /* Add data to common.Users table */
+            INSERT INTO schema.table
+            ( 
+                column_1
+            )
+            VALUES
+            ( 
+                in_column_1_ 
+            )
+            RETURNING id INTO out_id_;
 
-            out_success := true;
-
+            RETURN out_id_;
         END;
         END IF;
-
-        RETURN out_success;
 
     END;
 $$ LANGUAGE plpgsql;
