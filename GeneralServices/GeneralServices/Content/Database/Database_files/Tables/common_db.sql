@@ -12,8 +12,8 @@ CREATE TABLE common.Users
 	user_name		varchar (50)		not null,
 	username		varchar (25)		not null,
 	comment			varchar (500)		null,
-	created_date	timestampz			not null,
-	last_updated	timestampz			not null,
+	created_date	timestamp			not null default CURRENT_TIMESTAMP,
+	last_updated	timestamp			not null default CURRENT_TIMESTAMP,
 	is_deleted		boolean				not null default false
 );
 
@@ -21,5 +21,5 @@ CREATE TABLE common.Credentials
 (
 	user_id				int				not null,
 	pin					varchar (25)	not null,
-	pin_last_updated	timestampz		not null
+	pin_last_updated	timestamp		not null default CURRENT_TIMESTAMP
 );

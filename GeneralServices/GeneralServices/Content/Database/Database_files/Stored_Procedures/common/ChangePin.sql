@@ -7,10 +7,10 @@
  CREATE PROCEDURE common.ChangePin
  (
      IN in_user_id  integer,
-     IN in_new_pin  varchar (25),
+     IN in_new_pin  varchar (25)
  )
  BEGIN
-    DECLARE now_ timestampz := SELCT NOW();
+    DECLARE now_ timestamp := CURRENT_TIMESTAMP;
 
     UPDATE common.Credentials
     SET     pin = in_new_pin,
