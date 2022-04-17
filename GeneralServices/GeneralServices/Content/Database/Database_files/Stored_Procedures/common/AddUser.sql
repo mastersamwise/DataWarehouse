@@ -19,7 +19,7 @@
     /*      Declarations                                              */
     /******************************************************************/
     DECLARE is_deleted_ boolean := false;
-    DECLARE pin_last_updated_ timestamp := in_created_date;
+    DECLARE pin_last_updated_ timestamp := in_created_date_;
     DECLARE out_user_id_ integer := -1;
 
     /******************************************************************/
@@ -55,7 +55,7 @@
                 in_username_, 
                 in_comment_,
                 in_created_date_, 
-                in_last_updated_, 
+                in_created_date_, 
                 is_deleted_ 
             )
             RETURNING user_id INTO out_user_id_;

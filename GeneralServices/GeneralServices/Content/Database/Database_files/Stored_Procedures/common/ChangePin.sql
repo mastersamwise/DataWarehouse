@@ -4,7 +4,7 @@
  *      2022-03-26      Initial creation
  */
 
- CREATE OR REPLACE FUCNTION common.ChangePin
+ CREATE OR REPLACE FUNCTION common.ChangePin
  (
     in_user_id_     integer,
     in_new_pin_     varchar (25)
@@ -39,8 +39,8 @@
             /******************************************************************/
             UPDATE common.Credentials
             SET     pin = in_new_pin_,
-                    pin_last_updated = now_;
-            WHERE user_id = in_user_id;
+                    pin_last_updated = now_
+            WHERE user_id = in_user_id_;
 
             out_success_ := true;
 
