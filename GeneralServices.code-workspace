@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "GeneralServices/GeneralServices"
+		},
+		{
+			"path": "GeneralServices-Web"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"previewLimit": 50,
+				"server": "71.58.146.118",
+				"port": 5432,
+				"driver": "PostgreSQL",
+				"name": "pi4",
+				"database": "general_services",
+				"username": "pi",
+				"password": "1234"
+			}
+		]
+	}
+}

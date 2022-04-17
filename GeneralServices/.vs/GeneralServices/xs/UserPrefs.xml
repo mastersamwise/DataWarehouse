@@ -1,23 +1,31 @@
 ﻿<Properties StartupConfiguration="{586A426F-1363-45E1-9F13-40C0605DBA62}|Default">
   <MonoDevelop.Ide.ItemProperties.GeneralServices PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeneralServices/Database/Database_files/Stored_Procedures/GetBandsByPersonID.sql">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeneralServices/Content/Classes/Finance/FinanceService.cs">
     <Files>
-      <File FileName="GeneralServices/Database/Database_files/Tables/common_db.sql" Line="8" Column="3" />
-      <File FileName="GeneralServices/Database/Database_files/Tables/concerts_db.sql" Line="19" Column="2" />
-      <File FileName="GeneralServices/Database/Database_files/Stored_Procedures/GetBandsByPersonID.sql" Line="35" Column="7" />
+      <File FileName="GeneralServices/Content/Classes/Finance/ConfirmationRecord.cs" Line="70" Column="38" />
+      <File FileName="GeneralServices/Content/DataAccessLayer/ConcertDAL.cs" Line="45" Column="51" />
+      <File FileName="GeneralServices/Content/DataAccessLayer/FinanceDAL.cs" Line="97" Column="41" />
+      <File FileName="GeneralServices/Content/Classes/Finance/FinanceService.cs" Line="58" Column="29" />
+      <File FileName="GeneralServices/Content/Classes/Finance/PaymentMethod.cs" Line="18" Column="38" />
+      <File FileName="GeneralServices/Content/Database/Database_files/Tables/finances_db.sql" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GeneralServices" expanded="True">
             <Node name="GeneralServices" expanded="True">
-              <Node name="Classes" expanded="True" />
-              <Node name="Database" expanded="True">
-                <Node name="Database_files" expanded="True">
-                  <Node name="Stored_Procedures" expanded="True">
-                    <Node name="GetBandsByPersonID.sql" selected="True" />
+              <Node name="Content" expanded="True">
+                <Node name="Classes" expanded="True">
+                  <Node name="Common" expanded="True" />
+                  <Node name="Finance" expanded="True">
+                    <Node name="FinanceService.cs" selected="True" />
                   </Node>
-                  <Node name="Tables" expanded="True" />
+                </Node>
+                <Node name="DataAccessLayer" expanded="True" />
+                <Node name="Database" expanded="True">
+                  <Node name="Database_files" expanded="True">
+                    <Node name="Tables" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>

@@ -19,9 +19,9 @@ C:/Users/Nik/Git_Repos/General_Services/CustomTools/CustomTools/obj/Debug/netsta
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/bin/Debug/netstandard2.0/CustomTools.deps.json
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/bin/Debug/netstandard2.0/CustomTools.dll
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/bin/Debug/netstandard2.0/CustomTools.pdb
-/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.csprojAssemblyReference.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.csproj.CoreCompileInputs.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.AssemblyInfoInputs.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.AssemblyInfo.cs
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.dll
 /Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.pdb
+/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/Debug/netstandard2.0/CustomTools.csprojAssemblyReference.cache

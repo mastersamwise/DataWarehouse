@@ -32,7 +32,7 @@
         /******************************************************************/
         /*      Error Handling                                            */
         /******************************************************************/
-        IF NOT EXISTS (SELECT 1 FROM schema.table WHERE user_id = in_user_id__) THEN
+        IF NOT EXISTS (SELECT 1 FROM schema.table WHERE user_id = in_user_id_) THEN
             RAISE EXCEPTION '[schema].[GetByValueExample]: A record in [schema].[table] with [column_1] = % does not exist.', in_column_value_;
             
         ELSE
