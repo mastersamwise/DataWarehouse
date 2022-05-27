@@ -4,12 +4,14 @@
  *      2022-05-27      Initial creation
  */
 
- CREATE OR REPLACE FUNCTION schema.UpdateExample
+ CREATE OR REPLACE FUNCTION schema.UpdateConfirmationRecord
  (
-    in_column_id_           integer,
-    in_column_1_            type,
-    in_column_2_            type,
+    in_conf_record_id_           integer,
+    in_payment_date_            type,
+    in_arrival_date_            type,
     in_comment_             varchar (500),
+    in_recipient_           varchar (100),
+    in_category_            varchar (25),
     in_last_updated_date_   timestamp   -- pass in through C# to make sure we get UTC time, or else test UTC time with psql
  )
  RETURNS integer
@@ -28,8 +30,8 @@
         /******************************************************************/
         /*      Error Handling                                            */
         /******************************************************************/
-        IF NOT EXISTS (SELECT 1 FROM schema.table WHERE column_id = in_column_id_) THEN
-            RAISE EXCEPTION '[schema].[UpdateExample]: A record in [schema].[table] with [column_id] = % does not exist.', in_column_id_;
+        IF NOT EXISTS (SELECT 1 FROM finances.table WHERE column_id = in_column_id_) THEN
+            RAISE EXCEPTION '[finances].[UpdateConfirmationRecord]: A record in [schema].[table] with [column_id] = % does not exist.', in_column_id_;
             
         ELSE
         BEGIN
