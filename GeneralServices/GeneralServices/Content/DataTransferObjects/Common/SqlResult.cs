@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeneralServices.DTOs.Interfaces
 {
-    public interface ISqlResult
+    public abstract class SqlResult
     {
         T ReadDataToObject<T>(SqlDataReader inReader);
     }

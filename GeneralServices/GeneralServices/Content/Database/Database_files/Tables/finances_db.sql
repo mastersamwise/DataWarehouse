@@ -19,7 +19,7 @@ CREATE TABLE finances.ConfirmationRecords
     arrival_date                timestamp               null,
     recipient_id                integer                 not null,
     category_id                 integer                 null,
-    payment_method_id           number                  not null,
+    payment_method_id           integer                 not null,
     payment_amount              decimal (6,2)           not null default 0.0,
     confirmation_number         varchar (50)            not null default '-',
     comment                     varchar (500)           null,
@@ -71,7 +71,7 @@ CREATE TABLE finances.Services
     start_date				timestamp               null,
     end_date				timestamp               null,
     due_date				varchar (20)            null,
-    payment_method_id		int                     not null,
+    payment_method_id		integer                 not null,
     comment					varchar (500)           null
 );
 

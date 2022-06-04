@@ -8,7 +8,7 @@ using GeneralServices.DTOs.Interfaces;
 
 namespace GeneralServices.DTOs
 {
-    public class GetPersonSummary_Result
+    public class GetPersonSummary_Result : SqlResult
     {
         public string personName { get; set; }
         public string bands { get; set; }
