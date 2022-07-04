@@ -1,12 +1,12 @@
 /*
  *      Date Updated    Description
  *      ------------    -----------
- *      2022-05-27      Initial creation
+ *      2022-07-03      Initial creation
  */
 
- CREATE OR REPLACE FUNCTION schema.DeleteExample
+ CREATE OR REPLACE FUNCTION finances.DeleteConfirmationRecord
  (
-    in_column_1  type
+    in_conf_record_id_      integer
  )
  RETURNS boolean
  AS
@@ -14,7 +14,7 @@
     /******************************************************************/
     /*      Declarations                                              */
     /******************************************************************/
-    DECLARE out_ success_ := false;
+    DECLARE out_success_ boolean := false;
 
     /******************************************************************/
     /*      Logic                                                     */
@@ -24,8 +24,8 @@
         /******************************************************************/
         /*      Error Handling                                            */
         /******************************************************************/
-        IF NOT EXISTS (SELECT 1 FROM schema.table WHERE user_id = in_user_id__) THEN
-            RAISE EXCEPTION '[schema].[DeleteExample]: A record in [schema].[table] with [column_1] = % does not exist.', in_column_1;
+        IF NOT EXISTS (SELECT 1 FROM finances.ConfirmationRecords WHERE confirmation_record_id = in_conf_record_id_) THEN
+            RAISE EXCEPTION '[finances].[AddConfirmationRecord]: A record in [finances].[ConfirmationRecords] with [confirmation_record_id] = % does not exist.', in_conf_record_id_;
             
         ELSE
         BEGIN
@@ -34,11 +34,11 @@
             /******************************************************************/
 
             /* Rather than a hard delete, just flip the "is_deleted" flag to true */
-            UPDATE schema.table
+            UPDATE finances.ConfirmationRecords
             SET is_deleted = true
-            WHERE column_1 = in_column_1;
+            WHERE confirmation_record_id = in_conf_record_id_;
 
-            out_success := true;
+            out_success_ := true;
 
         END;
         END IF;

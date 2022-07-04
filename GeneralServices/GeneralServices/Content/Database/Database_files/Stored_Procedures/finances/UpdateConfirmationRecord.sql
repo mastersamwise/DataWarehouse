@@ -1,7 +1,7 @@
 /*
  *      Date Updated    Description
  *      ------------    -----------
- *      2022-05-27      Initial creation
+ *      2022-07-03      Initial creation
  */
 
  CREATE OR REPLACE FUNCTION finances.UpdateConfirmationRecord

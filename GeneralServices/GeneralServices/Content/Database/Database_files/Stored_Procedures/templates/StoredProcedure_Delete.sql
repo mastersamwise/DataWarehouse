@@ -14,7 +14,7 @@
     /******************************************************************/
     /*      Declarations                                              */
     /******************************************************************/
-    DECLARE out_ success_ := false;
+    DECLARE out_success_ := false;
 
     /******************************************************************/
     /*      Logic                                                     */
@@ -38,7 +38,7 @@
             SET is_deleted = true
             WHERE column_1 = in_column_1;
 
-            out_success := true;
+            out_success_ := true;
 
         END;
         END IF;
