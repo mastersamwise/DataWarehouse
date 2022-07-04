@@ -179,29 +179,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/nikolasbournelis/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Nik\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/CustomTools.csproj",
+      "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\General_Services\\CustomTools\\CustomTools\\CustomTools.csproj",
       "projectName": "CustomTools",
-      "projectPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/CustomTools.csproj",
-      "packagesPath": "/Users/nikolasbournelis/.nuget/packages/",
-      "outputPath": "/Users/nikolasbournelis/Git_repos/DataWarehouse/CustomTools/CustomTools/obj/",
+      "projectPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\CustomTools\\CustomTools\\CustomTools.csproj",
+      "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\CustomTools\\CustomTools\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/nikolasbournelis/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Nik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "netstandard2.0": {

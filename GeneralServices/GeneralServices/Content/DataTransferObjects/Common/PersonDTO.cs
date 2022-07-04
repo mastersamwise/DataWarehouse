@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using GeneralServices.Classes;
 
-namespace GeneralServices.DTOs
+namespace GeneralServices.DTOs.Common
 {
     public class PersonDTO
     {

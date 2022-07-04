@@ -8,6 +8,6 @@ namespace GeneralServices.DTOs.Interfaces
 {
     public abstract class SqlResult
     {
-        T ReadDataToObject<T>(SqlDataReader inReader);
+        public abstract T ReadDataToObject<T>(SqlDataReader inReader);
     }
 }

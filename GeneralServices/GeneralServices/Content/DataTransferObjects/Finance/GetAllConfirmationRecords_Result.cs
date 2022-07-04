@@ -2,7 +2,7 @@ using System;
 using System.Data.SqlClient;
 using GeneralServices.Classes;
 
-namespace GeneralServices.Content.DTOs.Finance
+namespace GeneralServices.DTOs.Finance
 {
     public class GetAllConfirmationNumbers_Result
     {

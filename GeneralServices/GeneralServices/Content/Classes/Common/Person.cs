@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using GeneralServices.DTOs;
+using GeneralServices.DTOs.Common;
 using GeneralServices.ViewModels;
 
 namespace GeneralServices.Classes

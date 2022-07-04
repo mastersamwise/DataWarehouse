@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using GeneralServices.DTOs.Interfaces;
 
-namespace GeneralServices.DTOs
+namespace GeneralServices.DTOs.Common
 {
-    public class GetPersonSummary_Result : SqlResult
+    public class GetPersonSummary_Result
     {
         public string personName { get; set; }
         public string bands { get; set; }

@@ -56,3 +56,9 @@ C:/Users/Nik/Git_Repos/General_Services/GeneralServices/GeneralServices/obj/Debu
 /Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.RazorAssemblyInfo.cs
 /Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.AssemblyInfoInputs.cache
 /Users/nikolasbournelis/Git_repos/DataWarehouse/GeneralServices/GeneralServices/obj/Debug/netcoreapp2.1/GeneralServices.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\General_Services\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.csproj.CoreCompileInputs.cache
+C:\Users\Nik\Git_Repos\General_Services\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.RazorAssemblyInfo.cache
+C:\Users\Nik\Git_Repos\General_Services\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.RazorAssemblyInfo.cs
+C:\Users\Nik\Git_Repos\General_Services\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.AssemblyInfoInputs.cache
+C:\Users\Nik\Git_Repos\General_Services\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.AssemblyInfo.cs
+C:\Users\Nik\Git_Repos\General_Services\GeneralServices\GeneralServices\obj\Debug\netcoreapp2.1\GeneralServices.csprojAssemblyReference.cache
