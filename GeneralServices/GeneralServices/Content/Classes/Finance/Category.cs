@@ -1,4 +1,7 @@
-namespace GeneralServices.Content.Classes
+using System;
+using System.Data.SqlClient;
+
+namespace GeneralServices.Classes
 {
     public class Category
     {
@@ -16,7 +19,7 @@ namespace GeneralServices.Content.Classes
         /// <param name="inCategory"></param>
         /// <param name="inComment"></param>
         /// <param name="inAuditInfo"></param>
-        public Category(int inCategoryID, string inCategory, string inComment, string inAuditInfo)
+        public Category(int inCategoryID, string inCategory, string inComment, AuditInfo inAuditInfo)
         {
             categoryID = inCategoryID;
             category = inCategory;

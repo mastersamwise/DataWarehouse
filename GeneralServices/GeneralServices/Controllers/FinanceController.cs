@@ -50,6 +50,22 @@ namespace GeneralServices
             return result;
         }
 
+        /// <summary>
+        /// Update a confirmation record.
+        /// </summary>
+        /// <returns>The budget entry.</returns>
+        /// <param name="inConfirmationRecord">In confirmation record.</param>
+        [HttpPost]
+        [Route("UpdateConfirmationRecord")]
+        public ActionResult<string> UpdateConfirmationRecord([FromBody] ConfirmationRecord inConfirmationRecord)
+        {
+            string result = "empty";
+
+            result = financeDAL.AddConfirmationRecord(inConfirmationRecord);
+            return result;
+        }
+
+
 
         #endregion Methods
     }

@@ -1,3 +1,6 @@
+using System;
+using System.Data.SqlClient;
+
 namespace GeneralServices.Content.DataTransferObjects
 {
     /// <summary>
@@ -53,13 +56,13 @@ namespace GeneralServices.Content.DataTransferObjects
             {
                 objectID = int.Parse(inReader["out_id_"].ToString());
             }
-            catch(){ /* do nothing */ }
+            catch(Exception ex){ /* do nothing */ }
 
             try
             {
                 objectSuccess = bool.Parse(inReader["out_success_"].ToString());
             }
-            catch(){ /*do nothing */ }
+            catch(Exception ex){ /*do nothing */ }
 
             result = new ReturnedSqlResult(objectID, objectSuccess);
 

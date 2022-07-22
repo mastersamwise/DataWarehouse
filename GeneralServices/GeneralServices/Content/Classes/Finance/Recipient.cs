@@ -1,4 +1,6 @@
-namespace GeneralServices.Content.Classes.Finance
+using System;
+
+namespace GeneralServices.Classes
 {
     public class Recipient
     {

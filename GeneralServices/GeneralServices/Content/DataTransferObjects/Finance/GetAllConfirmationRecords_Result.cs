@@ -60,7 +60,7 @@ namespace GeneralServices.DTOs.Finance
             result.paymentDate = DateTime.Parse(inReader[PAYMENT_DATE].ToString());
             result.arrivalDate = DateTime.Parse(inReader[ARRIVAL_DATE].ToString());
             result.recipient = inReader[RECIPIENT].ToString();
-            result.category = inReader[category].ToString();
+            result.category = inReader[CATEGORY].ToString();
             result.paymentMethod = inReader[PAYMENT_METHOD].ToString();
             result.paymentAmount = double.Parse(inReader[PAYMENT_AMOUNT].ToString());
             result.confirmationNumber = inReader[CONFIRMATION_NUMBER].ToString();
