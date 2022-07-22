@@ -40,7 +40,7 @@ namespace GeneralServices.DTOs.Common
         public PersonDTO()
             :this(-1, "", "", "", new AuditInfo())
         {
-
+            // intentionally blank
         }
 
         /// <summary>
