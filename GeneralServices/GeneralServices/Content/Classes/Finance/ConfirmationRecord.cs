@@ -12,6 +12,7 @@ namespace GeneralServices.Classes
         public DateTime arrivalDate { get; set; }
         public string recipient { get; set; }
         public string category { get; set; }
+        public PaymentMethod paymentMethod { get; set; }
         public double paymentAmount { get; set; }
         public string confirmationNumber { get; set; }
         public string comment { get; set; }
@@ -27,18 +28,21 @@ namespace GeneralServices.Classes
         /// <param name="inArrivalDate">In arrival date.</param>
         /// <param name="inRecipient">In recipient.</param>
         /// <param name="inCategory">In category.</param>
+        /// <param name="inPaymentMethod">In payment method.</param>
         /// <param name="inPaymentAmount">In payment amount.</param>
         /// <param name="inConfirmationNumber">In confirmation number.</param>
         /// <param name="inComment">In comment.</param>
         /// <param name="inAuditInfo">In audit info.</param>
         public ConfirmationRecord(int inConfirmationRecordID, DateTime inPaymentDate, DateTime inArrivalDate, string inRecipient, 
-                                    string inCategory, double inPaymentAmount, string inConfirmationNumber, string inComment, AuditInfo inAuditInfo)
+                                    string inCategory, PaymentMethod inPaymentMethod, double inPaymentAmount, string inConfirmationNumber, 
+                                    string inComment, AuditInfo inAuditInfo)
         {
             confirmationRecordID = inConfirmationRecordID;
             paymentDate = inPaymentDate;
             arrivalDate = inArrivalDate;
             recipient = inRecipient;
             category = inCategory;
+            paymentMethod = inPaymentMethod;
             paymentAmount = inPaymentAmount;
             confirmationNumber = inConfirmationNumber;
             comment = inComment;
@@ -49,7 +53,7 @@ namespace GeneralServices.Classes
         /// Default Constructor
         /// </summary>
         public ConfirmationRecord()
-            : this(-1, DateTime.UtcNow, DateTime.UtcNow, String.Empty, String.Empty, 0.0, String.Empty, String.Empty, new AuditInfo())
+            : this(-1, DateTime.UtcNow, DateTime.UtcNow, String.Empty, String.Empty, new PaymentMethod(), 0.0, String.Empty, String.Empty, new AuditInfo())
         {
             // intentionally blank
         }
@@ -65,6 +69,7 @@ namespace GeneralServices.Classes
             arrivalDate = inCopy.arrivalDate;
             recipient = inCopy.recipient;
             category = inCopy.category;
+            paymentMethod = inCopy.paymentMethod;
             paymentAmount = inCopy.paymentAmount;
             confirmationNumber = inCopy.confirmationNumber;
             comment = inCopy.comment;

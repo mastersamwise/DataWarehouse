@@ -21,7 +21,7 @@ namespace GeneralServices.Classes
         /// </summary>
         public Venue()
         {
-
+            
         }
 
         #endregion Constructors

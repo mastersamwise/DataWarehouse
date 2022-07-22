@@ -46,9 +46,9 @@ namespace GeneralServices.DTOs.Common
         /// <summary>
         /// Copy Constructor
         /// </summary>
-        /// <param name="inPersonDTO"></param>
-        public PersonDTO(PersonDTO inPersonDTO)
-            :this(inPersonDTO.personID, inPersonDTO.firstName, inPersonDTO.lastName, inPersonDTO.relation, inPersonDTO.auditInfo)
+        /// <param name="inCopy"></param>
+        public PersonDTO(PersonDTO inCopy)
+            :this(inCopy.personID, inCopy.firstName, inCopy.lastName, inCopy.relation, inCopy.auditInfo)
         {
 
         }
