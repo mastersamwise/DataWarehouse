@@ -21,13 +21,32 @@ namespace GeneralServices
 
         #region Methods
 
+        /// <summary>
+        /// Gets all budget entries in the system
+        /// </summary>
+        /// <returns>The all budget entries.</returns>
         [HttpPost]
-        [Route("AddBudgetEntry")]
-        public ActionResult<string> AddBudgetEntry()
+        [Route("GetAllBudgetEntries")]
+        public ActionResult<string> GetAllBudgetEntries()
         {
             string result = "empty";
 
             result = financeDAL.GetAllConfirmationRecords();
+            return result;
+        }
+
+        /// <summary>
+        /// Adds a confirmation record.
+        /// </summary>
+        /// <returns>The budget entry.</returns>
+        /// <param name="inConfirmationRecord">In confirmation record.</param>
+        [HttpPost]
+        [Route("AddConfirmationRecord")]
+        public ActionResult<string> AddConfirmationRecord([FromBody] ConfirmationRecord inConfirmationRecord)
+        {
+            string result = "empty";
+
+            result = financeDAL.AddConfirmationRecord(inConfirmationRecord);
             return result;
         }
 

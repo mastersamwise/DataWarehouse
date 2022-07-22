@@ -55,4 +55,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\CustomTools\CustomTools\CustomTools.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="sqltools_20210220232546_3367.log" />
+    <None Remove="sqltools_20210420192354_1048.log" />
+    <None Remove="sqltools_20211231214948_2029.log" />
+  </ItemGroup>
 </Project>

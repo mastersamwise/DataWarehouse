@@ -1,4 +1,4 @@
-namespace GeneralServices.Content.DataTransferObjects.Common
+namespace GeneralServices.Content.DataTransferObjects
 {
     /// <summary>
     /// Generic object that can hold results of Update + Delete sql queries
@@ -40,5 +40,32 @@ namespace GeneralServices.Content.DataTransferObjects.Common
         }
 
         #endregion Constructors
+
+        #region Methods
+
+        public ReturnedSqlResult ReadDataToObject(SqlDataReader inReader)
+        {
+            ReturnedSqlResult result;
+            int objectID = -1;
+            bool objectSuccess = true;
+
+            try 
+            {
+                objectID = int.Parse(inReader["out_id_"].ToString());
+            }
+            catch(){ /* do nothing */ }
+
+            try
+            {
+                objectSuccess = bool.Parse(inReader["out_success_"].ToString());
+            }
+            catch(){ /*do nothing */ }
+
+            result = new ReturnedSqlResult(objectID, objectSuccess);
+
+            return result;
+        }
+
+        #endregion Methods
     }
 }

@@ -2,6 +2,7 @@
  *      Date Updated    Description
  *      ------------    -----------
  *      2022-07-03      Initial creation
+ *      2022-07-21      Renamed out_conf_record_id_ -> out_id_ to keep variables in sync
  */
 
  CREATE OR REPLACE FUNCTION finances.UpdateConfirmationRecord
@@ -23,7 +24,7 @@
     /******************************************************************/
     /*      Declarations                                              */
     /******************************************************************/
-    DECLARE out_conf_record_id_ integer := -1;
+    DECLARE out_id_ integer := -1;
     DECLARE recipient_id_       integer := -1;
     DECLARE category_id_        integer := -1;
     DECLARE payment_method_id_  integer := -1;
@@ -70,12 +71,12 @@
                 updated_date        = in_last_updated_date_
             WHERE confirmation_record_id = in_conf_record_id_;
 
-            out_conf_record_id_ := in_conf_record_id_;
+            out_id_ := in_conf_record_id_;
 
         END;
         END IF;
 
-        RETURN out_conf_record_id_;
+        RETURN out_id_;
 
     END;
 $$ LANGUAGE plpgsql;

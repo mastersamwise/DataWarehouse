@@ -2,6 +2,7 @@
  *      Date Updated    Description
  *      ------------    -----------
  *      2022-07-03      Initial creation
+ *      2022-07-21      Renamed out_conf_record_id_ -> out_id_ to keep variables in sync
  */
 
  CREATE OR REPLACE FUNCTION finances.AddConfirmationRecord
@@ -76,7 +77,7 @@
                     in_last_updated_date_, 
                     in_last_updated_date_ 
                 )
-                RETURNING category_id = caetegory_id_;
+                RETURNING category_id = category_id_;
             END IF;
 
             /* Add data to finances.PaymentMethods table if payment method doesn't exist */
@@ -124,7 +125,7 @@
                 in_last_updated_date_,
                 in_last_updated_date_
             )
-            RETURNING confirmation_record_id INTO out_conf_record_id_;
+            RETURNING confirmation_record_id INTO out_id_;
 
             RETURN out_id_;
         END;

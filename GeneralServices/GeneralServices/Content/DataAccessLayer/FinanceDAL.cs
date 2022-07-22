@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using GeneralServices.Classes;
+using GeneralServices.Content.DataTransferObjects;
 using GeneralServices.DTOs.Common;
 using GeneralServices.DTOs.Finance;
 
@@ -13,7 +14,6 @@ namespace GeneralServices.DataAccessLayer
     public class FinanceDAL
     {
         public string connectionString = CommonDAL.CONNECTION_STRING;
-        public SqlConnection connection;
 
         /// <summary>
         /// Gets all confirmation records
@@ -65,9 +65,45 @@ namespace GeneralServices.DataAccessLayer
         /// </summary>
         /// <returns></returns>
         /// <param name="inConfirmationRecord">Confirmation record to save</param>
-        public string SaveConfirmationRecord(ConfirmationRecord inConfirmationRecord)
+        public string AddConfirmationRecord(ConfirmationRecord inConfirmationRecord)
         {
-            return "SaveConfirmationRecord";
+            string result = "empty";
+            
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    //connection.Open();
+                    SqlCommand command = CommonDAL.SetUpStoredProcedure(connection, "finance.AddConfirmationRecord");
+
+                    command.Connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    List<ReturnedSqlResult> resultSet = new List<ReturnedSqlResult> ();
+
+                    while (reader.Read())
+                    {
+                        ReturnedSqlResult tempResult = new ReturnedSqlResult();
+                        tempResult.ReadDataToObject(reader);
+
+                        result += String.Format("\n ID: {0}, Success: {1}", tempResult.ID, tempResult.success);
+                        resultSet.Add(tempResult);
+                    }
+
+                }
+                catch(SqlException ex)
+                {
+                    CustomTools.Logger.Error("Sql Error: " + ex.Message);
+                    result = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+
+            return result;
         }
 
         /// <summary>
