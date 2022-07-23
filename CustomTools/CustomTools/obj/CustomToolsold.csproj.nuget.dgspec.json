@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomTools.csproj": {}
+    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomToolsold.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomTools.csproj": {
+    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomToolsold.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomTools.csproj",
-        "projectName": "CustomTools",
-        "projectPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomTools.csproj",
+        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomToolsold.csproj",
+        "projectName": "CustomToolsold",
+        "projectPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\CustomToolsold.csproj",
         "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\CustomTools\\CustomTools\\obj\\",
         "projectStyle": "PackageReference",
