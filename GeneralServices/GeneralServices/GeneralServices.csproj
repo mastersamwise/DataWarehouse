@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,24 +13,13 @@
   <ItemGroup>
     <!--<PackageReference Include="EntityFramework" Version="6.4.4" />-->
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Core.Google.Auth.Desktop">
-      <HintPath>..\..\..\..\.nuget\packages\core.google.auth\0.1.8\lib\net45\Core.Google.Auth.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="Core.Google.Auth.Portable">
-      <HintPath>..\..\..\..\.nuget\packages\core.google.auth\0.1.8\lib\net45\Core.Google.Auth.Portable.dll</HintPath>
-    </Reference>
     <Reference Include="CustomTools">
       <HintPath>..\..\CustomTools\CustomTools\bin\Debug\netstandard2.0\CustomTools.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Plus.v1">
-      <HintPath>..\..\..\..\.nuget\packages\google.apis.plus.v1\1.40.0.1593\lib\netstandard2.0\Google.Apis.Plus.v1.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.Client">
-      <HintPath>..\..\..\..\.nuget\packages\google.gdata.client\2.2.0\lib\Google.GData.Client.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -38,11 +27,11 @@
     <Compile Remove="Content\Classes\CalendarEvent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CustomTools\CustomTools\CustomTools.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="sqltools_20210220232546_3367.log" />
     <None Remove="sqltools_20210420192354_1048.log" />
     <None Remove="sqltools_20211231214948_2029.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomTools\CustomTools.csproj" />
   </ItemGroup>
 </Project>

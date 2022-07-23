@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj": {}
+    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj": {
+    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj",
         "projectName": "CustomTools.Test",
-        "projectPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj",
+        "projectPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools.Test\\CustomTools.Test.csproj",
         "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nik\\Git_Repos\\General_Services\\GeneralServices\\CustomTools.Test\\obj\\",
+        "outputPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -21,14 +21,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
-            "projectReferences": {}
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools\\CustomTools.csproj": {
+                "projectPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools\\CustomTools.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -38,7 +44,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
@@ -51,18 +58,81 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[15.9.0, )"
-            },
-            "Microsoft.NETCore.App": {
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools\\CustomTools.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools\\CustomTools.csproj",
+        "projectName": "CustomTools",
+        "projectPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools\\CustomTools.csproj",
+        "packagesPath": "C:\\Users\\Nik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nik\\Git_Repos\\DataWarehouse\\GeneralServices\\CustomTools\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
